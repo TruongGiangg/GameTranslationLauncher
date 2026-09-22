@@ -22,7 +22,7 @@
     <ROW Property="ARPPRODUCTICON" Value="tgminimallogored.exe" Type="8"/>
     <ROW Property="ARPSYSTEMCOMPONENT" Value="1"/>
     <ROW Property="Manufacturer" Value="TGLauncher"/>
-    <ROW Property="ProductCode" Value="1033:{CE4193EF-729F-44FF-B60D-BAE591F6C16B} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{C6A69C74-72B5-4AB7-8A95-B0730DF44D5E} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="TGLauncher"/>
     <ROW Property="ProductVersion" Value="1.0.1" Options="32"/>
