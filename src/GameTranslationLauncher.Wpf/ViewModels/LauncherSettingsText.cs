@@ -1,0 +1,40 @@
+namespace GameTranslationLauncher.Wpf.ViewModels;
+
+/// <summary>
+/// Chuỗi hiển thị của modal Settings theo ngôn ngữ presentation đã chọn.
+/// </summary>
+public sealed record LauncherSettingsText(
+    string Title,
+    string Subtitle,
+    string InterfaceTitle,
+    string LanguageLabel,
+    string VietnameseLabel,
+    string EnglishLabel,
+    string AccentLabel,
+    string CrimsonLabel,
+    string BlueLabel,
+    string EmeraldLabel,
+    string VioletLabel,
+    string WhiteLabel,
+    string OrangeLabel,
+    string CyanLabel,
+    string ReportTitle,
+    string ReportSubtitle,
+    string ReportTypeLabel,
+    string ReportBugLabel,
+    string ReportUpdateLabel,
+    string ReportRequestLabel,
+    string ReportGameLabel,
+    string ReportSelectGameHint,
+    string ReportEnterGameHint,
+    string ReportMessageLabel,
+    string SendReportLabel,
+    string ReportGameRequired,
+    string ReportMessageRequired,
+    string ReportOpened,
+    string PreferenceSaveFailed,
+    string LinksTitle,
+    string VersionLabel,
+    string CloseLabel,
+    LauncherApplicationText Application,
+    LauncherOperationText Operation);

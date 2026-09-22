@@ -1,0 +1,71 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\GameTranslationLauncher.Application\GameTranslationLauncher.Application.csproj" />
+    <ProjectReference Include="..\GameTranslationLauncher.Infrastructure\GameTranslationLauncher.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="5.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Remove="Resources\tg-minimal-logo-red.png" />
+    <Resource Include="..\..\..\images\logo\tg-minimal-logo-red.png" Link="Resources\tg-minimal-logo-red.png" />
+    <Resource Include="..\..\..\images\tiny-eden\tiny-eden-hero-logo.jpg" Link="Resources\Artwork\tiny-eden\tiny-eden-hero-logo.jpg" />
+    <Resource Include="..\..\..\images\tiny-eden\tiny-eden-hero-v2.png" Link="Resources\Artwork\tiny-eden\tiny-eden-hero-v2.png" />
+    <Resource Include="..\..\..\images\no-rest-for-the-wicked\no-rest-for-the-wicked-hero.jpg" Link="Resources\Artwork\no-rest-for-the-wicked\no-rest-for-the-wicked-hero.jpg" />
+    <Resource Include="..\..\..\images\no-rest-for-the-wicked\no-rest-for-the-wicked-hero-v2.png" Link="Resources\Artwork\no-rest-for-the-wicked\no-rest-for-the-wicked-hero-v2.png" />
+    <Resource Include="..\..\..\images\no-rest-for-the-wicked\no-rest-for-the-wicked-cover.jpg" Link="Resources\Artwork\no-rest-for-the-wicked\no-rest-for-the-wicked-cover.jpg" />
+    <Resource Include="..\..\..\images\phantom-blade-zero\phantom-blade-zero-hero.jpg" Link="Resources\Artwork\phantom-blade-zero\phantom-blade-zero-hero.jpg" />
+    <Resource Include="..\..\..\images\phantom-blade-zero\phantom-blade-zero-hero-v2.png" Link="Resources\Artwork\phantom-blade-zero\phantom-blade-zero-hero-v2.png" />
+    <Resource Include="..\..\..\images\phantom-blade-zero\phantom-blade-zero-cover.jpg" Link="Resources\Artwork\phantom-blade-zero\phantom-blade-zero-cover.jpg" />
+    <Resource Include="..\..\..\images\grand-theft-auto-vi\grand-theft-auto-vi-hero.jpg" Link="Resources\Artwork\grand-theft-auto-vi\grand-theft-auto-vi-hero.jpg" />
+    <Resource Include="..\..\..\images\grand-theft-auto-vi\grand-theft-auto-vi-hero-v2.png" Link="Resources\Artwork\grand-theft-auto-vi\grand-theft-auto-vi-hero-v2.png" />
+    <Resource Include="..\..\..\images\grand-theft-auto-vi\grand-theft-auto-vi-cover.jpg" Link="Resources\Artwork\grand-theft-auto-vi\grand-theft-auto-vi-cover.jpg" />
+    <Resource Include="..\..\..\images\dragon-ball-sparking-zero\dragon-ball-sparking-zero-hero.jpg" Link="Resources\Artwork\dragon-ball-sparking-zero\dragon-ball-sparking-zero-hero.jpg" />
+    <Resource Include="..\..\..\images\dragon-ball-sparking-zero\dragon-ball-sparking-zero-hero-v2.png" Link="Resources\Artwork\dragon-ball-sparking-zero\dragon-ball-sparking-zero-hero-v2.png" />
+    <Resource Include="..\..\..\images\dragon-ball-sparking-zero\dragon-ball-sparking-zero-cover.jpg" Link="Resources\Artwork\dragon-ball-sparking-zero\dragon-ball-sparking-zero-cover.jpg" />
+    <Resource Include="..\..\..\images\borderlands-4\borderlands-4-cover.jpg" Link="Resources\Artwork\borderlands-4\borderlands-4-cover.jpg" />
+    <Resource Include="..\..\..\images\borderlands-4\borderlands-4-hero-v2.png" Link="Resources\Artwork\borderlands-4\borderlands-4-hero-v2.png" />
+    <Resource Include="..\..\..\images\ark-survival-evolved\ark-survival-evolved-cover.png" Link="Resources\Artwork\ark-survival-evolved\ark-survival-evolved-cover.png" />
+    <Resource Include="..\..\..\images\ark-survival-evolved\ark-survival-evolved-hero-v2.png" Link="Resources\Artwork\ark-survival-evolved\ark-survival-evolved-hero-v2.png" />
+    <Resource Include="..\..\..\images\red-dead-redemption-2\red-dead-redemption-2-cover.jpg" Link="Resources\Artwork\red-dead-redemption-2\red-dead-redemption-2-cover.jpg" />
+    <Resource Include="..\..\..\images\red-dead-redemption-2\red-dead-redemption-2-hero-v2.png" Link="Resources\Artwork\red-dead-redemption-2\red-dead-redemption-2-hero-v2.png" />
+    <Resource Include="..\..\..\images\elden-ring\elden-ring-cover.jpg" Link="Resources\Artwork\elden-ring\elden-ring-cover.jpg" />
+    <Resource Include="..\..\..\images\elden-ring\elden-ring-hero.jpg" Link="Resources\Artwork\elden-ring\elden-ring-hero.jpg" />
+    <Resource Include="..\..\..\images\elden-ring\elden-ring-hero-v2.png" Link="Resources\Artwork\elden-ring\elden-ring-hero-v2.png" />
+    <Resource Include="..\..\..\images\the-witcher-3-wild-hunt\the-witcher-3-wild-hunt-cover.jpg" Link="Resources\Artwork\the-witcher-3-wild-hunt\the-witcher-3-wild-hunt-cover.jpg" />
+    <Resource Include="..\..\..\images\the-witcher-3-wild-hunt\the-witcher-3-wild-hunt-hero-v2.png" Link="Resources\Artwork\the-witcher-3-wild-hunt\the-witcher-3-wild-hunt-hero-v2.png" />
+    <Resource Include="..\..\..\images\split-fiction\split-fiction-cover-thumbnail.png" Link="Resources\Artwork\split-fiction\split-fiction-cover-thumbnail.png" />
+    <Resource Include="..\..\..\images\split-fiction\split-fiction-hero-v2.png" Link="Resources\Artwork\split-fiction\split-fiction-hero-v2.png" />
+    <Resource Include="..\..\..\images\tiebreak-grand-slam-edition\tiebreak-grand-slam-edition-cover.jpg" Link="Resources\Artwork\tiebreak-grand-slam-edition\tiebreak-grand-slam-edition-cover.jpg" />
+    <Resource Include="..\..\..\images\tiebreak-grand-slam-edition\tiebreak-grand-slam-edition-hero-v2.png" Link="Resources\Artwork\tiebreak-grand-slam-edition\tiebreak-grand-slam-edition-hero-v2.png" />
+    <Resource Include="..\..\..\images\cyberpunk-2077\cyberpunk-2077-cover.jpg" Link="Resources\Artwork\cyberpunk-2077\cyberpunk-2077-cover.jpg" />
+    <Resource Include="..\..\..\images\cyberpunk-2077\cyberpunk-2077-hero-v2.png" Link="Resources\Artwork\cyberpunk-2077\cyberpunk-2077-hero-v2.png" />
+    <Resource Include="..\..\..\images\dragon-ball-xenoverse-2\dragon-ball-xenoverse-2-cover.jpg" Link="Resources\Artwork\dragon-ball-xenoverse-2\dragon-ball-xenoverse-2-cover.jpg" />
+    <Resource Include="..\..\..\images\dragon-ball-xenoverse-2\dragon-ball-xenoverse-2-hero-v2.png" Link="Resources\Artwork\dragon-ball-xenoverse-2\dragon-ball-xenoverse-2-hero-v2.png" />
+    <Resource Include="..\..\..\images\god-of-war\god-of-war-cover.jpg" Link="Resources\Artwork\god-of-war\god-of-war-cover.jpg" />
+    <Resource Include="..\..\..\images\god-of-war\god-of-war-hero-v2.png" Link="Resources\Artwork\god-of-war\god-of-war-hero-v2.png" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>TGLauncher</AssemblyName>
+    <ApplicationIcon>Resources\tg-launcher.ico</ApplicationIcon>
+    <Product>Game Translation Launcher</Product>
+    <OutputPath>$(MSBuildThisFileDirectory)..\..\App\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>true</SelfContained>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <Version>2.0.0</Version>
+    <AssemblyVersion>$(Version)</AssemblyVersion>
+    <FileVersion>$(Version)</FileVersion>
+  </PropertyGroup>
+
+</Project>

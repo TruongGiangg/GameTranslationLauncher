@@ -1,0 +1,469 @@
+<UserControl x:Class="GameTranslationLauncher.Wpf.Views.LauncherSettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:automation="clr-namespace:System.Windows.Automation;assembly=PresentationCore"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="620"
+             d:DesignWidth="800"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <DataTemplate x:Key="DisplayNameComboBoxItemTemplate">
+            <TextBlock Text="{Binding DisplayName}" Foreground="{StaticResource BrushTextPrimary}" />
+        </DataTemplate>
+
+        <Style x:Key="ChoiceButton" TargetType="Button" BasedOn="{StaticResource SecondaryActionButton}">
+            <Setter Property="Height" Value="36" />
+            <Setter Property="Padding" Value="13,0" />
+            <Setter Property="FontSize" Value="11" />
+        </Style>
+
+        <Style x:Key="FieldTextBox" TargetType="TextBox">
+            <Setter Property="Background" Value="#0E0F11" />
+            <Setter Property="BorderBrush" Value="{StaticResource BrushBorder}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Foreground" Value="{StaticResource BrushTextPrimary}" />
+            <Setter Property="Padding" Value="11,8" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="CaretBrush" Value="{StaticResource BrushTextPrimary}" />
+        </Style>
+
+        <Style x:Key="ReportTypeButton" TargetType="Button" BasedOn="{StaticResource ChoiceButton}">
+            <Setter Property="Width" Value="52" />
+            <Setter Property="Height" Value="34" />
+            <Setter Property="Padding" Value="0" />
+        </Style>
+
+        <Style x:Key="FieldComboBox" TargetType="ComboBox">
+            <Setter Property="Height" Value="36" />
+            <Setter Property="Background" Value="#0E0F11" />
+            <Setter Property="BorderBrush" Value="{StaticResource BrushBorder}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Foreground" Value="{StaticResource BrushTextPrimary}" />
+            <Setter Property="Padding" Value="11,0" />
+            <Setter Property="ItemContainerStyle">
+                <Setter.Value>
+                    <Style TargetType="ComboBoxItem">
+                        <Setter Property="Foreground" Value="{StaticResource BrushTextPrimary}" />
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Padding" Value="11,8" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ComboBoxItem">
+                                    <Border x:Name="Root" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+                                        <ContentPresenter />
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsHighlighted" Value="True">
+                                            <Setter TargetName="Root" Property="Background" Value="#24F5F5F5" />
+                                        </Trigger>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter TargetName="Root" Property="Background" Value="{DynamicResource BrushAccent}" />
+                                            <Setter Property="Foreground" Value="{DynamicResource BrushButtonPrimaryForeground}" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid>
+                            <ToggleButton x:Name="ToggleButton"
+                                          Background="{TemplateBinding Background}"
+                                          BorderBrush="{TemplateBinding BorderBrush}"
+                                          BorderThickness="{TemplateBinding BorderThickness}"
+                                          Cursor="Hand"
+                                          Focusable="False"
+                                          IsChecked="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}">
+                                <ToggleButton.Template>
+                                    <ControlTemplate TargetType="ToggleButton">
+                                        <Border Background="{TemplateBinding Background}"
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="{TemplateBinding BorderThickness}"
+                                                CornerRadius="6">
+                                            <Grid>
+                                                <ContentPresenter Margin="11,0,32,0"
+                                                                  VerticalAlignment="Center"
+                                                                  HorizontalAlignment="Left"
+                                                                  Content="{Binding SelectionBoxItem, RelativeSource={RelativeSource AncestorType=ComboBox}}"
+                                                                  ContentTemplate="{Binding SelectionBoxItemTemplate, RelativeSource={RelativeSource AncestorType=ComboBox}}"
+                                                                  ContentTemplateSelector="{Binding ItemTemplateSelector, RelativeSource={RelativeSource AncestorType=ComboBox}}" />
+                                                <Path HorizontalAlignment="Right"
+                                                      Margin="0,0,12,0"
+                                                      VerticalAlignment="Center"
+                                                      Fill="{StaticResource BrushTextMuted}"
+                                                      Data="M 0 0 L 9 0 L 4.5 5.5 Z" />
+                                            </Grid>
+                                        </Border>
+                                    </ControlTemplate>
+                                </ToggleButton.Template>
+                            </ToggleButton>
+                            <Popup AllowsTransparency="True"
+                                   IsOpen="{TemplateBinding IsDropDownOpen}"
+                                   Placement="Bottom"
+                                   PlacementTarget="{Binding ElementName=ToggleButton}"
+                                   PopupAnimation="Fade">
+                                <Border MinWidth="{Binding ActualWidth, ElementName=ToggleButton}"
+                                        Margin="0,4,0,0"
+                                        Background="#F2151619"
+                                        BorderBrush="{StaticResource BrushBorder}"
+                                        BorderThickness="1"
+                                        CornerRadius="6">
+                                    <ScrollViewer MaxHeight="170" VerticalScrollBarVisibility="Auto">
+                                        <ItemsPresenter />
+                                    </ScrollViewer>
+                                </Border>
+                            </Popup>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="SettingsCloseButton" TargetType="Button">
+            <Setter Property="Width" Value="34" />
+            <Setter Property="Height" Value="34" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Foreground" Value="{StaticResource BrushTextMuted}" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Root"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="1"
+                                CornerRadius="7">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Root" Property="Background" Value="#24F5F5F5" />
+                                <Setter TargetName="Root" Property="BorderBrush" Value="{StaticResource BrushBorder}" />
+                                <Setter Property="Foreground" Value="{StaticResource BrushTextPrimary}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Border Width="800"
+            MaxWidth="800"
+            MaxHeight="620"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Padding="22"
+            Background="#F2151619"
+            BorderBrush="#7A45474C"
+            BorderThickness="1" 
+            CornerRadius="14"
+            SnapsToDevicePixels="True">
+        <Border.RenderTransform>
+            <ScaleTransform ScaleX="0.97" ScaleY="0.97" />
+        </Border.RenderTransform>
+        <Border.Style>
+            <Style TargetType="Border">
+                <Setter Property="Opacity" Value="0" />
+                <Style.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.16" />
+                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" To="1" Duration="0:0:0.16" />
+                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" To="1" Duration="0:0:0.16" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Style.Triggers>
+            </Style>
+        </Border.Style>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="40" />
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <TextBlock Text="{Binding Settings.Text.Title}"
+                               Foreground="{StaticResource BrushTextPrimary}"
+                               FontSize="20"
+                               FontWeight="SemiBold" />
+                    <TextBlock Margin="0,4,0,0"
+                               Text="{Binding Settings.Text.Subtitle}"
+                               Foreground="{StaticResource BrushTextMuted}"
+                               FontSize="11" />
+                </StackPanel>
+                <Button Grid.Column="1"
+                        Command="{Binding HideSettingsCommand}"
+                        Style="{StaticResource SettingsCloseButton}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        ToolTip="{Binding Settings.Text.CloseLabel}"
+                        automation:AutomationProperties.Name="Đóng cài đặt">
+                    <TextBlock Text="×" FontSize="20" FontWeight="Light" />
+                </Button>
+            </Grid>
+
+            <ScrollViewer Grid.Row="1"
+                          Margin="0,16,0,0"
+                          HorizontalScrollBarVisibility="Disabled"
+                          VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="14" />
+                            <ColumnDefinition Width="235" />
+                        </Grid.ColumnDefinitions>
+
+                        <Border Padding="16"
+                                Background="#99101113"
+                                BorderBrush="{StaticResource BrushBorder}"
+                                BorderThickness="1"
+                                CornerRadius="10">
+                            <StackPanel>
+                                <TextBlock Text="{Binding Settings.Text.InterfaceTitle}"
+                                           Foreground="{StaticResource BrushTextPrimary}"
+                                           FontSize="12"
+                                           FontWeight="SemiBold" />
+                                <Grid Margin="0,14,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="190" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Settings.Text.LanguageLabel}"
+                                                   Foreground="{StaticResource BrushTextMuted}"
+                                                   FontSize="10.5" />
+                                        <StackPanel Margin="0,7,0,0" Orientation="Horizontal">
+                                            <Button Command="{Binding Settings.SelectVietnameseCommand}"
+                                                    automation:AutomationProperties.Name="Chọn tiếng Việt">
+                                                <Button.Style>
+                                                    <Style TargetType="Button" BasedOn="{StaticResource ChoiceButton}">
+                                                        <Setter Property="Margin" Value="0,0,7,0" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding Settings.IsVietnameseSelected}" Value="True">
+                                                                <Setter Property="Background" Value="{DynamicResource BrushAccent}" />
+                                                                <Setter Property="BorderBrush" Value="{DynamicResource BrushAccent}" />
+                                                                <Setter Property="Foreground" Value="{DynamicResource BrushButtonPrimaryForeground}" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Button.Style>
+                                                <TextBlock Text="{Binding Settings.Text.VietnameseLabel}" />
+                                            </Button>
+                                            <Button Command="{Binding Settings.SelectEnglishCommand}"
+                                                    automation:AutomationProperties.Name="Chọn tiếng Anh">
+                                                <Button.Style>
+                                                    <Style TargetType="Button" BasedOn="{StaticResource ChoiceButton}">
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding Settings.IsEnglishSelected}" Value="True">
+                                                                <Setter Property="Background" Value="{DynamicResource BrushAccent}" />
+                                                                <Setter Property="BorderBrush" Value="{DynamicResource BrushAccent}" />
+                                                                <Setter Property="Foreground" Value="{DynamicResource BrushButtonPrimaryForeground}" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Button.Style>
+                                                <TextBlock Text="{Binding Settings.Text.EnglishLabel}" />
+                                            </Button>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="1">
+                                        <TextBlock Text="{Binding Settings.Text.AccentLabel}"
+                                                   Foreground="{StaticResource BrushTextMuted}"
+                                                   FontSize="10.5" />
+                                        <ComboBox Margin="0,7,0,0"
+                                                  MinWidth="150"
+                                                  ItemsSource="{Binding Settings.AccentOptions}"
+                                                  SelectedItem="{Binding Settings.SelectedAccentOption, Mode=TwoWay}"
+                                                  ItemTemplate="{StaticResource DisplayNameComboBoxItemTemplate}"
+                                                  SelectionChanged="AccentThemeSelectionChanged"
+                                                  Style="{StaticResource FieldComboBox}"
+                                                  ToolTip="{Binding Settings.Text.AccentLabel}"
+                                                  automation:AutomationProperties.Name="Chọn màu nhấn" />
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+
+                        <Border Grid.Column="2"
+                                Padding="16"
+                                Background="#99101113"
+                                BorderBrush="{StaticResource BrushBorder}"
+                                BorderThickness="1"
+                                CornerRadius="10">
+                            <StackPanel>
+                                <TextBlock Text="{Binding Settings.Text.LinksTitle}"
+                                           Foreground="{StaticResource BrushTextPrimary}"
+                                           FontSize="12"
+                                           FontWeight="SemiBold" />
+                                <TextBlock Margin="0,4,0,13"
+                                           Text="{Binding Settings.Text.VersionLabel}"
+                                           Foreground="{StaticResource BrushTextMuted}"
+                                           FontSize="10.5" />
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Width="48" Height="36" Padding="0" Margin="0,0,7,0" Command="{Binding Settings.OpenFacebookCommand}" Style="{StaticResource SecondaryActionButton}" ToolTip="Facebook" automation:AutomationProperties.Name="Mở Facebook">
+                                        <materialDesign:PackIcon Kind="Facebook"
+                                                                Width="20"
+                                                                Height="20"
+                                                                HorizontalAlignment="Center"
+                                                                VerticalAlignment="Center"
+                                                                Foreground="{StaticResource BrushTextPrimary}" />
+                                    </Button>
+                                    <Button Width="48" Height="36" Padding="0" Margin="0,0,7,0" Command="{Binding Settings.OpenInstagramCommand}" Style="{StaticResource SecondaryActionButton}" ToolTip="Instagram" automation:AutomationProperties.Name="Mở Instagram">
+                                        <materialDesign:PackIcon Kind="Instagram"
+                                                                Width="20"
+                                                                Height="20"
+                                                                HorizontalAlignment="Center"
+                                                                VerticalAlignment="Center"
+                                                                Foreground="{StaticResource BrushTextPrimary}" />
+                                    </Button>
+                                    <Button Width="48" Height="36" Padding="0" Command="{Binding Settings.OpenGitHubCommand}" Style="{StaticResource SecondaryActionButton}" ToolTip="GitHub" automation:AutomationProperties.Name="Mở GitHub">
+                                        <materialDesign:PackIcon Kind="Github"
+                                                                Width="20"
+                                                                Height="20"
+                                                                HorizontalAlignment="Center"
+                                                                VerticalAlignment="Center"
+                                                                Foreground="{StaticResource BrushTextPrimary}" />
+                                    </Button>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+
+                    <Border Margin="0,14,0,0"
+                            Padding="17"
+                            Background="#B7101113"
+                            BorderBrush="{StaticResource BrushBorder}"
+                            BorderThickness="1"
+                            CornerRadius="10">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="{Binding Settings.Text.ReportTitle}"
+                                       Foreground="{StaticResource BrushTextPrimary}"
+                                       FontSize="13"
+                                       FontWeight="SemiBold" />
+                            <TextBlock Grid.Row="1" Margin="0,4,0,13"
+                                       Text="{Binding Settings.Text.ReportSubtitle}"
+                                       Foreground="{StaticResource BrushTextMuted}"
+                                       FontSize="10.5" />
+                            <Grid Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="220" />
+                                    <ColumnDefinition Width="16" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Settings.Text.ReportTypeLabel}" Foreground="{StaticResource BrushTextMuted}" FontSize="10.5" />
+                                    <StackPanel Margin="0,7,0,0" Orientation="Horizontal">
+                                        <Button Command="{Binding Settings.Report.SelectBugReportCommand}" ToolTip="{Binding Settings.Text.ReportBugLabel}" automation:AutomationProperties.Name="Loại báo lỗi">
+                                            <TextBlock Text="!" FontWeight="Bold" />
+                                            <Button.Style><Style TargetType="Button" BasedOn="{StaticResource ReportTypeButton}"><Setter Property="Margin" Value="0,0,6,0" /><Style.Triggers><DataTrigger Binding="{Binding Settings.Report.IsBugReportSelected}" Value="True"><Setter Property="Background" Value="{DynamicResource BrushAccent}" /><Setter Property="BorderBrush" Value="{DynamicResource BrushAccent}" /><Setter Property="Foreground" Value="{DynamicResource BrushButtonPrimaryForeground}" /></DataTrigger></Style.Triggers></Style></Button.Style>
+                                        </Button>
+                                        <Button Command="{Binding Settings.Report.SelectUpdateReportCommand}" ToolTip="{Binding Settings.Text.ReportUpdateLabel}" automation:AutomationProperties.Name="Loại yêu cầu cập nhật">
+                                            <TextBlock Text="↻" FontSize="16" />
+                                            <Button.Style><Style TargetType="Button" BasedOn="{StaticResource ReportTypeButton}"><Setter Property="Margin" Value="0,0,6,0" /><Style.Triggers><DataTrigger Binding="{Binding Settings.Report.IsUpdateReportSelected}" Value="True"><Setter Property="Background" Value="{DynamicResource BrushAccent}" /><Setter Property="BorderBrush" Value="{DynamicResource BrushAccent}" /><Setter Property="Foreground" Value="{DynamicResource BrushButtonPrimaryForeground}" /></DataTrigger></Style.Triggers></Style></Button.Style>
+                                        </Button>
+                                        <Button Command="{Binding Settings.Report.SelectRequestReportCommand}" ToolTip="{Binding Settings.Text.ReportRequestLabel}" automation:AutomationProperties.Name="Loại yêu cầu Việt hóa">
+                                            <TextBlock Text="＋" FontSize="16" />
+                                            <Button.Style><Style TargetType="Button" BasedOn="{StaticResource ReportTypeButton}"><Style.Triggers><DataTrigger Binding="{Binding Settings.Report.IsRequestReportSelected}" Value="True"><Setter Property="Background" Value="{DynamicResource BrushAccent}" /><Setter Property="BorderBrush" Value="{DynamicResource BrushAccent}" /><Setter Property="Foreground" Value="{DynamicResource BrushButtonPrimaryForeground}" /></DataTrigger></Style.Triggers></Style></Button.Style>
+                                        </Button>
+                                    </StackPanel>
+                                    <TextBlock Margin="0,7,0,0" Text="{Binding Settings.Report.SelectedReportTypeLabel}" Foreground="{StaticResource BrushTextPrimary}" FontSize="10.5" />
+                                </StackPanel>
+                                <StackPanel Grid.Column="2">
+                                    <TextBlock Text="{Binding Settings.Text.ReportGameLabel}" Foreground="{StaticResource BrushTextMuted}" FontSize="10.5" />
+                                    <Grid Margin="0,7,0,0">
+                                        <ComboBox ItemsSource="{Binding Settings.Report.AvailableGames}"
+                                                  SelectedItem="{Binding Settings.Report.SelectedReportGame, Mode=TwoWay}"
+                                                  ItemTemplate="{StaticResource DisplayNameComboBoxItemTemplate}"
+                                                  ToolTip="{Binding Settings.Text.ReportSelectGameHint}"
+                                                  automation:AutomationProperties.Name="Chọn game báo cáo">
+                                            <ComboBox.Style>
+                                                    <Style TargetType="ComboBox" BasedOn="{StaticResource FieldComboBox}">
+                                                    <Style.Triggers><DataTrigger Binding="{Binding Settings.Report.IsCatalogGameSelectionRequired}" Value="False"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger></Style.Triggers>
+                                                </Style>
+                                            </ComboBox.Style>
+                                        </ComboBox>
+                                        <TextBox Text="{Binding Settings.Report.RequestedGameName, UpdateSourceTrigger=PropertyChanged}"
+                                                 ToolTip="{Binding Settings.Text.ReportEnterGameHint}"
+                                                 automation:AutomationProperties.Name="Tên game yêu cầu Việt hóa">
+                                            <TextBox.Style>
+                                                <Style TargetType="TextBox" BasedOn="{StaticResource FieldTextBox}">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                    <Style.Triggers><DataTrigger Binding="{Binding Settings.Report.IsCustomGameNameRequired}" Value="True"><Setter Property="Visibility" Value="Visible" /></DataTrigger></Style.Triggers>
+                                                </Style>
+                                            </TextBox.Style>
+                                        </TextBox>
+                                    </Grid>
+                                </StackPanel>
+                            </Grid>
+                            <Grid Grid.Row="3" Margin="0,14,0,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="{Binding Settings.Text.ReportMessageLabel}" Foreground="{StaticResource BrushTextMuted}" FontSize="10.5" />
+                                <TextBox Grid.Row="1"
+                                         Margin="0,7,0,0"
+                                         Height="66"
+                                         Style="{StaticResource FieldTextBox}"
+                                         AcceptsReturn="True"
+                                         TextWrapping="Wrap"
+                                         VerticalScrollBarVisibility="Auto"
+                                         Text="{Binding Settings.Report.ReportMessage, UpdateSourceTrigger=PropertyChanged}"
+                                         automation:AutomationProperties.Name="Nội dung báo cáo" />
+                                <Grid Grid.Row="2" Margin="0,14,0,0">
+                                    <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                                    <TextBlock VerticalAlignment="Center"
+                                               Text="{Binding Settings.Report.ActionStatusText}"
+                                               Foreground="{StaticResource BrushTextMuted}"
+                                               FontSize="10.5"
+                                               TextWrapping="Wrap">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Foreground" Value="{StaticResource BrushTextMuted}" />
+                                                <Style.Triggers><DataTrigger Binding="{Binding Settings.Report.IsActionError}" Value="True"><Setter Property="Foreground" Value="#EF7777" /></DataTrigger></Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                    <Button Grid.Column="1"
+                                            Width="132"
+                                            Height="40"
+                                            Padding="12,0"
+                                            Command="{Binding Settings.Report.SendReportCommand}"
+                                            Style="{StaticResource PrimaryActionButton}"
+                                            automation:AutomationProperties.Name="Gửi báo cáo">
+                                        <TextBlock Text="{Binding Settings.Text.SendReportLabel}" FontSize="10.5" />
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Border>
+</UserControl>

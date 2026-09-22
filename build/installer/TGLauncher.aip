@@ -1,0 +1,765 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT Type="Advanced Installer" CreateVersion="21.2" version="21.2" Modules="professional" RootPath="." Language="en" Id="{1E438C17-0437-4830-83F5-D5482D1D48F7}">
+  <COMPONENT cid="caphyon.advinst.msicomp.ProjectOptionsComponent">
+    <ROW Name="HiddenItems" Value="AppXProductDetailsComponent;AppXDependenciesComponent;AppXAppDetailsComponent;AppXVisualAssetsComponent;AppXCapabilitiesComponent;AppXAppDeclarationsComponent;AppXUriRulesComponent;FixupComponent;MsiXDiffComponent;MsixManifestEditorComponent"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
+    <ROW Property="AI_COLOR_DISABLED_TEXT" Value="3026478" MultiBuildValue="DefaultBuild:15461355" MsiKey="AI_COLOR_DISABLED_TEXT"/>
+    <ROW Property="AI_CONTROL_VISUAL_STYLE" Value="2960685;4276545;6776679;16176031" MultiBuildValue="DefaultBuild:16777215;16580605;10395294;4108658" MsiKey="AI_CONTROL_VISUAL_STYLE"/>
+    <ROW Property="AI_CONTROL_VISUAL_STYLE_EX" Value="1513239;3026478;3026478" MultiBuildValue="DefaultBuild:16514043;15461355;15461355" MsiKey="AI_CONTROL_VISUAL_STYLE_EX"/>
+    <ROW Property="AI_CONTROL_VISUAL_STYLE_FLAT" MultiBuildValue="DefaultBuild:15925239;15138798;10395294;4108658" MsiKey="AI_CONTROL_VISUAL_STYLE_FLAT"/>
+    <ROW Property="AI_EXTERNALUIUNINSTALLERNAME" MultiBuildValue="DefaultBuild:aiui"/>
+    <ROW Property="AI_FINDEXE_TITLE" Value="Select the installation package for [|ProductName]" ValueLocId="AI.Property.FindExeTitle"/>
+    <ROW Property="AI_FrameBtnsColor" Value="metroblack" MultiBuildValue="DefaultBuild:metrolime" MsiKey="AI_FrameBtnsColor"/>
+    <ROW Property="AI_FrameColor" Value="metroblack" MultiBuildValue="DefaultBuild:metrolime" MsiKey="AI_FrameColor"/>
+    <ROW Property="AI_PRODUCTNAME_ARP" Value="[|ProductName]"/>
+    <ROW Property="AI_ThemeStyle" Value="default" MultiBuildValue="DefaultBuild:metrowhite" MsiKey="AI_ThemeStyle"/>
+    <ROW Property="AI_UNINSTALLER" Value="msiexec.exe"/>
+    <ROW Property="ALLUSERS" Value="1"/>
+    <ROW Property="ARPCOMMENTS" Value="Trình quản lý bản Việt hóa game." ValueLocId="*"/>
+    <ROW Property="ARPNOREPAIR" Value="1" MultiBuildValue="DefaultBuild:1"/>
+    <ROW Property="ARPPRODUCTICON" Value="tgminimallogored.exe" Type="8"/>
+    <ROW Property="ARPSYSTEMCOMPONENT" Value="1"/>
+    <ROW Property="Manufacturer" Value="TGLauncher"/>
+    <ROW Property="ProductCode" Value="1033:{CE4193EF-729F-44FF-B60D-BAE591F6C16B} " Type="16"/>
+    <ROW Property="ProductLanguage" Value="1033"/>
+    <ROW Property="ProductName" Value="TGLauncher"/>
+    <ROW Property="ProductVersion" Value="3.0.0" Options="32"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
+    <ROW Property="UpgradeCode" Value="{36AC48D4-E47D-4F21-BDCF-0B7FD70B75CB}"/>
+    <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsType9XDisplay" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40Display" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50Display" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5X" MultiBuildValue="DefaultBuild:Windows XP/2003" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5XDisplay" MultiBuildValue="DefaultBuild:Windows XP/2003" ValueLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
+    <ROW Directory="CompatibilityLayers_Dir" Directory_Parent="Dependencies_Dir" DefaultDir="COMPAT~1|CompatibilityLayers"/>
+    <ROW Directory="Dependencies_Dir" Directory_Parent="MelonLoader_Dir" DefaultDir="DEPEND~1|Dependencies"/>
+    <ROW Directory="DesktopFolder" Directory_Parent="TARGETDIR" DefaultDir="DESKTO~1|DesktopFolder" IsPseudoRoot="1"/>
+    <ROW Directory="Documentation_Dir" Directory_Parent="MelonLoader_Dir" DefaultDir="DOCUME~1|Documentation"/>
+    <ROW Directory="Il2CppAssemblyGenerator_Dir" Directory_Parent="Dependencies_Dir" DefaultDir="IL2CPP~1|Il2CppAssemblyGenerator"/>
+    <ROW Directory="MelonLoader_Dir" Directory_Parent="melonloader_Dir" DefaultDir="MELONL~1|MelonLoader"/>
+    <ROW Directory="MonoBleedingEdgePatches_Dir" Directory_Parent="Dependencies_Dir" DefaultDir="MONOBL~1|MonoBleedingEdgePatches"/>
+    <ROW Directory="NetStandardPatches_Dir" Directory_Parent="Dependencies_Dir" DefaultDir="NETSTA~1|NetStandardPatches"/>
+    <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
+    <ROW Directory="SupportModules_Dir" Directory_Parent="Dependencies_Dir" DefaultDir="SUPPOR~1|SupportModules"/>
+    <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
+    <ROW Directory="arksurvivalevolved_Dir" Directory_Parent="games_Dir" DefaultDir="ARK-SU~1|ark-survival-evolved"/>
+    <ROW Directory="borderlands4_Dir" Directory_Parent="games_Dir" DefaultDir="BORDER~1|borderlands-4"/>
+    <ROW Directory="dist_1_Dir" Directory_Parent="borderlands4_Dir" DefaultDir="dist"/>
+    <ROW Directory="dist_2_Dir" Directory_Parent="dragonballsparkingzero_Dir" DefaultDir="dist"/>
+    <ROW Directory="dist_3_Dir" Directory_Parent="grandtheftautovi_Dir" DefaultDir="dist"/>
+    <ROW Directory="dist_4_Dir" Directory_Parent="norestforthewicked_Dir" DefaultDir="dist"/>
+    <ROW Directory="dist_5_Dir" Directory_Parent="phantombladezero_Dir" DefaultDir="dist"/>
+    <ROW Directory="dist_6_Dir" Directory_Parent="tinyeden_Dir" DefaultDir="dist"/>
+    <ROW Directory="dist_Dir" Directory_Parent="arksurvivalevolved_Dir" DefaultDir="dist"/>
+    <ROW Directory="dragonballsparkingzero_Dir" Directory_Parent="games_Dir" DefaultDir="DRAGON~1|dragon-ball-sparking-zero"/>
+    <ROW Directory="games_Dir" Directory_Parent="APPDIR" DefaultDir="games"/>
+    <ROW Directory="grandtheftautovi_Dir" Directory_Parent="games_Dir" DefaultDir="GRAND-~1|grand-theft-auto-vi"/>
+    <ROW Directory="launcher_1_Dir" Directory_Parent="dist_1_Dir" DefaultDir="launcher"/>
+    <ROW Directory="launcher_2_Dir" Directory_Parent="dist_2_Dir" DefaultDir="launcher"/>
+    <ROW Directory="launcher_3_Dir" Directory_Parent="dist_3_Dir" DefaultDir="launcher"/>
+    <ROW Directory="launcher_4_Dir" Directory_Parent="dist_4_Dir" DefaultDir="launcher"/>
+    <ROW Directory="launcher_5_Dir" Directory_Parent="dist_5_Dir" DefaultDir="launcher"/>
+    <ROW Directory="launcher_6_Dir" Directory_Parent="dist_6_Dir" DefaultDir="launcher"/>
+    <ROW Directory="launcher_Dir" Directory_Parent="dist_Dir" DefaultDir="launcher"/>
+    <ROW Directory="melonloader_Dir" Directory_Parent="prerequisites_Dir" DefaultDir="MELONL~1|melonloader"/>
+    <ROW Directory="net35_Dir" Directory_Parent="MelonLoader_Dir" DefaultDir="net35"/>
+    <ROW Directory="net6_Dir" Directory_Parent="MelonLoader_Dir" DefaultDir="net6"/>
+    <ROW Directory="norestforthewicked_Dir" Directory_Parent="games_Dir" DefaultDir="NO-RES~1|no-rest-for-the-wicked"/>
+    <ROW Directory="payload_1_Dir" Directory_Parent="launcher_6_Dir" DefaultDir="payload"/>
+    <ROW Directory="payload_Dir" Directory_Parent="launcher_4_Dir" DefaultDir="payload"/>
+    <ROW Directory="phantombladezero_Dir" Directory_Parent="games_Dir" DefaultDir="PHANTO~1|phantom-blade-zero"/>
+    <ROW Directory="prerequisites_1_Dir" Directory_Parent="launcher_6_Dir" DefaultDir="PREREQ~1|prerequisites"/>
+    <ROW Directory="prerequisites_Dir" Directory_Parent="launcher_4_Dir" DefaultDir="PREREQ~1|prerequisites"/>
+    <ROW Directory="tinyeden_Dir" Directory_Parent="games_Dir" DefaultDir="TINY-E~1|tiny-eden"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="AI_CustomARPName" ComponentId="{F6CA3E40-8C13-426C-AD29-55FDAA0B9D50}" Directory_="APPDIR" Attributes="260" KeyPath="DisplayName" Options="1"/>
+    <ROW Component="AI_ExePath" ComponentId="{6F370AE1-57BD-4146-9B95-3C2CDCD86899}" Directory_="APPDIR" Attributes="260" KeyPath="AI_ExePath"/>
+    <ROW Component="AsmResolver.DotNet.dll" ComponentId="{87626141-F19D-46FA-918C-BD0425F9DBAD}" Directory_="net35_Dir" Attributes="0" KeyPath="AsmResolver.DotNet.dll"/>
+    <ROW Component="AsmResolver.DotNet.dll_1" ComponentId="{639290BB-8B27-4E5C-8290-D6932D851AF3}" Directory_="net6_Dir" Attributes="0" KeyPath="AsmResolver.DotNet.dll_1"/>
+    <ROW Component="AsmResolver.PE.File.dll" ComponentId="{3D267530-51EB-46EA-85C5-823721133E22}" Directory_="net35_Dir" Attributes="0" KeyPath="AsmResolver.PE.File.dll"/>
+    <ROW Component="AsmResolver.PE.File.dll_1" ComponentId="{A8FA8E5A-DFD7-4F89-8A9F-FD70852FD705}" Directory_="net6_Dir" Attributes="0" KeyPath="AsmResolver.PE.File.dll_1"/>
+    <ROW Component="AsmResolver.PE.dll" ComponentId="{28FA00E5-E138-43E9-BE93-D5C930FF2825}" Directory_="net35_Dir" Attributes="0" KeyPath="AsmResolver.PE.dll"/>
+    <ROW Component="AsmResolver.PE.dll_1" ComponentId="{9A27A767-1069-4140-B8D7-EE6D02D0C928}" Directory_="net6_Dir" Attributes="0" KeyPath="AsmResolver.PE.dll_1"/>
+    <ROW Component="AsmResolver.dll" ComponentId="{712453E3-1A8B-46A7-B6E0-29C2E0EAED26}" Directory_="net35_Dir" Attributes="0" KeyPath="AsmResolver.dll"/>
+    <ROW Component="AsmResolver.dll_1" ComponentId="{79305566-188C-4503-B697-E566935D3E3C}" Directory_="net6_Dir" Attributes="0" KeyPath="AsmResolver.dll_1"/>
+    <ROW Component="AssetRipper.Primitives.dll" ComponentId="{7CD188FF-2417-40CC-95FA-D32A2C5AAEDF}" Directory_="net35_Dir" Attributes="0" KeyPath="AssetRipper.Primitives.dll"/>
+    <ROW Component="AssetRipper.Primitives.dll_1" ComponentId="{DB863BBC-196F-47A7-BD43-67D405AF5422}" Directory_="net6_Dir" Attributes="0" KeyPath="AssetRipper.Primitives.dll_1"/>
+    <ROW Component="AssetsTools.NET.dll" ComponentId="{048E269E-E393-4AC3-BFE6-3F8C2F10DD93}" Directory_="net35_Dir" Attributes="0" KeyPath="AssetsTools.NET.dll"/>
+    <ROW Component="AssetsTools.NET.dll_1" ComponentId="{B92D96E4-2DD7-4D79-B941-F9B0F37C237B}" Directory_="net6_Dir" Attributes="0" KeyPath="AssetsTools.NET.dll_1"/>
+    <ROW Component="CHANGELOG.md" ComponentId="{2A9F78F2-15DC-4B3B-A7AB-C9FE0B55F3ED}" Directory_="Documentation_Dir" Attributes="0" KeyPath="CHANGELOG.md" Type="0"/>
+    <ROW Component="Demeo.dll" ComponentId="{9554FD68-4719-4AD1-A40E-7DF1350C72E1}" Directory_="CompatibilityLayers_Dir" Attributes="256" KeyPath="Demeo.dll"/>
+    <ROW Component="Harmony.dll" ComponentId="{AFE4F347-212C-4EAD-9B7B-E65A64D729FE}" Directory_="net35_Dir" Attributes="0" KeyPath="Harmony.dll"/>
+    <ROW Component="Harmony.dll_1" ComponentId="{7AA392BB-ADD4-4AEB-AC7F-39623F077AEF}" Directory_="net6_Dir" Attributes="0" KeyPath="Harmony.dll_1"/>
+    <ROW Component="IPA.dll" ComponentId="{17390749-EFE7-4AFA-BFEF-95403AB11327}" Directory_="CompatibilityLayers_Dir" Attributes="256" KeyPath="IPA.dll"/>
+    <ROW Component="IPA.dll.mdb" ComponentId="{9906D344-2912-429F-B3FF-D055CA6FD3F9}" Directory_="CompatibilityLayers_Dir" Attributes="0" KeyPath="IPA.dll.mdb" Type="0"/>
+    <ROW Component="Iced.dll" ComponentId="{32A95257-FB86-4ECE-A65A-A6568EC14C9C}" Directory_="net6_Dir" Attributes="0" KeyPath="Iced.dll"/>
+    <ROW Component="Il2Cpp.deps.json" ComponentId="{C2A6CB6A-E9AE-4BEF-90A7-C95455E94049}" Directory_="SupportModules_Dir" Attributes="0" KeyPath="Il2Cpp.deps.json" Type="0"/>
+    <ROW Component="Il2Cpp.dll" ComponentId="{277CEE7A-E2F6-4904-A0C2-BC3681071718}" Directory_="SupportModules_Dir" Attributes="256" KeyPath="Il2Cpp.dll"/>
+    <ROW Component="Il2CppAssemblyGenerator.deps.json" ComponentId="{57125A27-197C-4C89-B1B1-412846465F9B}" Directory_="Il2CppAssemblyGenerator_Dir" Attributes="0" KeyPath="Il2CppAssemblyGenerator.deps.json" Type="0"/>
+    <ROW Component="Il2CppAssemblyGenerator.dll" ComponentId="{63B2B556-07B8-403E-B3FE-611DFA6B378F}" Directory_="Il2CppAssemblyGenerator_Dir" Attributes="256" KeyPath="Il2CppAssemblyGenerator.dll"/>
+    <ROW Component="Il2CppInterop.Common.dll" ComponentId="{C36D945D-C9E8-484F-B633-7F562F1D6E25}" Directory_="net6_Dir" Attributes="0" KeyPath="Il2CppInterop.Common.dll"/>
+    <ROW Component="Il2CppInterop.Generator.dll" ComponentId="{25983D59-D958-4B64-945B-BF02D01173AC}" Directory_="net6_Dir" Attributes="0" KeyPath="Il2CppInterop.Generator.dll"/>
+    <ROW Component="Il2CppInterop.HarmonySupport.dll" ComponentId="{3D106336-D237-42DE-BD85-004E8E6927D9}" Directory_="net6_Dir" Attributes="0" KeyPath="Il2CppInterop.HarmonySupport.dll"/>
+    <ROW Component="Il2CppInterop.Runtime.dll" ComponentId="{977421C1-4203-4966-8D03-A232F931AE52}" Directory_="net6_Dir" Attributes="0" KeyPath="Il2CppInterop.Runtime.dll"/>
+    <ROW Component="IndexRange.dll" ComponentId="{DC07AF8C-38A2-44CB-A41F-7ADC3067CA5D}" Directory_="net35_Dir" Attributes="0" KeyPath="IndexRange.dll"/>
+    <ROW Component="IndexRange.dll_1" ComponentId="{37A7AA59-3262-4362-8695-C9A95622EA9C}" Directory_="net6_Dir" Attributes="0" KeyPath="IndexRange.dll_1"/>
+    <ROW Component="MelonLoader.NativeHost.dll" ComponentId="{AF906202-8D9C-4971-8EFA-1AB73495F882}" Directory_="net6_Dir" Attributes="256" KeyPath="MelonLoader.NativeHost.dll"/>
+    <ROW Component="MelonLoader.deps.json" ComponentId="{DD2033A1-CCC8-4F99-B7FF-1769C7FCE254}" Directory_="net6_Dir" Attributes="0" KeyPath="MelonLoader.deps.json" Type="0"/>
+    <ROW Component="MelonLoader.dll" ComponentId="{8D2ED25C-DF65-4DC0-9E6C-E9185B348272}" Directory_="net35_Dir" Attributes="256" KeyPath="MelonLoader.dll"/>
+    <ROW Component="MelonLoader.dll.mdb" ComponentId="{9AFBEC52-1910-441E-84AE-7892188EEC27}" Directory_="net35_Dir" Attributes="0" KeyPath="MelonLoader.dll.mdb" Type="0"/>
+    <ROW Component="MelonLoader.dll_1" ComponentId="{4CB85377-976E-407D-AEC8-2081F657059F}" Directory_="net6_Dir" Attributes="256" KeyPath="MelonLoader.dll_1"/>
+    <ROW Component="Microsoft.Bcl.AsyncInterfaces.dll" ComponentId="{4ACAB11B-02AA-4A50-8A03-9A25DF3DF035}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Bcl.AsyncInterfaces.dll"/>
+    <ROW Component="Microsoft.Bcl.Memory.dll" ComponentId="{AD63BBD1-9C37-40F4-A3D0-1E772AC3F17F}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Bcl.Memory.dll"/>
+    <ROW Component="Microsoft.Diagnostics.NETCore.Client.dll" ComponentId="{6A67AED6-A040-475D-86FC-17F7C86527CF}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Diagnostics.NETCore.Client.dll"/>
+    <ROW Component="Microsoft.Diagnostics.Runtime.dll" ComponentId="{4F5A2A8A-5DF5-487D-A06E-20EC9816204E}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Diagnostics.Runtime.dll"/>
+    <ROW Component="Microsoft.Extensions.Configuration.Abstractions.dll" ComponentId="{BA77D98C-D354-4164-AEDA-F65351067FB3}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Extensions.Configuration.Abstractions.dll"/>
+    <ROW Component="Microsoft.Extensions.Configuration.dll" ComponentId="{4B26350B-293A-416D-923D-C6616A0B7904}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Extensions.Configuration.dll"/>
+    <ROW Component="Microsoft.Extensions.DependencyInjection.Abstractions.dll" ComponentId="{9B1C047F-C6C8-4357-8B23-4984EBDE57F6}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Extensions.DependencyInjection.Abstractions.dll"/>
+    <ROW Component="Microsoft.Extensions.DependencyInjection.dll" ComponentId="{DA7EB0B4-3EB9-4018-8145-FE402755EBF7}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Extensions.DependencyInjection.dll"/>
+    <ROW Component="Microsoft.Extensions.Logging.Abstractions.dll" ComponentId="{4BBC816F-02DC-4B6A-9F75-974E19C12454}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Extensions.Logging.Abstractions.dll"/>
+    <ROW Component="Microsoft.Extensions.Logging.dll" ComponentId="{79406686-DBF4-4321-88D5-1706FAD939E5}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Extensions.Logging.dll"/>
+    <ROW Component="Microsoft.Extensions.Options.dll" ComponentId="{705AD865-3793-4D53-A095-75CD6F6CA7F9}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Extensions.Options.dll"/>
+    <ROW Component="Microsoft.Extensions.Primitives.dll" ComponentId="{0CB4F319-5944-4D1B-95F2-21E93139E8E8}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Extensions.Primitives.dll"/>
+    <ROW Component="Mono.Cecil.Mdb.dll" ComponentId="{8F14C684-4234-4FC3-947E-BEA3A35EC6BD}" Directory_="net35_Dir" Attributes="0" KeyPath="Mono.Cecil.Mdb.dll"/>
+    <ROW Component="Mono.Cecil.Mdb.dll_1" ComponentId="{89CB6485-2C30-4AAC-B694-7D0C1AC3C81A}" Directory_="net6_Dir" Attributes="0" KeyPath="Mono.Cecil.Mdb.dll_1"/>
+    <ROW Component="Mono.Cecil.Pdb.dll" ComponentId="{4D3C9CC6-0C4F-421B-8B7E-2D57FD59F790}" Directory_="net35_Dir" Attributes="0" KeyPath="Mono.Cecil.Pdb.dll"/>
+    <ROW Component="Mono.Cecil.Pdb.dll_1" ComponentId="{E4F633FD-7110-4392-96B3-55D5F41F0AEC}" Directory_="net6_Dir" Attributes="0" KeyPath="Mono.Cecil.Pdb.dll_1"/>
+    <ROW Component="Mono.Cecil.Rocks.dll" ComponentId="{B66AF18E-8A66-4D25-B3B8-7BF1B66E091F}" Directory_="net35_Dir" Attributes="0" KeyPath="Mono.Cecil.Rocks.dll"/>
+    <ROW Component="Mono.Cecil.Rocks.dll_1" ComponentId="{FC95629E-5F48-4B76-92DA-A2447B31E680}" Directory_="net6_Dir" Attributes="0" KeyPath="Mono.Cecil.Rocks.dll_1"/>
+    <ROW Component="Mono.Cecil.dll" ComponentId="{1FE6DBD2-43CA-4CB4-968A-D5BB2525D203}" Directory_="net35_Dir" Attributes="0" KeyPath="Mono.Cecil.dll"/>
+    <ROW Component="Mono.Cecil.dll_1" ComponentId="{D337782F-80FA-4609-8B36-128E3F3C3800}" Directory_="net6_Dir" Attributes="0" KeyPath="Mono.Cecil.dll_1"/>
+    <ROW Component="Mono.dll" ComponentId="{BF88A62F-558E-445C-8798-B05A5D08D512}" Directory_="SupportModules_Dir" Attributes="256" KeyPath="Mono.dll"/>
+    <ROW Component="MonoMod.Backports.dll" ComponentId="{DC88593D-198C-46BC-A665-A85909C69B56}" Directory_="net35_Dir" Attributes="0" KeyPath="MonoMod.Backports.dll"/>
+    <ROW Component="MonoMod.Backports.dll_1" ComponentId="{6ACD8E21-CE81-447C-97E4-4917A7BAB6DA}" Directory_="net6_Dir" Attributes="0" KeyPath="MonoMod.Backports.dll_1"/>
+    <ROW Component="MonoMod.ILHelpers.dll" ComponentId="{8C484BD9-FA0F-4F22-8F83-61C66F5060BC}" Directory_="net35_Dir" Attributes="0" KeyPath="MonoMod.ILHelpers.dll"/>
+    <ROW Component="MonoMod.ILHelpers.dll_1" ComponentId="{3A55CFA3-F8CA-4CB6-ADF7-20511D2F6AE4}" Directory_="net6_Dir" Attributes="0" KeyPath="MonoMod.ILHelpers.dll_1"/>
+    <ROW Component="MonoMod.RuntimeDetour.dll" ComponentId="{F14206BA-DFA9-44F4-AF9A-4F536F477558}" Directory_="net35_Dir" Attributes="0" KeyPath="MonoMod.RuntimeDetour.dll"/>
+    <ROW Component="MonoMod.RuntimeDetour.dll_1" ComponentId="{E7FE39DA-0AD3-421B-B88E-9385FE4CE348}" Directory_="net6_Dir" Attributes="0" KeyPath="MonoMod.RuntimeDetour.dll_1"/>
+    <ROW Component="MonoMod.Utils.dll" ComponentId="{816624C7-D31B-40E6-BBBF-3975335D4C78}" Directory_="net35_Dir" Attributes="0" KeyPath="MonoMod.Utils.dll"/>
+    <ROW Component="MonoMod.Utils.dll_1" ComponentId="{09F8ADB5-2414-4E74-8F46-B869C90143C9}" Directory_="net6_Dir" Attributes="0" KeyPath="MonoMod.Utils.dll_1"/>
+    <ROW Component="MonoMod.dll" ComponentId="{4E75B3DC-2B1B-4495-AEC4-DC9ABF93CAD2}" Directory_="net6_Dir" Attributes="0" KeyPath="MonoMod.dll"/>
+    <ROW Component="MonoMod.exe" ComponentId="{F9862077-127A-4FF7-A237-856D5C6BB6C8}" Directory_="net35_Dir" Attributes="0" KeyPath="MonoMod.exe"/>
+    <ROW Component="Muse_Dash_Mono.dll" ComponentId="{1C541BD8-9C7C-4D0A-9782-C6AFBF2B3B92}" Directory_="CompatibilityLayers_Dir" Attributes="256" KeyPath="Muse_Dash_Mono.dll"/>
+    <ROW Component="Newtonsoft.Json.dll" ComponentId="{BCAD2943-34FC-4816-A39B-4651AAB50DC2}" Directory_="net35_Dir" Attributes="0" KeyPath="Newtonsoft.Json.dll"/>
+    <ROW Component="Newtonsoft.Json.dll_1" ComponentId="{85443120-0AA1-4625-910F-46F0E2989506}" Directory_="net6_Dir" Attributes="0" KeyPath="Newtonsoft.Json.dll_1"/>
+    <ROW Component="ProductInformation" ComponentId="{6B716294-DC35-463D-A6EA-C6787E390026}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
+    <ROW Component="README.md" ComponentId="{D129A33A-3301-454D-BE47-EA70BB8647B2}" Directory_="launcher_Dir" Attributes="0" KeyPath="README.md" Type="0"/>
+    <ROW Component="README.md_1" ComponentId="{64A1B960-7557-4076-981A-1223242A5AA3}" Directory_="launcher_1_Dir" Attributes="0" KeyPath="README.md_1" Type="0"/>
+    <ROW Component="README.md_2" ComponentId="{5A58D2BE-D10F-49BC-8C45-E53C546EA130}" Directory_="launcher_2_Dir" Attributes="0" KeyPath="README.md_2" Type="0"/>
+    <ROW Component="README.md_3" ComponentId="{AEAEF2DC-2B6B-4885-955F-31F45C6AD543}" Directory_="launcher_3_Dir" Attributes="0" KeyPath="README.md_3" Type="0"/>
+    <ROW Component="README.md_4" ComponentId="{BED24D9B-1F20-4D68-832B-B39CDD2393F4}" Directory_="launcher_5_Dir" Attributes="0" KeyPath="README.md_5" Type="0"/>
+    <ROW Component="SHORTCUTDIR" ComponentId="{1B12B9BC-35C5-477B-9940-1F8775FB44E2}" Directory_="SHORTCUTDIR" Attributes="0"/>
+    <ROW Component="Stress_Level_Zero_Il2Cpp.dll" ComponentId="{D8D187AF-81DC-48B6-866A-32E059D4B311}" Directory_="CompatibilityLayers_Dir" Attributes="256" KeyPath="Stress_Level_Zero_Il2Cpp.dll"/>
+    <ROW Component="System.Buffers.dll" ComponentId="{4890EC2E-1E2A-4211-8F7E-C1D174D37048}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Buffers.dll"/>
+    <ROW Component="System.Collections.Immutable.dll" ComponentId="{8FC4F1F6-39E9-4211-8E53-9212DBF7A850}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Collections.Immutable.dll"/>
+    <ROW Component="System.ComponentModel.Composition.dll" ComponentId="{E927D213-9700-46E0-869D-ADE35B4C4E2D}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.ComponentModel.Composition.dll"/>
+    <ROW Component="System.Configuration.ConfigurationManager.dll" ComponentId="{F10B7893-BE17-490E-AA0C-699F4403C049}" Directory_="net6_Dir" Attributes="0" KeyPath="System.Configuration.ConfigurationManager.dll"/>
+    <ROW Component="System.Configuration.dll" ComponentId="{3CF4003B-3F64-4CE8-B415-18D264C400E3}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Configuration.dll"/>
+    <ROW Component="System.Configuration.dll_1" ComponentId="{7921C97B-BD74-4C03-B0B4-8E3F0C2642A1}" Directory_="NetStandardPatches_Dir" Attributes="0" KeyPath="System.Configuration.dll_1"/>
+    <ROW Component="System.Core.dll" ComponentId="{6E90ADFB-670E-40F4-9057-75E21C0EF5EE}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Core.dll"/>
+    <ROW Component="System.Core.dll_1" ComponentId="{8AF60930-5E4E-4310-9DEA-CD32E5BF6945}" Directory_="NetStandardPatches_Dir" Attributes="0" KeyPath="System.Core.dll_1"/>
+    <ROW Component="System.Data.DataSetExtensions.dll" ComponentId="{7E3A4BD3-DCA1-4DAD-9782-DE69F8AF7E12}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Data.DataSetExtensions.dll"/>
+    <ROW Component="System.Data.dll" ComponentId="{FA3CE9AC-B6CD-40D7-A712-688C6ADC3722}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Data.dll"/>
+    <ROW Component="System.Diagnostics.DiagnosticSource.dll" ComponentId="{1F50FAB4-2DC5-41F4-99FF-853803AEA99F}" Directory_="net6_Dir" Attributes="0" KeyPath="System.Diagnostics.DiagnosticSource.dll"/>
+    <ROW Component="System.Drawing.dll" ComponentId="{0193D9A8-1ED4-4232-938E-203E587310F4}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Drawing.dll"/>
+    <ROW Component="System.EnterpriseServices.dll" ComponentId="{0E2082AF-5CD2-428F-A8C7-4E8E54991871}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.EnterpriseServices.dll"/>
+    <ROW Component="System.IO.Compression.FileSystem.dll" ComponentId="{DC1ED9C8-6882-4CD8-9CBD-CABAC1FB1F48}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.IO.Compression.FileSystem.dll"/>
+    <ROW Component="System.IO.Compression.dll" ComponentId="{F794364B-0B3D-4363-A421-DE21627C3A3E}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.IO.Compression.dll"/>
+    <ROW Component="System.Memory.dll" ComponentId="{82501B62-A998-4B69-9B76-5AA25D34D310}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Memory.dll"/>
+    <ROW Component="System.Net.Http.dll" ComponentId="{ECB172DE-5897-42C1-9CFA-F5D36D12AC73}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Net.Http.dll"/>
+    <ROW Component="System.Numerics.dll" ComponentId="{E33C9FA1-A1F5-4705-A9F2-274A4911C61B}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Numerics.dll"/>
+    <ROW Component="System.Runtime.CompilerServices.Unsafe.6.0.dll" ComponentId="{B41267F9-CA91-45CD-B017-E52D0E52E897}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Runtime.CompilerServices.Unsafe.6.0.dll"/>
+    <ROW Component="System.Runtime.CompilerServices.Unsafe.dll" ComponentId="{FB68F5A1-161D-4691-AA19-A78F204A1E02}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Runtime.CompilerServices.Unsafe.dll"/>
+    <ROW Component="System.Runtime.CompilerServices.Unsafe.dll_1" ComponentId="{3186CD1A-5915-410A-9DFD-B469703315D7}" Directory_="net6_Dir" Attributes="0" KeyPath="System.Runtime.CompilerServices.Unsafe.dll_1"/>
+    <ROW Component="System.Runtime.Serialization.dll" ComponentId="{9F2CF7E4-3A92-4A87-AAC8-70657EACA8B4}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Runtime.Serialization.dll"/>
+    <ROW Component="System.Runtime.dll" ComponentId="{8F974911-5A62-4A41-9098-0EAE166CC638}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Runtime.dll"/>
+    <ROW Component="System.Security.Cryptography.Cng.dll" ComponentId="{71AC5140-F8AA-423C-963D-A332E4EC0F96}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Security.Cryptography.Cng.dll"/>
+    <ROW Component="System.Security.Cryptography.ProtectedData.dll" ComponentId="{F97DAE1B-D4C1-480B-976C-A0FE3D98F9EE}" Directory_="net6_Dir" Attributes="0" KeyPath="System.Security.Cryptography.ProtectedData.dll"/>
+    <ROW Component="System.Security.Permissions.dll" ComponentId="{4407C45D-1927-4448-A63F-AA6F3584BED9}" Directory_="net6_Dir" Attributes="0" KeyPath="System.Security.Permissions.dll"/>
+    <ROW Component="System.Security.dll" ComponentId="{DDCFD8BA-1167-4F12-9A6C-2D630E619D8C}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Security.dll"/>
+    <ROW Component="System.ServiceModel.Internals.dll" ComponentId="{C11BF384-5147-4AA5-9CD5-DEB32F64A0B5}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.ServiceModel.Internals.dll"/>
+    <ROW Component="System.Transactions.dll" ComponentId="{2A263575-30CB-4927-855B-CF1541ACF634}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Transactions.dll"/>
+    <ROW Component="System.Xml.Linq.dll" ComponentId="{C7AE0BF6-4CCC-4EF1-A6E0-834B70ED4758}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Xml.Linq.dll"/>
+    <ROW Component="System.Xml.dll" ComponentId="{0622EA83-FBC5-4567-A0B4-EB2B8EFC9BFF}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Xml.dll"/>
+    <ROW Component="System.Xml.dll_1" ComponentId="{F7EEDD3B-AD11-4A82-8A3C-2E4B8F19D23C}" Directory_="NetStandardPatches_Dir" Attributes="0" KeyPath="System.Xml.dll_1"/>
+    <ROW Component="System.dll" ComponentId="{D7BFD1F0-4739-49FE-895D-D515E6211ECB}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.dll"/>
+    <ROW Component="System.dll_1" ComponentId="{497D2E7A-FC0B-488B-90D8-7460D77EFD3C}" Directory_="NetStandardPatches_Dir" Attributes="0" KeyPath="System.dll_1"/>
+    <ROW Component="TGLauncher.exe" ComponentId="{33003221-0C37-4ACD-A492-286B20D32FD4}" Directory_="APPDIR" Attributes="256" KeyPath="TGLauncher.exe"/>
+    <ROW Component="Tomlet.dll" ComponentId="{825291A7-5D85-4611-9D8C-AD7AF40D442E}" Directory_="net35_Dir" Attributes="0" KeyPath="Tomlet.dll"/>
+    <ROW Component="Tomlet.dll_1" ComponentId="{E942A24B-727D-4DA8-BA84-DE8AA5C1388A}" Directory_="net6_Dir" Attributes="0" KeyPath="Tomlet.dll_1"/>
+    <ROW Component="UnityEngine.Il2CppAssetBundleManager.dll" ComponentId="{2296D9C4-77D9-4A1C-AC6B-E33337BBD9C4}" Directory_="net6_Dir" Attributes="256" KeyPath="UnityEngine.Il2CppAssetBundleManager.dll"/>
+    <ROW Component="UnityEngine.Il2CppImageConversionManager.dll" ComponentId="{E1FE6F99-CA49-4392-9B0C-CE8ACC10D57E}" Directory_="net6_Dir" Attributes="256" KeyPath="UnityEngine.Il2CppImageConversionManager.dll"/>
+    <ROW Component="UniversalSigBypasser.asi" ComponentId="{EBB6EA3B-2F00-4D25-97B6-A649677BBFAF}" Directory_="prerequisites_1_Dir" Attributes="256" KeyPath="UniversalSigBypasser.asi" Type="0"/>
+    <ROW Component="VI_Translation_P.pak" ComponentId="{C3E161DA-891E-4C1F-B49A-E1B8F1AA197D}" Directory_="payload_1_Dir" Attributes="0" KeyPath="VI_Translation_P.pak" Type="0"/>
+    <ROW Component="ValueTupleBridge.dll" ComponentId="{5EF5905F-256D-419F-88F6-2365BF7C18CD}" Directory_="net35_Dir" Attributes="0" KeyPath="ValueTupleBridge.dll"/>
+    <ROW Component="ViTranslationMod.dll" ComponentId="{3819E39C-3F2E-499B-A723-208B0ADBAD28}" Directory_="payload_Dir" Attributes="0" KeyPath="ViTranslationMod.dll"/>
+    <ROW Component="WebSocketDotNet.dll" ComponentId="{3818A324-31BF-4040-8B13-D2ADAB4C5FFA}" Directory_="net35_Dir" Attributes="0" KeyPath="WebSocketDotNet.dll"/>
+    <ROW Component="WebSocketDotNet.dll_1" ComponentId="{0B38BB4B-FC8B-48AA-AA96-BF4C1D4F0BAA}" Directory_="net6_Dir" Attributes="0" KeyPath="WebSocketDotNet.dll_1"/>
+    <ROW Component="bHapticsLib.dll" ComponentId="{016E312C-D2CD-4182-9CE6-4FA45A158764}" Directory_="net35_Dir" Attributes="0" KeyPath="bHapticsLib.dll"/>
+    <ROW Component="bHapticsLib.dll_1" ComponentId="{91DD367E-2B89-4CDA-A4B7-C08DFA702281}" Directory_="net6_Dir" Attributes="0" KeyPath="bHapticsLib.dll_1"/>
+    <ROW Component="dsound.dll" ComponentId="{8A88D6C5-077F-4211-A149-4F505872C5EC}" Directory_="prerequisites_1_Dir" Attributes="256" KeyPath="dsound.dll"/>
+    <ROW Component="launcherpackage.json" ComponentId="{5D1A7FA6-1274-40A7-92B2-E7C0FEEB0C0E}" Directory_="launcher_4_Dir" Attributes="0" KeyPath="launcherpackage.json" Type="0"/>
+    <ROW Component="launcherpackage.json_1" ComponentId="{B6DE7404-15D1-40E7-8FDF-B2A0B87257DB}" Directory_="launcher_6_Dir" Attributes="0" KeyPath="launcherpackage.json_1" Type="0"/>
+    <ROW Component="mscorlib.dll" ComponentId="{76D5FFF9-970F-49A3-99CD-D5A95074FAA7}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="mscorlib.dll"/>
+    <ROW Component="version.dll" ComponentId="{1D7C04E8-9E81-4129-AD79-854F45B3DDCF}" Directory_="melonloader_Dir" Attributes="256" KeyPath="version.dll"/>
+    <ROW Component="vidictionary.json" ComponentId="{6FB21267-F47E-47E5-B917-9808C7380BFA}" Directory_="payload_Dir" Attributes="0" KeyPath="vidictionary.json" Type="0"/>
+    <ROW Component="vidictionarybyid.json" ComponentId="{BFF66596-77E9-4E82-A8C7-BC5F1025B63B}" Directory_="payload_Dir" Attributes="0" KeyPath="vidictionarybyid.json" Type="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0"/>
+    <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="README.md" Component_="README.md" FileName="README.md" Attributes="0" SourcePath="..\..\publish\installer-staging\games\ark-survival-evolved\dist\launcher\README.md" SelfReg="false"/>
+    <ROW File="README.md_1" Component_="README.md_1" FileName="README.md" Attributes="0" SourcePath="..\..\publish\installer-staging\games\borderlands-4\dist\launcher\README.md" SelfReg="false"/>
+    <ROW File="README.md_2" Component_="README.md_2" FileName="README.md" Attributes="0" SourcePath="..\..\publish\installer-staging\games\dragon-ball-sparking-zero\dist\launcher\README.md" SelfReg="false"/>
+    <ROW File="README.md_3" Component_="README.md_3" FileName="README.md" Attributes="0" SourcePath="..\..\publish\installer-staging\games\grand-theft-auto-vi\dist\launcher\README.md" SelfReg="false"/>
+    <ROW File="launcherpackage.json" Component_="launcherpackage.json" FileName="LAUNCH~1.JSO|launcher-package.json" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\launcher-package.json" SelfReg="false"/>
+    <ROW File="vidictionary.json" Component_="vidictionary.json" FileName="VI-DIC~1.JSO|vi-dictionary.json" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\payload\vi-dictionary.json" SelfReg="false"/>
+    <ROW File="vidictionarybyid.json" Component_="vidictionarybyid.json" FileName="VI-DIC~2.JSO|vi-dictionary-by-id.json" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\payload\vi-dictionary-by-id.json" SelfReg="false"/>
+    <ROW File="ViTranslationMod.dll" Component_="ViTranslationMod.dll" FileName="VITRAN~1.DLL|ViTranslationMod.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\payload\ViTranslationMod.dll" SelfReg="false"/>
+    <ROW File="Demeo.dll" Component_="Demeo.dll" FileName="Demeo.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\CompatibilityLayers\Demeo.dll" SelfReg="false"/>
+    <ROW File="Demeo.pdb" Component_="Demeo.dll" FileName="Demeo.pdb" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\CompatibilityLayers\Demeo.pdb" SelfReg="false"/>
+    <ROW File="IPA.dll" Component_="IPA.dll" FileName="IPA.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\CompatibilityLayers\IPA.dll" SelfReg="false"/>
+    <ROW File="IPA.dll.mdb" Component_="IPA.dll.mdb" FileName="IPADLL~1.MDB|IPA.dll.mdb" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\CompatibilityLayers\IPA.dll.mdb" SelfReg="false"/>
+    <ROW File="IPA.pdb" Component_="IPA.dll" FileName="IPA.pdb" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\CompatibilityLayers\IPA.pdb" SelfReg="false"/>
+    <ROW File="Muse_Dash_Mono.dll" Component_="Muse_Dash_Mono.dll" FileName="MUSE_D~1.DLL|Muse_Dash_Mono.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\CompatibilityLayers\Muse_Dash_Mono.dll" SelfReg="false"/>
+    <ROW File="Muse_Dash_Mono.dll.mdb" Component_="IPA.dll.mdb" FileName="MUSE_D~1.MDB|Muse_Dash_Mono.dll.mdb" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\CompatibilityLayers\Muse_Dash_Mono.dll.mdb" SelfReg="false"/>
+    <ROW File="Muse_Dash_Mono.pdb" Component_="Muse_Dash_Mono.dll" FileName="MUSE_D~1.PDB|Muse_Dash_Mono.pdb" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\CompatibilityLayers\Muse_Dash_Mono.pdb" SelfReg="false"/>
+    <ROW File="Stress_Level_Zero_Il2Cpp.deps.json" Component_="IPA.dll.mdb" FileName="STRESS~1.JSO|Stress_Level_Zero_Il2Cpp.deps.json" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\CompatibilityLayers\Stress_Level_Zero_Il2Cpp.deps.json" SelfReg="false"/>
+    <ROW File="Stress_Level_Zero_Il2Cpp.dll" Component_="Stress_Level_Zero_Il2Cpp.dll" FileName="STRESS~1.DLL|Stress_Level_Zero_Il2Cpp.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\CompatibilityLayers\Stress_Level_Zero_Il2Cpp.dll" SelfReg="false"/>
+    <ROW File="Il2CppAssemblyGenerator.deps.json" Component_="Il2CppAssemblyGenerator.deps.json" FileName="IL2CPP~1.JSO|Il2CppAssemblyGenerator.deps.json" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\Il2CppAssemblyGenerator\Il2CppAssemblyGenerator.deps.json" SelfReg="false"/>
+    <ROW File="Il2CppAssemblyGenerator.dll" Component_="Il2CppAssemblyGenerator.dll" FileName="IL2CPP~1.DLL|Il2CppAssemblyGenerator.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\Il2CppAssemblyGenerator\Il2CppAssemblyGenerator.dll" SelfReg="false"/>
+    <ROW File="mscorlib.dll" Component_="mscorlib.dll" FileName="mscorlib.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\MonoBleedingEdgePatches\mscorlib.dll" SelfReg="false"/>
+    <ROW File="System.Buffers.dll" Component_="System.Buffers.dll" FileName="SYSTEM~1.DLL|System.Buffers.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\MonoBleedingEdgePatches\System.Buffers.dll" SelfReg="false"/>
+    <ROW File="System.Collections.Immutable.dll" Component_="System.Collections.Immutable.dll" FileName="SYSTEM~2.DLL|System.Collections.Immutable.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\MonoBleedingEdgePatches\System.Collections.Immutable.dll" SelfReg="false"/>
+    <ROW File="System.ComponentModel.Composition.dll" Component_="System.ComponentModel.Composition.dll" FileName="SYSTEM~3.DLL|System.ComponentModel.Composition.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\MonoBleedingEdgePatches\System.ComponentModel.Composition.dll" SelfReg="false"/>
+    <ROW File="System.Configuration.dll" Component_="System.Configuration.dll" FileName="SYSTEM~4.DLL|System.Configuration.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\MonoBleedingEdgePatches\System.Configuration.dll" SelfReg="false"/>
+    <ROW File="System.Core.dll" Component_="System.Core.dll" FileName="SYSTEM~5.DLL|System.Core.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\MonoBleedingEdgePatches\System.Core.dll" SelfReg="false"/>
+    <ROW File="System.Data.DataSetExtensions.dll" Component_="System.Data.DataSetExtensions.dll" FileName="SYSTEM~6.DLL|System.Data.DataSetExtensions.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\MonoBleedingEdgePatches\System.Data.DataSetExtensions.dll" SelfReg="false"/>
+    <ROW File="System.Data.dll" Component_="System.Data.dll" FileName="SYSTEM~7.DLL|System.Data.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\MonoBleedingEdgePatches\System.Data.dll" SelfReg="false"/>
+    <ROW File="System.dll" Component_="System.dll" FileName="System.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\MonoBleedingEdgePatches\System.dll" SelfReg="false"/>
+    <ROW File="System.Drawing.dll" Component_="System.Drawing.dll" FileName="SYSTEM~8.DLL|System.Drawing.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\MonoBleedingEdgePatches\System.Drawing.dll" SelfReg="false"/>
+    <ROW File="System.EnterpriseServices.dll" Component_="System.EnterpriseServices.dll" FileName="SYSTEM~9.DLL|System.EnterpriseServices.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\MonoBleedingEdgePatches\System.EnterpriseServices.dll" SelfReg="false"/>
+    <ROW File="System.IO.Compression.dll" Component_="System.IO.Compression.dll" FileName="SYSTE~10.DLL|System.IO.Compression.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\MonoBleedingEdgePatches\System.IO.Compression.dll" SelfReg="false"/>
+    <ROW File="System.IO.Compression.FileSystem.dll" Component_="System.IO.Compression.FileSystem.dll" FileName="SYSTE~11.DLL|System.IO.Compression.FileSystem.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\MonoBleedingEdgePatches\System.IO.Compression.FileSystem.dll" SelfReg="false"/>
+    <ROW File="System.Memory.dll" Component_="System.Memory.dll" FileName="SYSTE~12.DLL|System.Memory.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\MonoBleedingEdgePatches\System.Memory.dll" SelfReg="false"/>
+    <ROW File="System.Net.Http.dll" Component_="System.Net.Http.dll" FileName="SYSTE~13.DLL|System.Net.Http.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\MonoBleedingEdgePatches\System.Net.Http.dll" SelfReg="false"/>
+    <ROW File="System.Numerics.dll" Component_="System.Numerics.dll" FileName="SYSTE~14.DLL|System.Numerics.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\MonoBleedingEdgePatches\System.Numerics.dll" SelfReg="false"/>
+    <ROW File="System.Runtime.CompilerServices.Unsafe.6.0.dll" Component_="System.Runtime.CompilerServices.Unsafe.6.0.dll" FileName="SYSTE~15.DLL|System.Runtime.CompilerServices.Unsafe.6.0.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\MonoBleedingEdgePatches\System.Runtime.CompilerServices.Unsafe.6.0.dll" SelfReg="false"/>
+    <ROW File="System.Runtime.CompilerServices.Unsafe.dll" Component_="System.Runtime.CompilerServices.Unsafe.dll" FileName="SYSTE~16.DLL|System.Runtime.CompilerServices.Unsafe.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\MonoBleedingEdgePatches\System.Runtime.CompilerServices.Unsafe.dll" SelfReg="false"/>
+    <ROW File="System.Runtime.dll" Component_="System.Runtime.dll" FileName="SYSTE~17.DLL|System.Runtime.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\MonoBleedingEdgePatches\System.Runtime.dll" SelfReg="false"/>
+    <ROW File="System.Runtime.Serialization.dll" Component_="System.Runtime.Serialization.dll" FileName="SYSTE~18.DLL|System.Runtime.Serialization.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\MonoBleedingEdgePatches\System.Runtime.Serialization.dll" SelfReg="false"/>
+    <ROW File="System.Security.Cryptography.Cng.dll" Component_="System.Security.Cryptography.Cng.dll" FileName="SYSTE~19.DLL|System.Security.Cryptography.Cng.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\MonoBleedingEdgePatches\System.Security.Cryptography.Cng.dll" SelfReg="false"/>
+    <ROW File="System.Security.dll" Component_="System.Security.dll" FileName="SYSTE~20.DLL|System.Security.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\MonoBleedingEdgePatches\System.Security.dll" SelfReg="false"/>
+    <ROW File="System.ServiceModel.Internals.dll" Component_="System.ServiceModel.Internals.dll" FileName="SYSTE~21.DLL|System.ServiceModel.Internals.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\MonoBleedingEdgePatches\System.ServiceModel.Internals.dll" SelfReg="false"/>
+    <ROW File="System.Transactions.dll" Component_="System.Transactions.dll" FileName="SYSTE~22.DLL|System.Transactions.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\MonoBleedingEdgePatches\System.Transactions.dll" SelfReg="false"/>
+    <ROW File="System.Xml.dll" Component_="System.Xml.dll" FileName="SYSTE~23.DLL|System.Xml.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\MonoBleedingEdgePatches\System.Xml.dll" SelfReg="false"/>
+    <ROW File="System.Xml.Linq.dll" Component_="System.Xml.Linq.dll" FileName="SYSTE~24.DLL|System.Xml.Linq.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\MonoBleedingEdgePatches\System.Xml.Linq.dll" SelfReg="false"/>
+    <ROW File="System.Configuration.dll_1" Component_="System.Configuration.dll_1" FileName="SYSTEM~1.DLL|System.Configuration.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\NetStandardPatches\System.Configuration.dll" SelfReg="false"/>
+    <ROW File="System.Core.dll_1" Component_="System.Core.dll_1" FileName="SYSTEM~2.DLL|System.Core.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\NetStandardPatches\System.Core.dll" SelfReg="false"/>
+    <ROW File="System.dll_1" Component_="System.dll_1" FileName="System.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\NetStandardPatches\System.dll" SelfReg="false"/>
+    <ROW File="System.Xml.dll_1" Component_="System.Xml.dll_1" FileName="SYSTEM~3.DLL|System.Xml.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\NetStandardPatches\System.Xml.dll" SelfReg="false"/>
+    <ROW File="Il2Cpp.deps.json" Component_="Il2Cpp.deps.json" FileName="IL2CPP~1.JSO|Il2Cpp.deps.json" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\SupportModules\Il2Cpp.deps.json" SelfReg="false"/>
+    <ROW File="Il2Cpp.dll" Component_="Il2Cpp.dll" FileName="Il2Cpp.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\SupportModules\Il2Cpp.dll" SelfReg="false"/>
+    <ROW File="Mono.dll" Component_="Mono.dll" FileName="Mono.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\SupportModules\Mono.dll" SelfReg="false"/>
+    <ROW File="Mono.dll.mdb" Component_="Il2Cpp.deps.json" FileName="MONODL~1.MDB|Mono.dll.mdb" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\SupportModules\Mono.dll.mdb" SelfReg="false"/>
+    <ROW File="Mono.pdb" Component_="Mono.dll" FileName="Mono.pdb" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Dependencies\SupportModules\Mono.pdb" SelfReg="false"/>
+    <ROW File="CHANGELOG.md" Component_="CHANGELOG.md" FileName="CHANGE~1.MD|CHANGELOG.md" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Documentation\CHANGELOG.md" SelfReg="false"/>
+    <ROW File="LICENSE.md" Component_="CHANGELOG.md" FileName="LICENSE.md" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Documentation\LICENSE.md" SelfReg="false"/>
+    <ROW File="NOTICE.txt" Component_="CHANGELOG.md" FileName="NOTICE.txt" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Documentation\NOTICE.txt" SelfReg="false"/>
+    <ROW File="README.md_4" Component_="CHANGELOG.md" FileName="README.md" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\Documentation\README.md" SelfReg="false"/>
+    <ROW File="Harmony.dll" Component_="Harmony.dll" FileName="0Harmony.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net35\0Harmony.dll" SelfReg="false"/>
+    <ROW File="AsmResolver.dll" Component_="AsmResolver.dll" FileName="ASMRES~1.DLL|AsmResolver.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net35\AsmResolver.dll" SelfReg="false"/>
+    <ROW File="AsmResolver.DotNet.dll" Component_="AsmResolver.DotNet.dll" FileName="ASMRES~2.DLL|AsmResolver.DotNet.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net35\AsmResolver.DotNet.dll" SelfReg="false"/>
+    <ROW File="AsmResolver.PE.dll" Component_="AsmResolver.PE.dll" FileName="ASMRES~3.DLL|AsmResolver.PE.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net35\AsmResolver.PE.dll" SelfReg="false"/>
+    <ROW File="AsmResolver.PE.File.dll" Component_="AsmResolver.PE.File.dll" FileName="ASMRES~4.DLL|AsmResolver.PE.File.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net35\AsmResolver.PE.File.dll" SelfReg="false"/>
+    <ROW File="AssetRipper.Primitives.dll" Component_="AssetRipper.Primitives.dll" FileName="ASSETR~1.DLL|AssetRipper.Primitives.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net35\AssetRipper.Primitives.dll" SelfReg="false"/>
+    <ROW File="AssetsTools.NET.dll" Component_="AssetsTools.NET.dll" FileName="ASSETS~1.DLL|AssetsTools.NET.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net35\AssetsTools.NET.dll" SelfReg="false"/>
+    <ROW File="bHapticsLib.dll" Component_="bHapticsLib.dll" FileName="BHAPTI~1.DLL|bHapticsLib.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net35\bHapticsLib.dll" SelfReg="false"/>
+    <ROW File="IndexRange.dll" Component_="IndexRange.dll" FileName="INDEXR~1.DLL|IndexRange.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net35\IndexRange.dll" SelfReg="false"/>
+    <ROW File="MelonLoader.dll" Component_="MelonLoader.dll" FileName="MELONL~1.DLL|MelonLoader.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net35\MelonLoader.dll" SelfReg="false"/>
+    <ROW File="MelonLoader.dll.mdb" Component_="MelonLoader.dll.mdb" FileName="MELONL~1.MDB|MelonLoader.dll.mdb" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net35\MelonLoader.dll.mdb" SelfReg="false"/>
+    <ROW File="MelonLoader.pdb" Component_="MelonLoader.dll" FileName="MELONL~1.PDB|MelonLoader.pdb" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net35\MelonLoader.pdb" SelfReg="false"/>
+    <ROW File="MelonLoader.xml" Component_="MelonLoader.dll.mdb" FileName="MELONL~1.XML|MelonLoader.xml" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net35\MelonLoader.xml" SelfReg="false"/>
+    <ROW File="Mono.Cecil.dll" Component_="Mono.Cecil.dll" FileName="MONOCE~1.DLL|Mono.Cecil.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net35\Mono.Cecil.dll" SelfReg="false"/>
+    <ROW File="Mono.Cecil.Mdb.dll" Component_="Mono.Cecil.Mdb.dll" FileName="MONOCE~2.DLL|Mono.Cecil.Mdb.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net35\Mono.Cecil.Mdb.dll" SelfReg="false"/>
+    <ROW File="Mono.Cecil.Pdb.dll" Component_="Mono.Cecil.Pdb.dll" FileName="MONOCE~3.DLL|Mono.Cecil.Pdb.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net35\Mono.Cecil.Pdb.dll" SelfReg="false"/>
+    <ROW File="Mono.Cecil.Rocks.dll" Component_="Mono.Cecil.Rocks.dll" FileName="MONOCE~4.DLL|Mono.Cecil.Rocks.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net35\Mono.Cecil.Rocks.dll" SelfReg="false"/>
+    <ROW File="MonoMod.Backports.dll" Component_="MonoMod.Backports.dll" FileName="MONOMO~1.DLL|MonoMod.Backports.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net35\MonoMod.Backports.dll" SelfReg="false"/>
+    <ROW File="MonoMod.exe" Component_="MonoMod.exe" FileName="MonoMod.exe" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net35\MonoMod.exe" SelfReg="false"/>
+    <ROW File="MonoMod.ILHelpers.dll" Component_="MonoMod.ILHelpers.dll" FileName="MONOMO~2.DLL|MonoMod.ILHelpers.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net35\MonoMod.ILHelpers.dll" SelfReg="false"/>
+    <ROW File="MonoMod.RuntimeDetour.dll" Component_="MonoMod.RuntimeDetour.dll" FileName="MONOMO~3.DLL|MonoMod.RuntimeDetour.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net35\MonoMod.RuntimeDetour.dll" SelfReg="false"/>
+    <ROW File="MonoMod.Utils.dll" Component_="MonoMod.Utils.dll" FileName="MONOMO~4.DLL|MonoMod.Utils.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net35\MonoMod.Utils.dll" SelfReg="false"/>
+    <ROW File="Newtonsoft.Json.dll" Component_="Newtonsoft.Json.dll" FileName="NEWTON~1.DLL|Newtonsoft.Json.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net35\Newtonsoft.Json.dll" SelfReg="false"/>
+    <ROW File="Tomlet.dll" Component_="Tomlet.dll" FileName="Tomlet.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net35\Tomlet.dll" SelfReg="false"/>
+    <ROW File="ValueTupleBridge.dll" Component_="ValueTupleBridge.dll" FileName="VALUET~1.DLL|ValueTupleBridge.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net35\ValueTupleBridge.dll" SelfReg="false"/>
+    <ROW File="WebSocketDotNet.dll" Component_="WebSocketDotNet.dll" FileName="WEBSOC~1.DLL|WebSocketDotNet.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net35\WebSocketDotNet.dll" SelfReg="false"/>
+    <ROW File="Harmony.dll_1" Component_="Harmony.dll_1" FileName="0Harmony.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\0Harmony.dll" SelfReg="false"/>
+    <ROW File="AsmResolver.dll_1" Component_="AsmResolver.dll_1" FileName="ASMRES~1.DLL|AsmResolver.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\AsmResolver.dll" SelfReg="false"/>
+    <ROW File="AsmResolver.DotNet.dll_1" Component_="AsmResolver.DotNet.dll_1" FileName="ASMRES~2.DLL|AsmResolver.DotNet.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\AsmResolver.DotNet.dll" SelfReg="false"/>
+    <ROW File="AsmResolver.PE.dll_1" Component_="AsmResolver.PE.dll_1" FileName="ASMRES~3.DLL|AsmResolver.PE.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\AsmResolver.PE.dll" SelfReg="false"/>
+    <ROW File="AsmResolver.PE.File.dll_1" Component_="AsmResolver.PE.File.dll_1" FileName="ASMRES~4.DLL|AsmResolver.PE.File.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\AsmResolver.PE.File.dll" SelfReg="false"/>
+    <ROW File="AssetRipper.Primitives.dll_1" Component_="AssetRipper.Primitives.dll_1" FileName="ASSETR~1.DLL|AssetRipper.Primitives.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\AssetRipper.Primitives.dll" SelfReg="false"/>
+    <ROW File="AssetsTools.NET.dll_1" Component_="AssetsTools.NET.dll_1" FileName="ASSETS~1.DLL|AssetsTools.NET.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\AssetsTools.NET.dll" SelfReg="false"/>
+    <ROW File="bHapticsLib.dll_1" Component_="bHapticsLib.dll_1" FileName="BHAPTI~1.DLL|bHapticsLib.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\bHapticsLib.dll" SelfReg="false"/>
+    <ROW File="Iced.dll" Component_="Iced.dll" FileName="Iced.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\Iced.dll" SelfReg="false"/>
+    <ROW File="Il2CppInterop.Common.dll" Component_="Il2CppInterop.Common.dll" FileName="IL2CPP~1.DLL|Il2CppInterop.Common.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\Il2CppInterop.Common.dll" SelfReg="false"/>
+    <ROW File="Il2CppInterop.Generator.dll" Component_="Il2CppInterop.Generator.dll" FileName="IL2CPP~2.DLL|Il2CppInterop.Generator.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\Il2CppInterop.Generator.dll" SelfReg="false"/>
+    <ROW File="Il2CppInterop.HarmonySupport.dll" Component_="Il2CppInterop.HarmonySupport.dll" FileName="IL2CPP~3.DLL|Il2CppInterop.HarmonySupport.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\Il2CppInterop.HarmonySupport.dll" SelfReg="false"/>
+    <ROW File="Il2CppInterop.Runtime.dll" Component_="Il2CppInterop.Runtime.dll" FileName="IL2CPP~4.DLL|Il2CppInterop.Runtime.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\Il2CppInterop.Runtime.dll" SelfReg="false"/>
+    <ROW File="IndexRange.dll_1" Component_="IndexRange.dll_1" FileName="INDEXR~1.DLL|IndexRange.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\IndexRange.dll" SelfReg="false"/>
+    <ROW File="MelonLoader.deps.json" Component_="MelonLoader.deps.json" FileName="MELONL~1.JSO|MelonLoader.deps.json" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\MelonLoader.deps.json" SelfReg="false"/>
+    <ROW File="MelonLoader.dll_1" Component_="MelonLoader.dll_1" FileName="MELONL~1.DLL|MelonLoader.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\MelonLoader.dll" SelfReg="false"/>
+    <ROW File="MelonLoader.NativeHost.deps.json" Component_="MelonLoader.deps.json" FileName="MELONL~2.JSO|MelonLoader.NativeHost.deps.json" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\MelonLoader.NativeHost.deps.json" SelfReg="false"/>
+    <ROW File="MelonLoader.NativeHost.dll" Component_="MelonLoader.NativeHost.dll" FileName="MELONL~2.DLL|MelonLoader.NativeHost.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\MelonLoader.NativeHost.dll" SelfReg="false"/>
+    <ROW File="MelonLoader.pdb_1" Component_="MelonLoader.dll_1" FileName="MELONL~1.PDB|MelonLoader.pdb" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\MelonLoader.pdb" SelfReg="false"/>
+    <ROW File="MelonLoader.runtimeconfig.json" Component_="MelonLoader.deps.json" FileName="MELONL~3.JSO|MelonLoader.runtimeconfig.json" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\MelonLoader.runtimeconfig.json" SelfReg="false"/>
+    <ROW File="MelonLoader.xml_1" Component_="MelonLoader.deps.json" FileName="MELONL~1.XML|MelonLoader.xml" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\MelonLoader.xml" SelfReg="false"/>
+    <ROW File="Microsoft.Bcl.AsyncInterfaces.dll" Component_="Microsoft.Bcl.AsyncInterfaces.dll" FileName="MICROS~1.DLL|Microsoft.Bcl.AsyncInterfaces.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\Microsoft.Bcl.AsyncInterfaces.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Bcl.Memory.dll" Component_="Microsoft.Bcl.Memory.dll" FileName="MICROS~2.DLL|Microsoft.Bcl.Memory.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\Microsoft.Bcl.Memory.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Diagnostics.NETCore.Client.dll" Component_="Microsoft.Diagnostics.NETCore.Client.dll" FileName="MICROS~3.DLL|Microsoft.Diagnostics.NETCore.Client.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\Microsoft.Diagnostics.NETCore.Client.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Diagnostics.Runtime.dll" Component_="Microsoft.Diagnostics.Runtime.dll" FileName="MICROS~4.DLL|Microsoft.Diagnostics.Runtime.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\Microsoft.Diagnostics.Runtime.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Configuration.Abstractions.dll" Component_="Microsoft.Extensions.Configuration.Abstractions.dll" FileName="MICROS~5.DLL|Microsoft.Extensions.Configuration.Abstractions.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\Microsoft.Extensions.Configuration.Abstractions.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Configuration.dll" Component_="Microsoft.Extensions.Configuration.dll" FileName="MICROS~6.DLL|Microsoft.Extensions.Configuration.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\Microsoft.Extensions.Configuration.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.DependencyInjection.Abstractions.dll" Component_="Microsoft.Extensions.DependencyInjection.Abstractions.dll" FileName="MICROS~7.DLL|Microsoft.Extensions.DependencyInjection.Abstractions.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\Microsoft.Extensions.DependencyInjection.Abstractions.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.DependencyInjection.dll" Component_="Microsoft.Extensions.DependencyInjection.dll" FileName="MICROS~8.DLL|Microsoft.Extensions.DependencyInjection.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\Microsoft.Extensions.DependencyInjection.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Logging.Abstractions.dll" Component_="Microsoft.Extensions.Logging.Abstractions.dll" FileName="MICROS~9.DLL|Microsoft.Extensions.Logging.Abstractions.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\Microsoft.Extensions.Logging.Abstractions.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Logging.dll" Component_="Microsoft.Extensions.Logging.dll" FileName="MICRO~10.DLL|Microsoft.Extensions.Logging.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\Microsoft.Extensions.Logging.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Options.dll" Component_="Microsoft.Extensions.Options.dll" FileName="MICRO~11.DLL|Microsoft.Extensions.Options.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\Microsoft.Extensions.Options.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Primitives.dll" Component_="Microsoft.Extensions.Primitives.dll" FileName="MICRO~12.DLL|Microsoft.Extensions.Primitives.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\Microsoft.Extensions.Primitives.dll" SelfReg="false"/>
+    <ROW File="Mono.Cecil.dll_1" Component_="Mono.Cecil.dll_1" FileName="MONOCE~1.DLL|Mono.Cecil.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\Mono.Cecil.dll" SelfReg="false"/>
+    <ROW File="Mono.Cecil.Mdb.dll_1" Component_="Mono.Cecil.Mdb.dll_1" FileName="MONOCE~2.DLL|Mono.Cecil.Mdb.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\Mono.Cecil.Mdb.dll" SelfReg="false"/>
+    <ROW File="Mono.Cecil.Pdb.dll_1" Component_="Mono.Cecil.Pdb.dll_1" FileName="MONOCE~3.DLL|Mono.Cecil.Pdb.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\Mono.Cecil.Pdb.dll" SelfReg="false"/>
+    <ROW File="Mono.Cecil.Rocks.dll_1" Component_="Mono.Cecil.Rocks.dll_1" FileName="MONOCE~4.DLL|Mono.Cecil.Rocks.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\Mono.Cecil.Rocks.dll" SelfReg="false"/>
+    <ROW File="MonoMod.Backports.dll_1" Component_="MonoMod.Backports.dll_1" FileName="MONOMO~1.DLL|MonoMod.Backports.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\MonoMod.Backports.dll" SelfReg="false"/>
+    <ROW File="MonoMod.dll" Component_="MonoMod.dll" FileName="MonoMod.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\MonoMod.dll" SelfReg="false"/>
+    <ROW File="MonoMod.ILHelpers.dll_1" Component_="MonoMod.ILHelpers.dll_1" FileName="MONOMO~2.DLL|MonoMod.ILHelpers.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\MonoMod.ILHelpers.dll" SelfReg="false"/>
+    <ROW File="MonoMod.RuntimeDetour.dll_1" Component_="MonoMod.RuntimeDetour.dll_1" FileName="MONOMO~3.DLL|MonoMod.RuntimeDetour.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\MonoMod.RuntimeDetour.dll" SelfReg="false"/>
+    <ROW File="MonoMod.Utils.dll_1" Component_="MonoMod.Utils.dll_1" FileName="MONOMO~4.DLL|MonoMod.Utils.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\MonoMod.Utils.dll" SelfReg="false"/>
+    <ROW File="Newtonsoft.Json.dll_1" Component_="Newtonsoft.Json.dll_1" FileName="NEWTON~1.DLL|Newtonsoft.Json.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\Newtonsoft.Json.dll" SelfReg="false"/>
+    <ROW File="System.Configuration.ConfigurationManager.dll" Component_="System.Configuration.ConfigurationManager.dll" FileName="SYSTEM~1.DLL|System.Configuration.ConfigurationManager.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\System.Configuration.ConfigurationManager.dll" SelfReg="false"/>
+    <ROW File="System.Diagnostics.DiagnosticSource.dll" Component_="System.Diagnostics.DiagnosticSource.dll" FileName="SYSTEM~2.DLL|System.Diagnostics.DiagnosticSource.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\System.Diagnostics.DiagnosticSource.dll" SelfReg="false"/>
+    <ROW File="System.Runtime.CompilerServices.Unsafe.dll_1" Component_="System.Runtime.CompilerServices.Unsafe.dll_1" FileName="SYSTEM~3.DLL|System.Runtime.CompilerServices.Unsafe.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\System.Runtime.CompilerServices.Unsafe.dll" SelfReg="false"/>
+    <ROW File="System.Security.Cryptography.ProtectedData.dll" Component_="System.Security.Cryptography.ProtectedData.dll" FileName="SYSTEM~4.DLL|System.Security.Cryptography.ProtectedData.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\System.Security.Cryptography.ProtectedData.dll" SelfReg="false"/>
+    <ROW File="System.Security.Permissions.dll" Component_="System.Security.Permissions.dll" FileName="SYSTEM~5.DLL|System.Security.Permissions.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\System.Security.Permissions.dll" SelfReg="false"/>
+    <ROW File="Tomlet.dll_1" Component_="Tomlet.dll_1" FileName="Tomlet.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\Tomlet.dll" SelfReg="false"/>
+    <ROW File="UnityEngine.Il2CppAssetBundleManager.deps.json" Component_="MelonLoader.deps.json" FileName="UNITYE~1.JSO|UnityEngine.Il2CppAssetBundleManager.deps.json" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\UnityEngine.Il2CppAssetBundleManager.deps.json" SelfReg="false"/>
+    <ROW File="UnityEngine.Il2CppAssetBundleManager.dll" Component_="UnityEngine.Il2CppAssetBundleManager.dll" FileName="UNITYE~1.DLL|UnityEngine.Il2CppAssetBundleManager.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\UnityEngine.Il2CppAssetBundleManager.dll" SelfReg="false"/>
+    <ROW File="UnityEngine.Il2CppAssetBundleManager.pdb" Component_="UnityEngine.Il2CppAssetBundleManager.dll" FileName="UNITYE~1.PDB|UnityEngine.Il2CppAssetBundleManager.pdb" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\UnityEngine.Il2CppAssetBundleManager.pdb" SelfReg="false"/>
+    <ROW File="UnityEngine.Il2CppImageConversionManager.deps.json" Component_="MelonLoader.deps.json" FileName="UNITYE~2.JSO|UnityEngine.Il2CppImageConversionManager.deps.json" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\UnityEngine.Il2CppImageConversionManager.deps.json" SelfReg="false"/>
+    <ROW File="UnityEngine.Il2CppImageConversionManager.dll" Component_="UnityEngine.Il2CppImageConversionManager.dll" FileName="UNITYE~2.DLL|UnityEngine.Il2CppImageConversionManager.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\UnityEngine.Il2CppImageConversionManager.dll" SelfReg="false"/>
+    <ROW File="UnityEngine.Il2CppImageConversionManager.pdb" Component_="UnityEngine.Il2CppImageConversionManager.dll" FileName="UNITYE~2.PDB|UnityEngine.Il2CppImageConversionManager.pdb" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\UnityEngine.Il2CppImageConversionManager.pdb" SelfReg="false"/>
+    <ROW File="WebSocketDotNet.dll_1" Component_="WebSocketDotNet.dll_1" FileName="WEBSOC~1.DLL|WebSocketDotNet.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\MelonLoader\net6\WebSocketDotNet.dll" SelfReg="false"/>
+    <ROW File="version.dll" Component_="version.dll" FileName="version.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\no-rest-for-the-wicked\dist\launcher\prerequisites\melonloader\version.dll" SelfReg="false"/>
+    <ROW File="README.md_5" Component_="README.md_4" FileName="README.md" Attributes="0" SourcePath="..\..\publish\installer-staging\games\phantom-blade-zero\dist\launcher\README.md" SelfReg="false"/>
+    <ROW File="launcherpackage.json_1" Component_="launcherpackage.json_1" FileName="LAUNCH~1.JSO|launcher-package.json" Attributes="0" SourcePath="..\..\publish\installer-staging\games\tiny-eden\dist\launcher\launcher-package.json" SelfReg="false"/>
+    <ROW File="VI_Translation_P.pak" Component_="VI_Translation_P.pak" FileName="VI_TRA~1.PAK|VI_Translation_P.pak" Attributes="0" SourcePath="..\..\publish\installer-staging\games\tiny-eden\dist\launcher\payload\VI_Translation_P.pak" SelfReg="false"/>
+    <ROW File="VI_Translation_P.ucas" Component_="VI_Translation_P.pak" FileName="VI_TRA~1.UCA|VI_Translation_P.ucas" Attributes="0" SourcePath="..\..\publish\installer-staging\games\tiny-eden\dist\launcher\payload\VI_Translation_P.ucas" SelfReg="false"/>
+    <ROW File="VI_Translation_P.utoc" Component_="VI_Translation_P.pak" FileName="VI_TRA~1.UTO|VI_Translation_P.utoc" Attributes="0" SourcePath="..\..\publish\installer-staging\games\tiny-eden\dist\launcher\payload\VI_Translation_P.utoc" SelfReg="false"/>
+    <ROW File="dsound.dll" Component_="dsound.dll" FileName="dsound.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\tiny-eden\dist\launcher\prerequisites\dsound.dll" SelfReg="false"/>
+    <ROW File="UniversalSigBypasser.asi" Component_="UniversalSigBypasser.asi" FileName="UNIVER~1.ASI|UniversalSigBypasser.asi" Attributes="0" SourcePath="..\..\publish\installer-staging\games\tiny-eden\dist\launcher\prerequisites\UniversalSigBypasser.asi" SelfReg="false"/>
+    <ROW File="TGLauncher.exe" Component_="TGLauncher.exe" FileName="TGLAUN~1.EXE|TGLauncher.exe" Attributes="0" SourcePath="..\..\publish\installer-staging\TGLauncher.exe" SelfReg="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
+    <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFolder="..\..\Installer" Languages="en" InstallationType="4" CabsLocation="1" PackageType="1" FilesInsideExe="true" ExeIconPath="..\..\..\images\logo\tg-minimal-logo-red.ico" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" ExtUI="true" UseLargeSchema="true" ExeName="TGLauncherSetup" MsiPackageType="x64"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
+    <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
+    <ROW Path="&lt;AI_DICTS&gt;ui_en.ail"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
+    <ROW Fragment="CommonUI.aip" Path="&lt;AI_FRAGS&gt;CommonUI.aip"/>
+    <ROW Fragment="InstallDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\InstallDlg.aip"/>
+    <ROW Fragment="LicenseAgreementDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\LicenseAgreementDlg.aip"/>
+    <ROW Fragment="MaintenanceTypeDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\MaintenanceTypeDlg.aip"/>
+    <ROW Fragment="SequenceDialogs.aip" Path="&lt;AI_THEMES&gt;surface\fragments\SequenceDialogs.aip"/>
+    <ROW Fragment="Sequences.aip" Path="&lt;AI_FRAGS&gt;Sequences.aip"/>
+    <ROW Fragment="StaticUIStrings.aip" Path="&lt;AI_FRAGS&gt;StaticUIStrings.aip"/>
+    <ROW Fragment="Themes.aip" Path="&lt;AI_FRAGS&gt;Themes.aip"/>
+    <ROW Fragment="UI.aip" Path="&lt;AI_THEMES&gt;surface\fragments\UI.aip"/>
+    <ROW Fragment="Validation.aip" Path="&lt;AI_FRAGS&gt;Validation.aip"/>
+    <ROW Fragment="VerifyRemoveDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\VerifyRemoveDlg.aip"/>
+    <ROW Fragment="VerifyRepairDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\VerifyRepairDlg.aip"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiActionTextComponent">
+    <ROW Action="AI_DeleteLzma" Description="Deleting files extracted from archive" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
+    <ROW Action="AI_DeleteRLzma" Description="Deleting files extracted from archive" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
+    <ROW Action="AI_ExtractFiles" Description="Extracting files from archive" DescriptionLocId="ActionText.Description.AI_ExtractLzma" TemplateLocId="-"/>
+    <ROW Action="AI_ExtractLzma" Description="Extracting files from archive" DescriptionLocId="ActionText.Description.AI_ExtractLzma" TemplateLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiAppSearchComponent">
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_LM" Builds="DefaultBuild"/>
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_CU" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="ExternalUICleaner.dll" SourcePath="&lt;AI_CUSTACTS&gt;ExternalUICleaner.dll"/>
+    <ROW Name="Prereq.dll" SourcePath="&lt;AI_CUSTACTS&gt;Prereq.dll"/>
+    <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
+    <ROW Name="lzmaextractor.dll" SourcePath="&lt;AI_CUSTACTS&gt;lzmaextractor.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlComponent">
+    <ROW Dialog_="CustomizeDlg" Control="CustomizeDlgDialogInitializer" Type="DialogInitializer" X="0" Y="0" Width="0" Height="0" Attributes="0" Order="-1" TextLocId="-" HelpLocId="-" ExtDataLocId="-"/>
+    <ROW Dialog_="MsiRMFilesInUse" Control="Cancel" Type="ImageButton" X="163" Y="359" Width="78" Height="28" Attributes="2" Text="[NextCancelButtons]" TextStyle="[MetroButtonText]" Order="100" MsiKey="MsiRMFilesInUse#Cancel" Options="1" ExtType="ImageButton" ExtData="[ButtonText_Cancel]" ExtDataLocId="-"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control="PatchWelcomeDlgDialogInitializer" Type="DialogInitializer" X="0" Y="0" Width="0" Height="0" Attributes="0" Order="-1" TextLocId="-" HelpLocId="-" ExtDataLocId="-"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control="ProductNameTitle" Type="Text" X="83" Y="21" Width="250" Height="80" Attributes="196611" Text="[ProductName]" TextStyle="[ProductNameForSplash]" Order="600" TextLocId="Metro.Control.Text.ProductName" MsiKey="PatchWelcomeDlg#ProductNameTitle"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control="CompanyText" Type="Text" X="83" Y="16" Width="191" Height="12" Attributes="196611" Text="[Manufacturer]" TextStyle="[ManufacturerFont]" Order="700" TextLocId="Metro.Control.Text.Manufacturer" MsiKey="PatchWelcomeDlg#CompanyText"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control="ProductLogo" Type="Bitmap" X="17" Y="5" Width="59" Height="63" Attributes="1" Text="[AppLogoIcon]" Order="800" MsiKey="PatchWelcomeDlg#ProductLogo"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="Cancel" Type="ImageButton" X="163" Y="359" Width="78" Height="28" Attributes="2" Text="[NextCancelButtons]" TextStyle="[MetroButtonText]" Order="100" MsiKey="VerifyReadyDlg#Cancel" Options="1" ExtType="ImageButton" ExtData="[ButtonText_Cancel]" ExtDataLocId="-"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="Back" Type="PushButton" X="5" Y="381" Width="11" Height="11" Attributes="2" Text="Control.Text.VerifyReadyDlg#Back" Help="Back|" Order="200" TextLocId="Control.Text.VerifyReadyDlg#Back" HelpLocId="Air.Control.Help#Back" MsiKey="VerifyReadyDlg#Back" Options="1" ExtType="PushButton" ExtData="[ButtonText_Back]" ExtDataLocId="-"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="ReadyToInstall" Type="Text" X="17" Y="105" Width="312" Height="19" Attributes="196611" Text="Ready to Install" TextStyle="[SubTitleStyle]" Order="400" TextLocId="Control.Text.VerifyReadyDlg#Title" MsiKey="VerifyReadyDlg#ReadyToInstall"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="Text_2" Type="Text" X="17" Y="139" Width="312" Height="100" Attributes="65539" Text="The [Wizard] is ready to begin the [ProductName] installation" Order="500" TextLocId="Control.Text.VerifyReadyDlg#Description" MsiKey="VerifyReadyDlg#Text_2"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="InstallButton" Type="ImageButton" X="251" Y="359" Width="78" Height="28" Attributes="3" Text="[metrobuttonimage]" TextStyle="[MetroButtonText]" Order="600" MsiKey="VerifyReadyDlg#InstallButton" ExtType="ImageButton" ExtData="INSTALL" ExtDataLocId="Metro.Control.ExtData.VerifyReadyDlg#InstallButton"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="ProductNameTitle" Type="Text" X="83" Y="21" Width="250" Height="80" Attributes="196611" Text="[ProductName]" TextStyle="[ProductNameForSplash]" Order="700" TextLocId="Metro.Control.Text.ProductName" MsiKey="VerifyReadyDlg#ProductNameTitle"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="CompanyText" Type="Text" X="83" Y="16" Width="191" Height="12" Attributes="196611" Text="[Manufacturer]" TextStyle="[ManufacturerFont]" Order="800" TextLocId="Metro.Control.Text.Manufacturer" MsiKey="VerifyReadyDlg#CompanyText"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="ProductLogo" Type="Bitmap" X="17" Y="5" Width="59" Height="63" Attributes="1" Text="[AppLogoIcon]" Order="900" MsiKey="VerifyReadyDlg#ProductLogo"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="AdvInst" Type="Text" X="5" Y="388" Width="74" Height="11" Attributes="196611" Text="Advanced Installer" TextStyle="[BrandingStyle]" Order="1000" MsiKey="VerifyReadyDlg#AdvInst"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control="Cancel" Type="ImageButton" X="163" Y="359" Width="78" Height="28" Attributes="2" Text="[NextCancelButtons]" TextStyle="[MetroButtonText]" Order="100" MsiKey="VerifyRemoveDlg#Cancel" Options="1" ExtType="ImageButton" ExtData="[ButtonText_Cancel]" ExtDataLocId="-"/>
+    <ROW Dialog_="VerifyRepairDlg" Control="Bitmap" Type="Bitmap" X="0" Y="0" Width="345" Height="400" Attributes="1" Text="[Background]" Order="100" MsiKey="VerifyRepairDlg#Bitmap"/>
+    <ROW Dialog_="VerifyRepairDlg" Control="Cancel" Type="ImageButton" X="163" Y="359" Width="78" Height="28" Attributes="2" Text="[NextCancelButtons]" TextStyle="[MetroButtonText]" Order="200" MsiKey="VerifyRepairDlg#Cancel" Options="1" ExtType="ImageButton" ExtData="[ButtonText_Cancel]" ExtDataLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
+    <ROW Dialog_="InstallDlg" Control_="Next" Event="EndDialog" Argument="Return" Condition="AI_INSTALL" Ordering="301"/>
+    <ROW Dialog_="InstallDlg" Control_="YouMustAgreeCtrl" Event="NewDialog" Argument="LicenseAgreementDlg" Condition="AI_INSTALL AND AiLicenseAgreement" Ordering="301"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control_="Back" Event="NewDialog" Argument="InstallDlg" Condition="AI_INSTALL AND AiLicenseAgreement" Ordering="1"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control_="Next" Event="EndDialog" Argument="Return" Condition="AI_INSTALL AND AiLicenseAgreement" Ordering="101"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="ChangeButton" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="501"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RemoveButton" Event="NewDialog" Argument="VerifyRemoveDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="699"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="1"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Remove" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="199" Options="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RepairButton" Event="NewDialog" Argument="VerifyRepairDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="699"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="1"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Repair" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="299" Options="1"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Modify" Event="EndDialog" Argument="Return" Condition="AI_MAINT" Ordering="101"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="EndDialog" Argument="Return" Condition="AI_PATCH" Ordering="201"/>
+    <ROW Dialog_="ResumeDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_RESUME" Ordering="99"/>
+    <ROW Dialog_="InstallDlg" Control_="Next" Event="SpawnDialog" Argument="OutOfRbDiskDlg" Condition="AI_INSTALL AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND (PROMPTROLLBACKCOST=&quot;P&quot; OR NOT PROMPTROLLBACKCOST)" Ordering="302" Options="2"/>
+    <ROW Dialog_="InstallDlg" Control_="Next" Event="EnableRollback" Argument="False" Condition="AI_INSTALL AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND PROMPTROLLBACKCOST=&quot;D&quot;" Ordering="303" Options="2"/>
+    <ROW Dialog_="InstallDlg" Control_="Next" Event="SpawnDialog" Argument="OutOfDiskDlg" Condition="AI_INSTALL AND ( (OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 1) OR (OutOfDiskSpace = 1 AND PROMPTROLLBACKCOST=&quot;F&quot;) )" Ordering="304" Options="2"/>
+    <ROW Dialog_="InstallDlg" Control_="InstallDlgDialogInitializer" Event="[AI_ButtonText_Next_Orig]" Argument="[ButtonText_Next]" Condition="AI_INSTALL" Ordering="101" Options="2"/>
+    <ROW Dialog_="InstallDlg" Control_="InstallDlgDialogInitializer" Event="[ButtonText_Next]" Argument="[[AI_CommitButton]]" Condition="AI_INSTALL" Ordering="102" Options="2"/>
+    <ROW Dialog_="InstallDlg" Control_="InstallDlgDialogInitializer" Event="[AI_Text_Next_Orig]" Argument="[Text_Next]" Condition="AI_INSTALL" Ordering="103" Options="2"/>
+    <ROW Dialog_="InstallDlg" Control_="InstallDlgDialogInitializer" Event="[Text_Next]" Argument="[Text_Install]" Condition="AI_INSTALL" Ordering="104" Options="2"/>
+    <ROW Dialog_="InstallDlg" Control_="YouMustAgreeCtrl" Event="[ButtonText_Next]" Argument="[AI_ButtonText_Next_Orig]" Condition="AI_INSTALL" Ordering="302" Options="2"/>
+    <ROW Dialog_="InstallDlg" Control_="YouMustAgreeCtrl" Event="[Text_Next]" Argument="[AI_Text_Next_Orig]" Condition="AI_INSTALL" Ordering="303" Options="2"/>
+    <ROW Dialog_="InstallDlg" Control_="Back" Event="[ButtonText_Next]" Argument="[AI_ButtonText_Next_Orig]" Condition="AI_INSTALL" Ordering="0" Options="2"/>
+    <ROW Dialog_="InstallDlg" Control_="Back" Event="[Text_Next]" Argument="[AI_Text_Next_Orig]" Condition="AI_INSTALL" Ordering="1" Options="2"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control_="Next" Event="SpawnDialog" Argument="OutOfRbDiskDlg" Condition="AI_INSTALL AND AiLicenseAgreement AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND (PROMPTROLLBACKCOST=&quot;P&quot; OR NOT PROMPTROLLBACKCOST)" Ordering="102" Options="2"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control_="Next" Event="EnableRollback" Argument="False" Condition="AI_INSTALL AND AiLicenseAgreement AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND PROMPTROLLBACKCOST=&quot;D&quot;" Ordering="103" Options="2"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control_="Next" Event="SpawnDialog" Argument="OutOfDiskDlg" Condition="AI_INSTALL AND AiLicenseAgreement AND ( (OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 1) OR (OutOfDiskSpace = 1 AND PROMPTROLLBACKCOST=&quot;F&quot;) )" Ordering="104" Options="2"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control_="LicenseAgreementDlgDialogInitializer" Event="[AI_ButtonText_Next_Orig]" Argument="[ButtonText_Next]" Condition="AI_INSTALL AND AiLicenseAgreement" Ordering="101" Options="2"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control_="LicenseAgreementDlgDialogInitializer" Event="[ButtonText_Next]" Argument="[[AI_CommitButton]]" Condition="AI_INSTALL AND AiLicenseAgreement" Ordering="102" Options="2"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control_="LicenseAgreementDlgDialogInitializer" Event="[AI_Text_Next_Orig]" Argument="[Text_Next]" Condition="AI_INSTALL AND AiLicenseAgreement" Ordering="103" Options="2"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control_="LicenseAgreementDlgDialogInitializer" Event="[Text_Next]" Argument="[Text_Install]" Condition="AI_INSTALL AND AiLicenseAgreement" Ordering="104" Options="2"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control_="Back" Event="[ButtonText_Next]" Argument="[AI_ButtonText_Next_Orig]" Condition="AI_INSTALL AND AiLicenseAgreement" Ordering="2" Options="2"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control_="Back" Event="[Text_Next]" Argument="[AI_Text_Next_Orig]" Condition="AI_INSTALL AND AiLicenseAgreement" Ordering="3" Options="2"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Modify" Event="SpawnDialog" Argument="OutOfRbDiskDlg" Condition="AI_MAINT AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND (PROMPTROLLBACKCOST=&quot;P&quot; OR NOT PROMPTROLLBACKCOST)" Ordering="102" Options="2"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Modify" Event="EnableRollback" Argument="False" Condition="AI_MAINT AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND PROMPTROLLBACKCOST=&quot;D&quot;" Ordering="103" Options="2"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Modify" Event="SpawnDialog" Argument="OutOfDiskDlg" Condition="AI_MAINT AND ( (OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 1) OR (OutOfDiskSpace = 1 AND PROMPTROLLBACKCOST=&quot;F&quot;) )" Ordering="104" Options="2"/>
+    <ROW Dialog_="CustomizeDlg" Control_="CustomizeDlgDialogInitializer" Event="[AI_ButtonText_Next_Orig]" Argument="[ButtonText_Next]" Condition="AI_MAINT" Ordering="0" Options="2"/>
+    <ROW Dialog_="CustomizeDlg" Control_="CustomizeDlgDialogInitializer" Event="[ButtonText_Next]" Argument="[[AI_CommitButton]]" Condition="AI_MAINT" Ordering="1" Options="2"/>
+    <ROW Dialog_="CustomizeDlg" Control_="CustomizeDlgDialogInitializer" Event="[AI_Text_Next_Orig]" Argument="[Text_Next]" Condition="AI_MAINT" Ordering="2" Options="2"/>
+    <ROW Dialog_="CustomizeDlg" Control_="CustomizeDlgDialogInitializer" Event="[Text_Next]" Argument="[Text_Install]" Condition="AI_MAINT" Ordering="3" Options="2"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Back" Event="[ButtonText_Next]" Argument="[AI_ButtonText_Next_Orig]" Condition="AI_MAINT" Ordering="2" Options="2"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Back" Event="[Text_Next]" Argument="[AI_Text_Next_Orig]" Condition="AI_MAINT" Ordering="3" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="SpawnDialog" Argument="OutOfRbDiskDlg" Condition="AI_PATCH AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND (PROMPTROLLBACKCOST=&quot;P&quot; OR NOT PROMPTROLLBACKCOST)" Ordering="202" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="EnableRollback" Argument="False" Condition="AI_PATCH AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND PROMPTROLLBACKCOST=&quot;D&quot;" Ordering="203" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="SpawnDialog" Argument="OutOfDiskDlg" Condition="AI_PATCH AND ( (OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 1) OR (OutOfDiskSpace = 1 AND PROMPTROLLBACKCOST=&quot;F&quot;) )" Ordering="204" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="PatchWelcomeDlgDialogInitializer" Event="[AI_ButtonText_Next_Orig]" Argument="[ButtonText_Next]" Condition="AI_PATCH" Ordering="0" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="PatchWelcomeDlgDialogInitializer" Event="[ButtonText_Next]" Argument="[[AI_CommitButton]]" Condition="AI_PATCH" Ordering="1" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="PatchWelcomeDlgDialogInitializer" Event="[AI_Text_Next_Orig]" Argument="[Text_Next]" Condition="AI_PATCH" Ordering="2" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="PatchWelcomeDlgDialogInitializer" Event="[Text_Next]" Argument="[Text_Install]" Condition="AI_PATCH" Ordering="3" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Back" Event="[ButtonText_Next]" Argument="[AI_ButtonText_Next_Orig]" Condition="AI_PATCH" Ordering="0" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Back" Event="[Text_Next]" Argument="[AI_Text_Next_Orig]" Condition="AI_PATCH" Ordering="1" Options="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
+    <ROW Directory_="SHORTCUTDIR" Component_="SHORTCUTDIR" ManualDelete="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH_ORIGINAL" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_ChooseTextStyles" Type="1" Source="aicustact.dll" Target="ChooseTextStyles"/>
+    <ROW Action="AI_DATA_SETTER" Type="51" Source="CustomActionData" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
+    <ROW Action="AI_DeleteCadLzma" Type="51" Source="AI_DeleteLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DeleteLzma" Type="1025" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
+    <ROW Action="AI_DeleteRCadLzma" Type="51" Source="AI_DeleteRLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DeleteRLzma" Type="1281" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
+    <ROW Action="AI_DoRemoveExternalUIStub" Type="3585" Source="ExternalUICleaner.dll" Target="DoRemoveExternalUIStub" WithoutSeq="true"/>
+    <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
+    <ROW Action="AI_EnableDebugLog" Type="321" Source="aicustact.dll" Target="EnableDebugLog"/>
+    <ROW Action="AI_ExtractCadLzma" Type="51" Source="AI_ExtractLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_ExtractFiles" Type="1" Source="Prereq.dll" Target="ExtractSourceFiles" AdditionalSeq="AI_DATA_SETTER"/>
+    <ROW Action="AI_ExtractLzma" Type="1025" Source="lzmaextractor.dll" Target="ExtractLZMAFiles"/>
+    <ROW Action="AI_FindExeLzma" Type="1" Source="lzmaextractor.dll" Target="FindEXE"/>
+    <ROW Action="AI_GetArpIconPath" Type="1" Source="aicustact.dll" Target="GetArpIconPath"/>
+    <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
+    <ROW Action="AI_PRESERVE_INSTALL_TYPE" Type="65" Source="aicustact.dll" Target="PreserveInstallType"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH" Target="[AI_SETUPEXEPATH_ORIGINAL]"/>
+    <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
+    <ROW Action="AI_RemoveExternalUIStub" Type="1" Source="ExternalUICleaner.dll" Target="RemoveExternalUIStub"/>
+    <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
+    <ROW Action="AI_RunFinishActions" Type="1" Source="aicustact.dll" Target="RunFinishActions" WithoutSeq="true"/>
+    <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
+    <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]" MultiBuildTarget="DefaultBuild:[ProgramFiles64Folder]TGLauncher"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]" MultiBuildTarget="DefaultBuild:[ProgramMenuFolder]TGLauncher"/>
+    <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatCompsComponent">
+    <ROW Feature_="MainFeature" Component_="ProductInformation"/>
+    <ROW Feature_="MainFeature" Component_="AI_ExePath"/>
+    <ROW Feature_="MainFeature" Component_="AI_CustomARPName"/>
+    <ROW Feature_="MainFeature" Component_="SHORTCUTDIR"/>
+    <ROW Feature_="MainFeature" Component_="README.md"/>
+    <ROW Feature_="MainFeature" Component_="README.md_1"/>
+    <ROW Feature_="MainFeature" Component_="README.md_2"/>
+    <ROW Feature_="MainFeature" Component_="README.md_3"/>
+    <ROW Feature_="MainFeature" Component_="launcherpackage.json"/>
+    <ROW Feature_="MainFeature" Component_="vidictionary.json"/>
+    <ROW Feature_="MainFeature" Component_="vidictionarybyid.json"/>
+    <ROW Feature_="MainFeature" Component_="ViTranslationMod.dll"/>
+    <ROW Feature_="MainFeature" Component_="Demeo.dll"/>
+    <ROW Feature_="MainFeature" Component_="IPA.dll"/>
+    <ROW Feature_="MainFeature" Component_="IPA.dll.mdb"/>
+    <ROW Feature_="MainFeature" Component_="Muse_Dash_Mono.dll"/>
+    <ROW Feature_="MainFeature" Component_="Stress_Level_Zero_Il2Cpp.dll"/>
+    <ROW Feature_="MainFeature" Component_="Il2CppAssemblyGenerator.deps.json"/>
+    <ROW Feature_="MainFeature" Component_="Il2CppAssemblyGenerator.dll"/>
+    <ROW Feature_="MainFeature" Component_="mscorlib.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Buffers.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Collections.Immutable.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.ComponentModel.Composition.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Configuration.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Core.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Data.DataSetExtensions.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Data.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Drawing.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.EnterpriseServices.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.IO.Compression.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.IO.Compression.FileSystem.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Memory.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Net.Http.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Numerics.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Runtime.CompilerServices.Unsafe.6.0.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Runtime.CompilerServices.Unsafe.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Runtime.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Runtime.Serialization.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Security.Cryptography.Cng.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Security.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.ServiceModel.Internals.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Transactions.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Xml.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Xml.Linq.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Configuration.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="System.Core.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="System.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="System.Xml.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="Il2Cpp.deps.json"/>
+    <ROW Feature_="MainFeature" Component_="Il2Cpp.dll"/>
+    <ROW Feature_="MainFeature" Component_="Mono.dll"/>
+    <ROW Feature_="MainFeature" Component_="CHANGELOG.md"/>
+    <ROW Feature_="MainFeature" Component_="Harmony.dll"/>
+    <ROW Feature_="MainFeature" Component_="AsmResolver.dll"/>
+    <ROW Feature_="MainFeature" Component_="AsmResolver.DotNet.dll"/>
+    <ROW Feature_="MainFeature" Component_="AsmResolver.PE.dll"/>
+    <ROW Feature_="MainFeature" Component_="AsmResolver.PE.File.dll"/>
+    <ROW Feature_="MainFeature" Component_="AssetRipper.Primitives.dll"/>
+    <ROW Feature_="MainFeature" Component_="AssetsTools.NET.dll"/>
+    <ROW Feature_="MainFeature" Component_="bHapticsLib.dll"/>
+    <ROW Feature_="MainFeature" Component_="IndexRange.dll"/>
+    <ROW Feature_="MainFeature" Component_="MelonLoader.dll"/>
+    <ROW Feature_="MainFeature" Component_="MelonLoader.dll.mdb"/>
+    <ROW Feature_="MainFeature" Component_="Mono.Cecil.dll"/>
+    <ROW Feature_="MainFeature" Component_="Mono.Cecil.Mdb.dll"/>
+    <ROW Feature_="MainFeature" Component_="Mono.Cecil.Pdb.dll"/>
+    <ROW Feature_="MainFeature" Component_="Mono.Cecil.Rocks.dll"/>
+    <ROW Feature_="MainFeature" Component_="MonoMod.Backports.dll"/>
+    <ROW Feature_="MainFeature" Component_="MonoMod.exe"/>
+    <ROW Feature_="MainFeature" Component_="MonoMod.ILHelpers.dll"/>
+    <ROW Feature_="MainFeature" Component_="MonoMod.RuntimeDetour.dll"/>
+    <ROW Feature_="MainFeature" Component_="MonoMod.Utils.dll"/>
+    <ROW Feature_="MainFeature" Component_="Newtonsoft.Json.dll"/>
+    <ROW Feature_="MainFeature" Component_="Tomlet.dll"/>
+    <ROW Feature_="MainFeature" Component_="ValueTupleBridge.dll"/>
+    <ROW Feature_="MainFeature" Component_="WebSocketDotNet.dll"/>
+    <ROW Feature_="MainFeature" Component_="Harmony.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="AsmResolver.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="AsmResolver.DotNet.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="AsmResolver.PE.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="AsmResolver.PE.File.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="AssetRipper.Primitives.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="AssetsTools.NET.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="bHapticsLib.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="Iced.dll"/>
+    <ROW Feature_="MainFeature" Component_="Il2CppInterop.Common.dll"/>
+    <ROW Feature_="MainFeature" Component_="Il2CppInterop.Generator.dll"/>
+    <ROW Feature_="MainFeature" Component_="Il2CppInterop.HarmonySupport.dll"/>
+    <ROW Feature_="MainFeature" Component_="Il2CppInterop.Runtime.dll"/>
+    <ROW Feature_="MainFeature" Component_="IndexRange.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="MelonLoader.deps.json"/>
+    <ROW Feature_="MainFeature" Component_="MelonLoader.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="MelonLoader.NativeHost.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.Bcl.AsyncInterfaces.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.Bcl.Memory.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.Diagnostics.NETCore.Client.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.Diagnostics.Runtime.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.Extensions.Configuration.Abstractions.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.Extensions.Configuration.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.Extensions.DependencyInjection.Abstractions.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.Extensions.DependencyInjection.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.Extensions.Logging.Abstractions.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.Extensions.Logging.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.Extensions.Options.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.Extensions.Primitives.dll"/>
+    <ROW Feature_="MainFeature" Component_="Mono.Cecil.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="Mono.Cecil.Mdb.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="Mono.Cecil.Pdb.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="Mono.Cecil.Rocks.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="MonoMod.Backports.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="MonoMod.dll"/>
+    <ROW Feature_="MainFeature" Component_="MonoMod.ILHelpers.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="MonoMod.RuntimeDetour.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="MonoMod.Utils.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="Newtonsoft.Json.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="System.Configuration.ConfigurationManager.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Diagnostics.DiagnosticSource.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Runtime.CompilerServices.Unsafe.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="System.Security.Cryptography.ProtectedData.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Security.Permissions.dll"/>
+    <ROW Feature_="MainFeature" Component_="Tomlet.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="UnityEngine.Il2CppAssetBundleManager.dll"/>
+    <ROW Feature_="MainFeature" Component_="UnityEngine.Il2CppImageConversionManager.dll"/>
+    <ROW Feature_="MainFeature" Component_="WebSocketDotNet.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="version.dll"/>
+    <ROW Feature_="MainFeature" Component_="README.md_4"/>
+    <ROW Feature_="MainFeature" Component_="launcherpackage.json_1"/>
+    <ROW Feature_="MainFeature" Component_="VI_Translation_P.pak"/>
+    <ROW Feature_="MainFeature" Component_="dsound.dll"/>
+    <ROW Feature_="MainFeature" Component_="UniversalSigBypasser.asi"/>
+    <ROW Feature_="MainFeature" Component_="TGLauncher.exe"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
+    <ROW Name="tgminimallogored.exe" SourcePath="..\..\..\images\logo\tg-minimal-logo-red.ico" Index="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
+    <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_STORE_LOCATION" Condition="(Not Installed) OR REINSTALL" Sequence="1502"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1397"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99" Builds="DefaultBuild"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="101" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="199" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteRCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="198" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="197" Builds="DefaultBuild"/>
+    <ROW Action="AI_FindExeLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="196" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="1549" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteRLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="1548" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="6599" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractFiles" Sequence="1399" Builds="DefaultBuild"/>
+    <ROW Action="AI_DATA_SETTER" Sequence="1398"/>
+    <ROW Action="AI_GetArpIconPath" Sequence="1401"/>
+    <ROW Action="AI_RemoveExternalUIStub" Condition="(REMOVE=&quot;ALL&quot;) AND ((VersionNT &gt; 500) OR((VersionNT = 500) AND (ServicePackLevel &gt;= 4)))" Sequence="1501"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ROW Action="AI_PRESERVE_INSTALL_TYPE" Sequence="199"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="53"/>
+    <ROW Action="AI_DpiContentScale" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="101"/>
+    <ROW Action="InstallDlg" Condition="AI_INSTALL" Sequence="1230" SeqType="3" MsiKey="WelcomeDlg"/>
+    <ROW Action="MaintenanceTypeDlg" Condition="AI_MAINT" Sequence="1250" SeqType="3" MsiKey="MaintenanceTypeDlg"/>
+    <ROW Action="AI_ChooseTextStyles" Sequence="74"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
+    <ROW Condition="((VersionNT &lt;&gt; 501) AND (VersionNT &lt;&gt; 502))" Description="[ProductName] cannot be installed on [WindowsTypeNT5XDisplay]." DescriptionLocId="AI.LaunchCondition.NoNT5X" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 400)" Description="[ProductName] cannot be installed on [WindowsTypeNT40Display]." DescriptionLocId="AI.LaunchCondition.NoNT40" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 500)" Description="[ProductName] cannot be installed on [WindowsTypeNT50Display]." DescriptionLocId="AI.LaunchCondition.NoNT50" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="SETUPEXEDIR OR (REMOVE=&quot;ALL&quot;)" Description="This package can only be run from a bootstrapper." DescriptionLocId="AI.LaunchCondition.RequireBootstrapper" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="VersionNT" Description="[ProductName] cannot be installed on [WindowsType9XDisplay]." DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegLocatorComponent">
+    <ROW Signature_="AI_EXE_PATH_CU" Root="1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
+    <ROW Signature_="AI_EXE_PATH_LM" Root="2" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegsComponent">
+    <ROW Registry="AI_ExePath" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Value="[AI_SETUPEXEPATH]" Component_="AI_ExePath"/>
+    <ROW Registry="AdvancedInstaller" Root="-1" Key="Software\Caphyon\Advanced Installer" Name="\"/>
+    <ROW Registry="Caphyon" Root="-1" Key="Software\Caphyon" Name="\"/>
+    <ROW Registry="Comments" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="Comments" Value="[ARPCOMMENTS]" Component_="AI_CustomARPName"/>
+    <ROW Registry="Contact" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="Contact" Value="[ARPCONTACT]" Component_="AI_CustomARPName"/>
+    <ROW Registry="CurrentVersion" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion" Name="\"/>
+    <ROW Registry="DisplayIcon" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="DisplayIcon" Value="[ARP_ICON_PATH]" Component_="AI_CustomARPName"/>
+    <ROW Registry="DisplayName" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="DisplayName" Value="[AI_PRODUCTNAME_ARP]" Component_="AI_CustomARPName"/>
+    <ROW Registry="DisplayVersion" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="DisplayVersion" Value="[ProductVersion]" Component_="AI_CustomARPName"/>
+    <ROW Registry="EstimatedSize" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="EstimatedSize" Value="#[AI_ARP_SIZE]" Component_="AI_CustomARPName" VirtualValue="#"/>
+    <ROW Registry="HelpLink" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="HelpLink" Value="[ARPHELPLINK]" Component_="AI_CustomARPName"/>
+    <ROW Registry="HelpTelephone" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="HelpTelephone" Value="[ARPHELPTELEPHONE]" Component_="AI_CustomARPName"/>
+    <ROW Registry="InstallLocation" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="InstallLocation" Value="[APPDIR]" Component_="AI_CustomARPName"/>
+    <ROW Registry="LZMA" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA" Name="\"/>
+    <ROW Registry="Manufacturer" Root="-1" Key="Software\[Manufacturer]" Name="\"/>
+    <ROW Registry="Microsoft" Root="-1" Key="Software\Microsoft" Name="\"/>
+    <ROW Registry="ModifyPath" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="ModifyPath" Value="[AI_UNINSTALLER] /i [ProductCode] AI_UNINSTALLER_CTP=1" Component_="AI_CustomARPName"/>
+    <ROW Registry="NoRepair" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="NoRepair" Value="#1" Component_="AI_CustomARPName" VirtualValue="#"/>
+    <ROW Registry="Path" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Path" Value="[APPDIR]" Component_="ProductInformation"/>
+    <ROW Registry="ProductCode" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]" Name="\"/>
+    <ROW Registry="ProductName" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="\"/>
+    <ROW Registry="ProductNameProductVersion" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="\"/>
+    <ROW Registry="ProductVersion" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="\"/>
+    <ROW Registry="Publisher" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="Publisher" Value="[Manufacturer]" Component_="AI_CustomARPName"/>
+    <ROW Registry="Readme" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="Readme" Value="[ARPREADME]" Component_="AI_CustomARPName"/>
+    <ROW Registry="Software" Root="-1" Key="Software" Name="\"/>
+    <ROW Registry="URLInfoAbout" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="URLInfoAbout" Value="[ARPURLINFOABOUT]" Component_="AI_CustomARPName"/>
+    <ROW Registry="URLUpdateInfo" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="URLUpdateInfo" Value="[ARPURLUPDATEINFO]" Component_="AI_CustomARPName"/>
+    <ROW Registry="Uninstall" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall" Name="\"/>
+    <ROW Registry="UninstallPath" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="UninstallPath" Value="[AI_UNINSTALLER] /x [ProductCode] AI_UNINSTALLER_CTP=1" Component_="AI_CustomARPName"/>
+    <ROW Registry="UninstallString" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="UninstallString" Value="[AI_UNINSTALLER] /x [ProductCode] AI_UNINSTALLER_CTP=1" Component_="AI_CustomARPName"/>
+    <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
+    <ROW Registry="VersionMajor" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="VersionMajor" Value="#1" Component_="AI_CustomARPName" VirtualValue="#"/>
+    <ROW Registry="VersionMinor" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="VersionMinor" Value="#0" Component_="AI_CustomARPName" VirtualValue="#"/>
+    <ROW Registry="Windows" Root="-1" Key="Software\Microsoft\Windows" Name="\"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
+    <ROW Shortcut="TGLauncher" Directory_="SHORTCUTDIR" Name="TGLAUN~1|TGLauncher" Component_="TGLauncher.exe" Target="[#TGLauncher.exe]" Description="Mở TG Launcher" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
+    <ROW Shortcut="TGLauncher.exe" Directory_="DesktopFolder" Name="TGLAUN~1.EXE|TGLauncher.exe" Component_="TGLauncher.exe" Target="[#TGLauncher.exe]" Description="Mở TG Launcher" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiTextStyleComponent">
+    <ROW TextStyle="BrandingStyle" FaceName="Segoe UI" Size="8" Color="2171376" MultiBuildColor="DefaultBuild:15395562" StyleBits="0" MsiKey="BrandingStyle"/>
+    <ROW TextStyle="DlgFont8" FaceName="Segoe UI" Size="11" Color="14079702" MultiBuildColor="DefaultBuild:4473924" StyleBits="0" MsiKey="DlgFont8"/>
+    <ROW TextStyle="ImageButton" FaceName="Segoe UI" Size="11" Color="14079702" MultiBuildColor="DefaultBuild:8289918" StyleBits="1" MsiKey="ImageButton"/>
+    <ROW TextStyle="InputCtrlFont" FaceName="Segoe UI" Size="8" Color="16777215" MultiBuildColor="DefaultBuild:8289918" StyleBits="0" MsiKey="InputCtrlFont"/>
+    <ROW TextStyle="Manufacturer" FaceName="Verdana" Size="10" Color="16777215" MultiBuildColor="DefaultBuild:37955" StyleBits="0" MsiKey="Manufacturer"/>
+    <ROW TextStyle="MetroInstallButton" FaceName="Segoe UI" Size="22" Color="14079702" MultiBuildColor="DefaultBuild:35647" StyleBits="0" MsiKey="MetroInstallButton"/>
+    <ROW TextStyle="ProductNameForSplash" FaceName="Segoe UI Symbol" Size="30" Color="16777215" MultiBuildColor="DefaultBuild:4473924" StyleBits="1" MsiKey="ProductNameForSplash"/>
+    <ROW TextStyle="SubTitle" FaceName="Segoe UI" Size="14" Color="14079702" MultiBuildColor="DefaultBuild:8289918" StyleBits="0" MsiKey="SubTitle"/>
+    <ROW TextStyle="SubnoteFont" FaceName="Segoe UI" Size="8" Color="9671571" MultiBuildColor="DefaultBuild:14079702" StyleBits="0" MsiKey="SubnoteFont"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
+    <ATTRIBUTE name="UsedTheme" value="surface"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="0.0.1" VersionMax="[|ProductVersion]" Attributes="257" ActionProperty="OLDPRODUCTS"/>
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.SynchronizedFolderComponent">
+    <ROW Directory_="APPDIR" SourcePath="..\..\publish\installer-staging" Feature="MainFeature"/>
+  </COMPONENT>
+</DOCUMENT>

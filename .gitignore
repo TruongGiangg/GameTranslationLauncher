@@ -1,0 +1,19 @@
+# Build outputs
+[Bb]in/
+[Oo]bj/
+/App/
+/publish/
+/installer/
+.ui-verification/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Advanced Installer build cache (regenerated on build, huge, binary)
+build/installer/*-cache/
+
+# OS junk
+Thumbs.db
+.DS_Store

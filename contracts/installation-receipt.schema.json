@@ -1,0 +1,195 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:game-translation-launcher:schema:installation-receipt:1",
+  "title": "Game Translation Launcher installation receipt",
+  "description": "Trạng thái đã commit của một package trên một thư mục game cụ thể.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "installationId",
+    "gameId",
+    "gameRoot",
+    "packageVersion",
+    "packageManifestSha256",
+    "launcherVersion",
+    "completedAtUtc",
+    "createdDirectories",
+    "files"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "installationId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "gameId": {
+      "$ref": "#/$defs/gameId"
+    },
+    "gameRoot": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32767
+    },
+    "packageVersion": {
+      "$ref": "#/$defs/semanticVersion"
+    },
+    "packageManifestSha256": {
+      "$ref": "#/$defs/sha256"
+    },
+    "launcherVersion": {
+      "$ref": "#/$defs/semanticVersion"
+    },
+    "completedAtUtc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "createdDirectories": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/relativePath"
+      }
+    },
+    "files": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/installedFile"
+      }
+    }
+  },
+  "$defs": {
+    "gameId": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "maxLength": 80
+    },
+    "semanticVersion": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$",
+      "maxLength": 80
+    },
+    "relativePath": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024,
+      "pattern": "^(?!/)(?!.*\\\\)(?!.*//)(?!.*/$)(?!.*(?:^|/)\\.\\.?(?:/|$))(?!.*:)[^\\u0000]+$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "installedFile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "destination",
+        "installedSha256",
+        "installedSizeBytes",
+        "role",
+        "ownership"
+      ],
+      "properties": {
+        "destination": {
+          "$ref": "#/$defs/relativePath"
+        },
+        "installedSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "installedSizeBytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "role": {
+          "enum": [
+            "translation",
+            "companion",
+            "prerequisite"
+          ]
+        },
+        "prerequisiteId": {
+          "$ref": "#/$defs/gameId"
+        },
+        "ownership": {
+          "enum": [
+            "created",
+            "replaced",
+            "preserved"
+          ]
+        },
+        "backupRelativePath": {
+          "$ref": "#/$defs/relativePath"
+        },
+        "originalSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "originalSizeBytes": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "role": {
+                "const": "prerequisite"
+              }
+            },
+            "required": [
+              "role"
+            ]
+          },
+          "then": {
+            "required": [
+              "prerequisiteId"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "ownership": {
+                "const": "replaced"
+              }
+            },
+            "required": [
+              "ownership"
+            ]
+          },
+          "then": {
+            "required": [
+              "backupRelativePath",
+              "originalSha256",
+              "originalSizeBytes"
+            ]
+          },
+          "else": {
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "backupRelativePath"
+                  ]
+                },
+                {
+                  "required": [
+                    "originalSha256"
+                  ]
+                },
+                {
+                  "required": [
+                    "originalSizeBytes"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,275 @@
+<UserControl x:Class="GameTranslationLauncher.Wpf.Views.GameDetailsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+    <Grid ClipToBounds="True">
+        <Rectangle Fill="{Binding Details.HeroBrush}" />
+        <ContentControl Content="{Binding Details.HeroImage}"
+                        HorizontalContentAlignment="Stretch"
+                        VerticalContentAlignment="Stretch">
+            <ContentControl.ContentTemplate>
+                <DataTemplate>
+                    <Image Source="{Binding}" Stretch="Fill" Opacity="0">
+                        <Image.Triggers>
+                            <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                         To="1"
+                                                         Duration="0:0:0.45" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Image.Triggers>
+                    </Image>
+                </DataTemplate>
+            </ContentControl.ContentTemplate>
+        </ContentControl>
+        <Rectangle>
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="0" Color="#0808090A" />
+                    <GradientStop Offset="0.48" Color="#1A08090A" />
+                    <GradientStop Offset="0.70" Color="#A808090A" />
+                    <GradientStop Offset="1" Color="#F508090A" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Grid Margin="56,42,56,40" VerticalAlignment="Bottom">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <TextBlock HorizontalAlignment="Left"
+                               Foreground="White"
+                               FontSize="{Binding Details.DisplayNameFontSize}"
+                               FontWeight="ExtraBold"
+                               Text="{Binding Details.DisplayName}"
+                               TextAlignment="Left"
+                               TextTrimming="CharacterEllipsis" />
+                </StackPanel>
+                <Border Grid.Column="1"
+                        Padding="16,8"
+                        VerticalAlignment="Top"
+                        Background="#9C151619"
+                        BorderBrush="#66F5F5F5"
+                        BorderThickness="1"
+                        CornerRadius="20">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="0,0,7,0"
+                                   Foreground="{StaticResource BrushTextPrimary}"
+                                   FontWeight="Bold"
+                                   Text="{Binding Details.StatusGlyph}" />
+                        <TextBlock Foreground="{StaticResource BrushTextPrimary}"
+                                   FontSize="11.5"
+                                   FontWeight="Bold"
+                                   Text="{Binding Details.StatusLabel}" />
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <TextBlock Grid.Row="1"
+                       Width="620"
+                       Margin="0,12,0,0"
+                       HorizontalAlignment="Left"
+                       Foreground="#BDF5F5F5"
+                       FontSize="13"
+                       LineHeight="20"
+                       Text="{Binding Details.Description}"
+                       TextAlignment="Left"
+                       TextWrapping="Wrap" />
+
+            <Border Grid.Row="2"
+                    Width="620"
+                    Margin="0,14,0,0"
+                    HorizontalAlignment="Left"
+                    Padding="12,8"
+                    Background="#B8151619"
+                    BorderBrush="#75D6A351"
+                    BorderThickness="1"
+                    CornerRadius="7"
+                    Visibility="{Binding Details.HasPrerequisiteNotice, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Margin="0,0,9,0"
+                               VerticalAlignment="Top"
+                               Foreground="#F0D6A351"
+                               FontSize="14"
+                               FontWeight="Bold"
+                               Text="!" />
+                    <TextBlock Grid.Column="1"
+                               Foreground="#E6F5F5F5"
+                               FontSize="11.5"
+                               LineHeight="17"
+                               Text="{Binding Details.PrerequisiteNotice}"
+                               TextWrapping="Wrap" />
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="3" Height="1" Margin="0,20,0,20" Background="#22FFFFFF" />
+
+            <StackPanel Grid.Row="4" Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Foreground="{StaticResource BrushTextMuted}" Text="▣" />
+                    <TextBlock Margin="7,0,0,0" Foreground="{StaticResource BrushTextMuted}" FontSize="12.5" Text="{Binding Settings.Text.Application.SupportCaption}" />
+                    <TextBlock Foreground="{StaticResource BrushTextMuted}" FontSize="12.5" Text="{Binding Details.SupportText}" />
+                </StackPanel>
+                <Border Width="1" Height="13" Margin="20,0" Background="#26FFFFFF" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Foreground="{StaticResource BrushTextMuted}" Text="◎" />
+                    <TextBlock Margin="7,0,0,0" Foreground="{StaticResource BrushTextMuted}" FontSize="12.5" Text="{Binding Settings.Text.Application.LanguageCaption}" />
+                    <TextBlock Foreground="{StaticResource BrushTextMuted}" FontSize="12.5" Text="{Binding Details.LanguageText}" />
+                </StackPanel>
+                <Border Width="1" Height="13" Margin="20,0" Background="#26FFFFFF" />
+                <TextBlock Foreground="{StaticResource BrushTextMuted}" FontSize="12.5" Text="{Binding Details.Subtitle}" />
+                <Border Width="1" Height="13" Margin="20,0" Background="#26FFFFFF" />
+                <TextBlock Foreground="{StaticResource BrushTextMuted}" FontSize="12.5" Text="{Binding Settings.Text.Application.VerifiedCaption}" />
+                <TextBlock Foreground="{StaticResource BrushTextMuted}" FontSize="12.5" Text="{Binding Details.VerifiedDateText}" />
+            </StackPanel>
+
+            <Grid Grid.Row="5" Margin="0,22,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal">
+                    <Border MinWidth="142"
+                            Padding="16,10"
+                            Background="{StaticResource BrushPanel}"
+                            BorderBrush="#B3313237"
+                            BorderThickness="1"
+                            CornerRadius="10">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin="0,0,10,0" VerticalAlignment="Center" Foreground="{StaticResource BrushTextMuted}" FontSize="18" Text="✓" />
+                            <StackPanel>
+                                <TextBlock Foreground="{StaticResource BrushTextMuted}" FontSize="10" Text="{Binding Settings.Text.Application.StatusCaption}" />
+                                <TextBlock Foreground="{StaticResource BrushTextPrimary}" FontSize="11" FontWeight="Bold" Text="{Binding Details.TranslationStatusText}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                    <Border MinWidth="150"
+                            Margin="12,0,0,0"
+                            Padding="16,10"
+                            Background="{StaticResource BrushPanel}"
+                            BorderBrush="#B3313237"
+                            BorderThickness="1"
+                            CornerRadius="10">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin="0,0,10,0" VerticalAlignment="Center" Foreground="{StaticResource BrushTextMuted}" FontSize="18" Text="▣" />
+                            <StackPanel>
+                                <TextBlock Foreground="{StaticResource BrushTextMuted}" FontSize="10" Text="{Binding Settings.Text.Application.SizeCaption}" />
+                                <TextBlock Foreground="{StaticResource BrushTextPrimary}" FontSize="11" FontWeight="Bold" Text="{Binding Details.PackageSizeText}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                    <Border MinWidth="170"
+                            Margin="12,0,0,0"
+                            Padding="16,10"
+                            Background="{StaticResource BrushPanel}"
+                            BorderBrush="#B3313237"
+                            BorderThickness="1"
+                            CornerRadius="10">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin="0,0,10,0" VerticalAlignment="Center" Foreground="{StaticResource BrushTextMuted}" FontSize="18" Text="✓" />
+                            <StackPanel>
+                                <TextBlock Foreground="{StaticResource BrushTextMuted}" FontSize="10" Text="{Binding Settings.Text.Application.PackageCaption}" />
+                                <TextBlock Foreground="{StaticResource BrushTextPrimary}" FontSize="11" FontWeight="Bold" Text="{Binding Details.FilesText}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1"
+                            Orientation="Horizontal"
+                            Visibility="{Binding Details.HasTranslationActions, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <Button Command="{Binding Operations.PrimaryActionCommand}" Style="{StaticResource PrimaryActionButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin="0,0,8,0" FontSize="15" Text="▶" />
+                            <TextBlock Text="{Binding Details.PrimaryActionLabel}" />
+                        </StackPanel>
+                    </Button>
+                    <Button Margin="12,0,0,0"
+                            Command="{Binding Operations.SecondaryActionCommand}"
+                            Style="{StaticResource SecondaryActionButton}"
+                            Visibility="{Binding Details.HasSecondaryAction, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Update"
+                                                    Width="17"
+                                                    Height="17"
+                                                    Margin="0,0,8,0"
+                                                    Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}" />
+                            <TextBlock Text="{Binding Details.SecondaryActionLabel}" />
+                        </StackPanel>
+                    </Button>
+                    <Button Margin="12,0,0,0"
+                            Command="{Binding Operations.TertiaryActionCommand}"
+                            Style="{StaticResource SecondaryActionButton}"
+                            Visibility="{Binding Details.HasTertiaryAction, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="FolderOpen"
+                                                    Width="17"
+                                                    Height="17"
+                                                    Margin="0,0,8,0"
+                                                    Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}" />
+                            <TextBlock Text="{Binding Details.TertiaryActionLabel}" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+            <StackPanel Grid.Row="6" Margin="0,14,0,0" Orientation="Horizontal">
+                <Button Command="{Binding Operations.ChooseFolderCommand}"
+                        Style="{StaticResource TextActionButton}"
+                        Visibility="{Binding Details.HasGameRoot, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="0,0,6,0" Text="⌁" />
+                        <TextBlock Text="{Binding Details.FolderActionLabel}" />
+                    </StackPanel>
+                </Button>
+                <Button Margin="18,0,0,0"
+                        Command="{Binding Operations.UninstallCommand}"
+                        Style="{StaticResource DangerTextActionButton}"
+                        Visibility="{Binding Operations.CanUninstall, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="0,0,6,0" Text="×" />
+                        <TextBlock Text="{Binding Settings.Text.Application.UninstallTranslation}" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
+            <TextBlock Grid.Row="7"
+                       Margin="0,12,0,0"
+                       FontSize="11.5"
+                       Text="{Binding Operations.OperationMessage}"
+                       TextWrapping="Wrap">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Foreground" Value="{StaticResource BrushTextMuted}" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Operations.IsOperationError}" Value="True">
+                                <Setter Property="Foreground" Value="#FFD28A8A" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </Grid>
+    </Grid>
+</UserControl>
