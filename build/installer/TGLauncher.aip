@@ -22,10 +22,10 @@
     <ROW Property="ARPPRODUCTICON" Value="tgminimallogored.exe" Type="8"/>
     <ROW Property="ARPSYSTEMCOMPONENT" Value="1"/>
     <ROW Property="Manufacturer" Value="TGLauncher"/>
-    <ROW Property="ProductCode" Value="1033:{15A58220-7C3B-4C2F-9C8E-0EE84187A532} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{F7DDEB89-FE68-4603-8EED-D17467F27718} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="TGLauncher"/>
-    <ROW Property="ProductVersion" Value="1.0.1" Options="32"/>
+    <ROW Property="ProductVersion" Value="1.0.2" Options="32"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
     <ROW Property="UpgradeCode" Value="{36AC48D4-E47D-4F21-BDCF-0B7FD70B75CB}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>

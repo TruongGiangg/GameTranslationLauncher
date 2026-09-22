@@ -142,7 +142,9 @@ public static class LauncherTextFactory
         "Bạn cần cập nhật lên bản mới nhất để tiếp tục sử dụng Launcher.",
         "Không thể tải bản cập nhật. Kiểm tra kết nối mạng rồi thử lại.",
         "Windows không thể khởi chạy bộ cài đặt vừa tải về.",
-        "File tải về không hợp lệ. Vui lòng thử lại.");
+        "File tải về không hợp lệ. Vui lòng thử lại.",
+        "Đang cài đặt — hoàn tất bộ cài, Launcher sẽ tự mở lại…",
+        "Cài đặt chưa hoàn tất. Vui lòng thử lại.");
 
     private static LauncherUpdateText CreateEnglishUpdateText() => new(
         "Launcher update {0} is available",
@@ -150,5 +152,7 @@ public static class LauncherTextFactory
         "You must update to the latest version to keep using the Launcher.",
         "Unable to download the update. Check your connection and try again.",
         "Windows could not launch the downloaded installer.",
-        "The downloaded file is invalid. Please try again.");
+        "The downloaded file is invalid. Please try again.",
+        "Installing — finish the installer and the Launcher will reopen automatically…",
+        "Installation was not completed. Please try again.");
 }
