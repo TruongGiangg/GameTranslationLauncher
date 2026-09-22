@@ -26,6 +26,14 @@
                             </Setter>
                             <Setter Property="IsHitTestVisible" Value="False" />
                         </DataTrigger>
+                        <DataTrigger Binding="{Binding Update.IsUpdateAvailable}" Value="True">
+                            <Setter Property="Effect">
+                                <Setter.Value>
+                                    <BlurEffect Radius="6" />
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="IsHitTestVisible" Value="False" />
+                        </DataTrigger>
                     </Style.Triggers>
                 </Style>
             </Grid.Style>
@@ -410,6 +418,74 @@
                             <TextBlock Text="{Binding Operations.ConfirmationActionLabel}" />
                         </Button>
                     </StackPanel>
+                </StackPanel>
+            </Border>
+        </Border>
+
+        <Border Panel.ZIndex="40"
+                Background="#D808090A"
+                Visibility="{Binding Update.IsUpdateAvailable, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <Border Width="520"
+                    Padding="30"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="{StaticResource BrushPanel}"
+                    BorderBrush="#8CF5F5F5"
+                    BorderThickness="1"
+                    CornerRadius="14"
+                    Opacity="0">
+                <Border.Triggers>
+                    <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.2" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Border.Triggers>
+                <StackPanel>
+                    <TextBlock Foreground="{StaticResource BrushTextPrimary}"
+                               FontSize="21"
+                               FontWeight="Bold"
+                               Text="{Binding Update.LatestVersionLabel}" />
+                    <TextBlock Margin="0,10,0,0"
+                               Foreground="{StaticResource BrushTextMuted}"
+                               FontSize="13"
+                               Text="{Binding Update.MandatoryNoticeLabel}"
+                               TextWrapping="Wrap" />
+                    <Border Margin="0,18,0,0"
+                            Padding="14"
+                            MaxHeight="220"
+                            Background="{StaticResource BrushSidebar}"
+                            BorderBrush="#40F5F5F5"
+                            BorderThickness="1"
+                            CornerRadius="8"
+                            Visibility="{Binding Update.ReleaseNotes, Converter={StaticResource StringToVisibilityConverter}}">
+                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                            <TextBlock Foreground="{StaticResource BrushTextPrimary}"
+                                       FontSize="13"
+                                       LineHeight="20"
+                                       Text="{Binding Update.ReleaseNotes}"
+                                       TextWrapping="Wrap" />
+                        </ScrollViewer>
+                    </Border>
+                    <ProgressBar Height="6"
+                                 Margin="0,18,0,0"
+                                 Minimum="0"
+                                 Maximum="100"
+                                 Value="{Binding Update.DownloadProgress, Mode=OneWay}"
+                                 Visibility="{Binding Update.IsDownloading, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <TextBlock Margin="0,10,0,0"
+                               Foreground="{StaticResource BrushTextMuted}"
+                               FontSize="12"
+                               Text="{Binding Update.StatusMessage}" />
+                    <Button Margin="0,20,0,0"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Center"
+                            Command="{Binding Update.DownloadAndInstallCommand}"
+                            Style="{StaticResource PrimaryActionButton}">
+                        <TextBlock Text="{Binding Update.DownloadAndInstallLabel}" />
+                    </Button>
                 </StackPanel>
             </Border>
         </Border>

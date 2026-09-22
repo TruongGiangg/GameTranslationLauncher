@@ -19,6 +19,7 @@ public sealed class GameLibraryViewModel : ObservableObject
     private readonly GamePresentationResolver presentationResolver;
     private readonly GameOperationViewModel operations;
     private readonly LauncherSettingsViewModel settings;
+    private readonly UpdateViewModel update;
     private GameLibraryItemViewModel? selectedGame;
     private bool isLoading;
     private bool isSettingsVisible;
@@ -35,7 +36,8 @@ public sealed class GameLibraryViewModel : ObservableObject
         GameArtworkResolver artworkResolver,
         GamePresentationResolver presentationResolver,
         GameOperationViewModel operations,
-        LauncherSettingsViewModel settings)
+        LauncherSettingsViewModel settings,
+        UpdateViewModel update)
     {
         this.loadCatalogUseCase = loadCatalogUseCase ?? throw new ArgumentNullException(nameof(loadCatalogUseCase));
         this.checkGameStatusUseCase = checkGameStatusUseCase ?? throw new ArgumentNullException(nameof(checkGameStatusUseCase));
@@ -43,6 +45,7 @@ public sealed class GameLibraryViewModel : ObservableObject
         this.presentationResolver = presentationResolver ?? throw new ArgumentNullException(nameof(presentationResolver));
         this.operations = operations ?? throw new ArgumentNullException(nameof(operations));
         this.settings = settings ?? throw new ArgumentNullException(nameof(settings));
+        this.update = update ?? throw new ArgumentNullException(nameof(update));
         Details = new GameDetailsViewModel();
         FilteredGames = CollectionViewSource.GetDefaultView(Games);
         FilteredGames.Filter = MatchesSearch;
@@ -84,6 +87,8 @@ public sealed class GameLibraryViewModel : ObservableObject
     public GameOperationViewModel Operations => operations;
 
     public LauncherSettingsViewModel Settings => settings;
+
+    public UpdateViewModel Update => update;
 
     public ICommand RefreshCatalogCommand { get; }
 
@@ -168,6 +173,12 @@ public sealed class GameLibraryViewModel : ObservableObject
 
     public Task InitializeAsync() => settings.InitializeAsync();
 
+    /// <summary>
+    /// Kiểm tra cập nhật Launcher trên GitHub Releases. Lỗi mạng bị nuốt trong use case,
+    /// nên gọi song song với LoadAsync không làm chậm hay làm hỏng lần khởi động không mạng.
+    /// </summary>
+    public Task CheckForUpdatesAsync() => update.CheckForUpdateAsync();
+
     private async Task CheckStatusAsync(GameLibraryItemViewModel game)
     {
         if (game.CatalogItem is not { } catalogItem)
@@ -219,6 +230,7 @@ public sealed class GameLibraryViewModel : ObservableObject
     {
         Details.ApplyText(value.Application);
         operations.ApplyText(value.Operation);
+        update.ApplyText(value.Update);
         OnPropertyChanged(nameof(SearchGamesPlaceholder));
         UpdateCatalogMessage();
     }

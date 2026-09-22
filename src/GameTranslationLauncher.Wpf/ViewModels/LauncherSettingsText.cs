@@ -37,4 +37,5 @@ public sealed record LauncherSettingsText(
     string VersionLabel,
     string CloseLabel,
     LauncherApplicationText Application,
-    LauncherOperationText Operation);
+    LauncherOperationText Operation,
+    LauncherUpdateText Update);

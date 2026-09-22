@@ -19,6 +19,8 @@ public sealed class LauncherStoragePaths
 
     public string LogsDirectory => Path.Combine(RootDirectory, "logs");
 
+    public string UpdatesDirectory => Path.Combine(RootDirectory, "updates");
+
     public static LauncherStoragePaths CreateDefault()
     {
         var localAppData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);

@@ -1,11 +1,14 @@
 using System.IO;
+using System.Reflection;
 using GameTranslationLauncher.Application.Catalog;
 using GameTranslationLauncher.Application.Installation;
 using GameTranslationLauncher.Application.Settings;
+using GameTranslationLauncher.Application.Updates;
 using GameTranslationLauncher.Infrastructure.Catalog;
 using GameTranslationLauncher.Infrastructure.FileSystem;
 using GameTranslationLauncher.Infrastructure.Logging;
 using GameTranslationLauncher.Infrastructure.Persistence;
+using GameTranslationLauncher.Infrastructure.Updates;
 using GameTranslationLauncher.Wpf.ViewModels;
 using GameTranslationLauncher.Wpf.Services;
 
@@ -16,6 +19,9 @@ namespace GameTranslationLauncher.Wpf.Composition;
 /// </summary>
 public static class LauncherCompositionRoot
 {
+    private const string UpdateFeedOwner = "TruongGiangg";
+    private const string UpdateFeedRepository = "GameTranslationLauncher";
+
     public static GameLibraryViewModel CreateGameLibraryViewModel()
     {
         var storagePaths = LauncherStoragePaths.CreateDefault();
@@ -61,6 +67,11 @@ public static class LauncherCompositionRoot
             new SaveLauncherPreferencesUseCase(settingsRepository),
             new LauncherThemeManager(),
             new WindowsExternalUriLauncher());
+        var updateViewModel = new UpdateViewModel(
+            new CheckForLauncherUpdateUseCase(new GitHubReleaseFeedRepository(UpdateFeedOwner, UpdateFeedRepository)),
+            new DownloadLauncherUpdateUseCase(new HttpUpdatePackageDownloader(storagePaths)),
+            new LauncherUpdateInstaller(),
+            Assembly.GetExecutingAssembly().GetName().Version ?? new Version(0, 0, 0));
         var operations = new GameOperationViewModel(
             new SelectGameInstallationUseCase(installationDetector, settingsRepository),
             new PrepareTranslationPlanUseCase(buildInstallPlan, installedFileStateReader),
@@ -81,7 +92,8 @@ public static class LauncherCompositionRoot
             new GameArtworkResolver(),
             new GamePresentationResolver(),
             operations,
-            settings);
+            settings,
+            updateViewModel);
     }
 
     private static string FindGamesRoot()

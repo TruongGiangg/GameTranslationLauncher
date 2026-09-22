@@ -14,6 +14,6 @@ public partial class App : System.Windows.Application
         var window = new MainWindow { DataContext = viewModel };
         window.Show();
 
-        await viewModel.LoadAsync();
+        await Task.WhenAll(viewModel.LoadAsync(), viewModel.CheckForUpdatesAsync());
     }
 }

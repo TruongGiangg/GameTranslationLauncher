@@ -151,6 +151,15 @@ public sealed class GamePresentationResolver
                 "God of War là game hành động phiêu lưu của Santa Monica Studio, theo chân Kratos và Atreus trong hành trình qua thế giới thần thoại Bắc Âu. Bản Việt hóa chưa được phát hành.",
                 "God of War is Santa Monica Studio's action-adventure following Kratos and Atreus on their journey through the world of Norse mythology. A Vietnamese translation has not been released yet.",
                 string.Empty,
+                string.Empty)),
+        new(
+            "forza-horizon-6",
+            "Forza Horizon 6",
+            new GamePresentation(
+                "Đang chuẩn bị",
+                "Forza Horizon 6 là game đua xe thế giới mở của Playground Games, cho phép người chơi tự do khám phá bản đồ, sưu tầm hàng trăm mẫu xe và tham gia các sự kiện đua đa dạng. Bản Việt hóa chưa được phát hành.",
+                "Forza Horizon 6 is Playground Games' open-world racing game, letting players freely explore the map, collect hundreds of cars, and take part in a wide variety of racing events. A Vietnamese translation has not been released yet.",
+                string.Empty,
                 string.Empty))
     ];
 

@@ -44,7 +44,8 @@ public static class LauncherTextFactory
         "TG Launcher V1.0.0",
         "Đóng",
         CreateVietnameseApplicationText(),
-        CreateVietnameseOperationText());
+        CreateVietnameseOperationText(),
+        CreateVietnameseUpdateText());
 
     private static LauncherSettingsText CreateEnglish() => new(
         "LAUNCHER SETTINGS",
@@ -80,7 +81,8 @@ public static class LauncherTextFactory
         "TG Launcher V1.0.0",
         "Close",
         CreateEnglishApplicationText(),
-        CreateEnglishOperationText());
+        CreateEnglishOperationText(),
+        CreateEnglishUpdateText());
 
     private static LauncherApplicationText CreateVietnameseApplicationText() => new(
         "vi", "THƯ VIỆN GAME", "Chưa tìm thấy package bản Việt hóa trong catalog local.",
@@ -133,4 +135,20 @@ public static class LauncherTextFactory
         "Launcher found files that overlap the {0} translation package, but there is no valid installation receipt or the package changed after installation. To protect your game files, Launcher will not overwrite or remove these files automatically.",
         "Open the game folder to inspect translations or mods copied manually. To install with Launcher, back up and remove the conflicting files, then choose the game folder again to recheck it.",
         "GOT IT");
+
+    private static LauncherUpdateText CreateVietnameseUpdateText() => new(
+        "Đã có bản cập nhật Launcher {0}",
+        "TẢI VÀ CÀI ĐẶT",
+        "Bạn cần cập nhật lên bản mới nhất để tiếp tục sử dụng Launcher.",
+        "Không thể tải bản cập nhật. Kiểm tra kết nối mạng rồi thử lại.",
+        "Windows không thể khởi chạy bộ cài đặt vừa tải về.",
+        "File tải về không hợp lệ. Vui lòng thử lại.");
+
+    private static LauncherUpdateText CreateEnglishUpdateText() => new(
+        "Launcher update {0} is available",
+        "DOWNLOAD AND INSTALL",
+        "You must update to the latest version to keep using the Launcher.",
+        "Unable to download the update. Check your connection and try again.",
+        "Windows could not launch the downloaded installer.",
+        "The downloaded file is invalid. Please try again.");
 }
