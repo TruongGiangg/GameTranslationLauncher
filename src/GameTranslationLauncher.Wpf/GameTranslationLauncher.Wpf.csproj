@@ -47,6 +47,10 @@
     <Resource Include="..\..\..\images\dragon-ball-xenoverse-2\dragon-ball-xenoverse-2-hero-v2.png" Link="Resources\Artwork\dragon-ball-xenoverse-2\dragon-ball-xenoverse-2-hero-v2.png" />
     <Resource Include="..\..\..\images\god-of-war\god-of-war-cover.jpg" Link="Resources\Artwork\god-of-war\god-of-war-cover.jpg" />
     <Resource Include="..\..\..\images\god-of-war\god-of-war-hero-v2.png" Link="Resources\Artwork\god-of-war\god-of-war-hero-v2.png" />
+    <Resource Include="..\..\..\images\forza-horizon-6\forza-horizon-6-cover.jpg" Link="Resources\Artwork\forza-horizon-6\forza-horizon-6-cover.jpg" />
+    <Resource Include="..\..\..\images\forza-horizon-6\forza-horizon-6-hero-v2.png" Link="Resources\Artwork\forza-horizon-6\forza-horizon-6-hero-v2.png" />
+    <Resource Include="..\..\..\images\black-myth-wukong\black-myth-wukong-cover.jpg" Link="Resources\Artwork\black-myth-wukong\black-myth-wukong-cover.jpg" />
+    <Resource Include="..\..\..\images\black-myth-wukong\black-myth-wukong-hero-v2.png" Link="Resources\Artwork\black-myth-wukong\black-myth-wukong-hero-v2.png" />
   </ItemGroup>
 
   <PropertyGroup>
@@ -63,7 +67,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
-    <Version>1.0.2</Version>
+    <Version>1.0.0</Version>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <FileVersion>$(Version)</FileVersion>
   </PropertyGroup>

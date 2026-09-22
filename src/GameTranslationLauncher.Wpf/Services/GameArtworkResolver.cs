@@ -55,7 +55,13 @@ public sealed class GameArtworkResolver
                 "Resources/Artwork/dragon-ball-xenoverse-2/dragon-ball-xenoverse-2-cover.jpg"),
             ["god-of-war"] = (
                 "Resources/Artwork/god-of-war/god-of-war-hero-v2.png",
-                "Resources/Artwork/god-of-war/god-of-war-cover.jpg")
+                "Resources/Artwork/god-of-war/god-of-war-cover.jpg"),
+            ["forza-horizon-6"] = (
+                "Resources/Artwork/forza-horizon-6/forza-horizon-6-hero-v2.png",
+                "Resources/Artwork/forza-horizon-6/forza-horizon-6-cover.jpg"),
+            ["black-myth-wukong"] = (
+                "Resources/Artwork/black-myth-wukong/black-myth-wukong-hero-v2.png",
+                "Resources/Artwork/black-myth-wukong/black-myth-wukong-cover.jpg")
         };
     private readonly Dictionary<string, GameArtwork> artworkCache =
         new(StringComparer.OrdinalIgnoreCase);
