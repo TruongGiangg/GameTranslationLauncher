@@ -19,8 +19,7 @@ public sealed class UpdateViewModel : ObservableObject
     private readonly DownloadLauncherUpdateUseCase downloadUpdate;
     private readonly LauncherUpdateInstaller installer;
     private readonly Version currentVersion;
-    private LauncherUpdateText text = new(
-        string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty);
+    private LauncherUpdateText text = new(string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty);
     private LauncherReleaseInfo? availableRelease;
     private bool isUpdateAvailable;
     private bool isDownloading;
@@ -134,12 +133,9 @@ public sealed class UpdateViewModel : ObservableObject
         {
             var progress = new Progress<int>(value => DownloadProgress = value);
             var installerPath = await downloadUpdate.ExecuteAsync(availableRelease, progress);
-
-            StatusMessage = text.InstallingLabel;
-            var outcome = await installer.InstallAndRelaunchAsync(installerPath);
-            if (outcome != LauncherInstallOutcome.Success)
+            if (!installer.TryLaunch(installerPath, out var launchError))
             {
-                StatusMessage = outcome == LauncherInstallOutcome.LaunchFailed ? text.LaunchFailed : text.InstallFailed;
+                StatusMessage = string.IsNullOrEmpty(launchError) ? text.LaunchFailed : launchError;
                 return;
             }
 

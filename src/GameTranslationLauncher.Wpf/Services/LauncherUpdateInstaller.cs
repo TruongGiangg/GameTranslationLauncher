@@ -1,81 +1,29 @@
-using System.ComponentModel;
 using System.Diagnostics;
 
 namespace GameTranslationLauncher.Wpf.Services;
 
 /// <summary>
-/// Kết quả chạy bộ cài: phân biệt lỗi khi khởi chạy tiến trình bộ cài
-/// và trường hợp người dùng thoát/hủy wizard trước khi cài xong.
-/// </summary>
-public enum LauncherInstallOutcome
-{
-    Success,
-    LaunchFailed,
-    InstallFailed
-}
-
-/// <summary>
-/// Khởi chạy bộ cài đã tải về (đầy đủ wizard — chế độ rút gọn UI của Advanced Installer
-/// bị lỗi race condition khi tự giải nén payload lớn, xem lịch sử debug). Đợi wizard đóng
-/// rồi tự khởi chạy lại Launcher mới, để người dùng không phải tự mở lại app sau khi cài.
+/// Khởi chạy bộ cài đã tải về rồi tắt tiến trình Launcher hiện tại, để bộ cài (đã cấu hình
+/// Major Upgrade trong Advanced Installer) tự gỡ bản cũ và cài đè bản mới.
 /// </summary>
 public sealed class LauncherUpdateInstaller
 {
-    private const int ExitCodeSuccess = 0;
-    private const int ExitCodeSuccessRebootRequired = 3010;
-
-    public async Task<LauncherInstallOutcome> InstallAndRelaunchAsync(
-        string installerPath,
-        CancellationToken cancellationToken = default)
+    public bool TryLaunch(string installerPath, out string errorMessage)
     {
-        var currentExePath = Environment.ProcessPath;
-        if (string.IsNullOrEmpty(currentExePath))
-        {
-            return LauncherInstallOutcome.LaunchFailed;
-        }
-
-        Process? process;
-        try
-        {
-            process = Process.Start(new ProcessStartInfo
-            {
-                FileName = installerPath,
-                UseShellExecute = true
-            });
-        }
-        catch (Exception exception) when (exception is InvalidOperationException or Win32Exception)
-        {
-            return LauncherInstallOutcome.LaunchFailed;
-        }
-
-        if (process is null)
-        {
-            return LauncherInstallOutcome.LaunchFailed;
-        }
-
-        using (process)
-        {
-            await process.WaitForExitAsync(cancellationToken);
-
-            if (process.ExitCode != ExitCodeSuccess && process.ExitCode != ExitCodeSuccessRebootRequired)
-            {
-                return LauncherInstallOutcome.InstallFailed;
-            }
-        }
-
         try
         {
             Process.Start(new ProcessStartInfo
             {
-                FileName = currentExePath,
+                FileName = installerPath,
                 UseShellExecute = true
             });
+            errorMessage = string.Empty;
+            return true;
         }
-        catch (Exception exception) when (exception is InvalidOperationException or Win32Exception)
+        catch (Exception exception) when (exception is InvalidOperationException or System.ComponentModel.Win32Exception)
         {
-            // Cài đặt đã thành công; không tự mở lại được không phải lỗi cài đặt.
+            errorMessage = "Windows không thể khởi chạy bộ cài đặt vừa tải về.";
+            return false;
         }
-
-        return LauncherInstallOutcome.Success;
     }
 }

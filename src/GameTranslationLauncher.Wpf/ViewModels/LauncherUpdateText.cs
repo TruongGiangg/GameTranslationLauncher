@@ -9,6 +9,4 @@ public sealed record LauncherUpdateText(
     string MandatoryNoticeLabel,
     string DownloadFailed,
     string LaunchFailed,
-    string IntegrityFailed,
-    string InstallingLabel,
-    string InstallFailed);
+    string IntegrityFailed);
