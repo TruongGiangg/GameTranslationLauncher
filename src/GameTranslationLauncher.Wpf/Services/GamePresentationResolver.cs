@@ -160,6 +160,15 @@ public sealed class GamePresentationResolver
                 "Forza Horizon 6 là game đua xe thế giới mở của Playground Games, cho phép người chơi tự do khám phá bản đồ, sưu tầm hàng trăm mẫu xe và tham gia các sự kiện đua đa dạng. Bản Việt hóa chưa được phát hành.",
                 "Forza Horizon 6 is Playground Games' open-world racing game, letting players freely explore the map, collect hundreds of cars, and take part in a wide variety of racing events. A Vietnamese translation has not been released yet.",
                 string.Empty,
+                string.Empty)),
+        new(
+            "black-myth-wukong",
+            "Black Myth: Wukong",
+            new GamePresentation(
+                "Đang chuẩn bị",
+                "Black Myth: Wukong là action RPG của Game Science lấy cảm hứng từ Tây Du Ký, đưa người chơi vào vai Thiên Mệnh Nhân trên hành trình chiến đấu đầy huyền thoại và ma quái. Bản Việt hóa chưa được phát hành.",
+                "Black Myth: Wukong is Game Science's action RPG inspired by Journey to the West, casting players as the Destined One on a legendary, monster-filled journey. A Vietnamese translation has not been released yet.",
+                string.Empty,
                 string.Empty))
     ];
 
