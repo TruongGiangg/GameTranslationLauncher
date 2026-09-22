@@ -133,13 +133,18 @@ public sealed class UpdateViewModel : ObservableObject
         {
             var progress = new Progress<int>(value => DownloadProgress = value);
             var installerPath = await downloadUpdate.ExecuteAsync(availableRelease, progress);
-            if (!installer.TryLaunch(installerPath, out var launchError))
+            if (!File.Exists(installerPath))
             {
-                StatusMessage = string.IsNullOrEmpty(launchError) ? text.LaunchFailed : launchError;
+                StatusMessage = text.LaunchFailed;
                 return;
             }
 
-            System.Windows.Application.Current.Shutdown();
+            // Chỉ thực sự mở bộ cài sau khi cửa sổ Launcher đã đóng (sự kiện Exit chạy sau khi
+            // mọi window đã đóng), tránh Windows Installer phát hiện TGLauncher.exe vẫn đang mở
+            // và hiện cảnh báo "Files in Use" do khởi chạy bộ cài trước khi app kịp thoát.
+            var app = System.Windows.Application.Current;
+            app.Exit += (_, _) => installer.TryLaunch(installerPath, out _);
+            app.Shutdown();
         }
         catch (UpdatePackageIntegrityException)
         {
