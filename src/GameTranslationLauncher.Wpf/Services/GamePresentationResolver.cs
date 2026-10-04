@@ -30,7 +30,15 @@ public sealed class GamePresentationResolver
                 "No Rest for the Wicked is Moon Studios' action RPG set in Isola Sacra, a handcrafted world " +
                 "with precise combat, character building, and co-op for up to four players.",
                 "Yêu cầu MelonLoader 0.7.2. Lần chạy đầu tiên sau khi cài có thể lâu hơn bình thường và hiện cửa sổ console để tạo dữ liệu interop.",
-                "Requires MelonLoader 0.7.2. The first launch after installation may take longer and show a console window while interop data is generated.")
+                "Requires MelonLoader 0.7.2. The first launch after installation may take longer and show a console window while interop data is generated."),
+            ["crimson-moon"] = new(
+                "Unreal Engine 5.6",
+                "Crimson Moon là action-RPG dark fantasy chơi co-op, nơi bạn vào vai Nephilim trở về thành Gildenarch đang bị quỷ xâm chiếm, " +
+                "đi qua các Nexus Gate và hạ những Dead God để khép lại cơn ác mộng.",
+                "Crimson Moon is a co-op dark-fantasy action RPG where you play a Nephilim returning to the demon-ridden city of Gildenarch, " +
+                "fighting through Nexus Gates and felling the Dead Gods.",
+                "Bản Việt hóa thay thế ngôn ngữ Italiano. Sau khi cài, vào Settings > Language, chọn Italiano rồi khởi động lại game hoàn toàn.",
+                "The translation replaces the Italian language slot. After installing, open Settings > Language, choose Italiano, then fully restart the game.")
         };
 
     private static readonly IReadOnlyList<UntranslatedGameDefinition> UntranslatedGames =
@@ -168,6 +176,15 @@ public sealed class GamePresentationResolver
                 "Đang chuẩn bị",
                 "Black Myth: Wukong là action RPG của Game Science lấy cảm hứng từ Tây Du Ký, đưa người chơi vào vai Thiên Mệnh Nhân trên hành trình chiến đấu đầy huyền thoại và ma quái. Bản Việt hóa chưa được phát hành.",
                 "Black Myth: Wukong is Game Science's action RPG inspired by Journey to the West, casting players as the Destined One on a legendary, monster-filled journey. A Vietnamese translation has not been released yet.",
+                string.Empty,
+                string.Empty)),
+        new(
+            "resonance-a-plague-tale-legacy",
+            "Resonance: A Plague Tale Legacy",
+            new GamePresentation(
+                "Đang chuẩn bị",
+                "Resonance: A Plague Tale Legacy là game phiêu lưu hành động của Asobo Studio, kể về hành trình của Sophia trong vũ trụ A Plague Tale với chiến đấu, khám phá và giải đố. Bản Việt hóa chưa được phát hành.",
+                "Resonance: A Plague Tale Legacy is Asobo Studio's action-adventure following Sophia in the A Plague Tale universe, with combat, exploration, and puzzles. A Vietnamese translation has not been released yet.",
                 string.Empty,
                 string.Empty))
     ];

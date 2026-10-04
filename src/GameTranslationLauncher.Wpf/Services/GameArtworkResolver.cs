@@ -61,7 +61,13 @@ public sealed class GameArtworkResolver
                 "Resources/Artwork/forza-horizon-6/forza-horizon-6-cover.jpg"),
             ["black-myth-wukong"] = (
                 "Resources/Artwork/black-myth-wukong/black-myth-wukong-hero-v2.png",
-                "Resources/Artwork/black-myth-wukong/black-myth-wukong-cover.jpg")
+                "Resources/Artwork/black-myth-wukong/black-myth-wukong-cover.jpg"),
+            ["resonance-a-plague-tale-legacy"] = (
+                "Resources/Artwork/resonance-a-plague-tale-legacy/resonance-a-plague-tale-legacy-hero-v2.png",
+                "Resources/Artwork/resonance-a-plague-tale-legacy/resonance-a-plague-tale-legacy-cover.jpg"),
+            ["crimson-moon"] = (
+                "Resources/Artwork/crimson-moon/crimson-moon-hero-v2.png",
+                "Resources/Artwork/crimson-moon/crimson-moon-cover.jpg")
         };
     private readonly Dictionary<string, GameArtwork> artworkCache =
         new(StringComparer.OrdinalIgnoreCase);

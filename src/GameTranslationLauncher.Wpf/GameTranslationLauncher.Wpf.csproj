@@ -51,6 +51,10 @@
     <Resource Include="..\..\..\images\forza-horizon-6\forza-horizon-6-hero-v2.png" Link="Resources\Artwork\forza-horizon-6\forza-horizon-6-hero-v2.png" />
     <Resource Include="..\..\..\images\black-myth-wukong\black-myth-wukong-cover.jpg" Link="Resources\Artwork\black-myth-wukong\black-myth-wukong-cover.jpg" />
     <Resource Include="..\..\..\images\black-myth-wukong\black-myth-wukong-hero-v2.png" Link="Resources\Artwork\black-myth-wukong\black-myth-wukong-hero-v2.png" />
+    <Resource Include="..\..\..\images\resonance-a-plague-tale-legacy\resonance-a-plague-tale-legacy-cover.jpg" Link="Resources\Artwork\resonance-a-plague-tale-legacy\resonance-a-plague-tale-legacy-cover.jpg" />
+    <Resource Include="..\..\..\images\resonance-a-plague-tale-legacy\resonance-a-plague-tale-legacy-hero-v2.png" Link="Resources\Artwork\resonance-a-plague-tale-legacy\resonance-a-plague-tale-legacy-hero-v2.png" />
+    <Resource Include="..\..\..\images\crimson-moon\crimson-moon-cover.jpg" Link="Resources\Artwork\crimson-moon\crimson-moon-cover.jpg" />
+    <Resource Include="..\..\..\images\crimson-moon\crimson-moon-hero-v2.png" Link="Resources\Artwork\crimson-moon\crimson-moon-hero-v2.png" />
   </ItemGroup>
 
   <PropertyGroup>
@@ -67,7 +71,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <FileVersion>$(Version)</FileVersion>
   </PropertyGroup>
