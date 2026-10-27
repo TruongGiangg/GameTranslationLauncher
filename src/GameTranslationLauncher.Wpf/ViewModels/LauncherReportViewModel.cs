@@ -155,7 +155,7 @@ public sealed class LauncherReportViewModel : ObservableObject
         var body = $"{text.ReportTypeLabel}: {SelectedReportTypeLabel}\r\n"
             + $"{text.ReportGameLabel}: {ReportGameName.Trim()}\r\n\r\n"
             + $"{text.ReportMessageLabel}:\r\n{ReportMessage.Trim()}\r\n\r\n"
-            + "TG Launcher V1.0.0";
+            + LauncherTextFactory.VersionLabel;
         var mailto = $"mailto:{ReportRecipient}?subject={Uri.EscapeDataString(subject)}&body={Uri.EscapeDataString(body)}";
         if (externalUriLauncher.TryOpen(mailto, out var errorMessage))
         {

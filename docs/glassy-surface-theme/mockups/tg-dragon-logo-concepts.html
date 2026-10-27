@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>TG Dragon Logo</title>
+<style>
+  :root { --bg: #101114; --card: #17181c; --line: #26282e; --text: #f2f2f2; --muted: #a2a7ae; }
+  body { margin: 0; padding: 24px 28px; background: var(--bg); color: var(--text); font-family: "Segoe UI", system-ui, sans-serif; }
+  h1 { font-size: 18px; margin: 0 0 4px; }
+  p.lead { margin: 0 0 18px; color: var(--muted); font-size: 13px; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .concept { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px; }
+  .concept h2 { font-size: 14px; margin: 0; }
+  .concept p { font-size: 11.5px; color: var(--muted); margin: 4px 0 12px; line-height: 1.45; min-height: 66px; }
+  .hero { height: 180px; border-radius: 12px; display: grid; place-items: center; background: radial-gradient(circle at 50% 40%, #25272d, #121316 70%); }
+  .hero svg { width: 150px; height: 150px; }
+  .row { display: flex; gap: 10px; margin-top: 10px; }
+  .ctx { flex: 1; height: 104px; border-radius: 12px; position: relative; overflow: hidden; background-size: cover; background-position: 15% 30%; }
+  .ctx.witcher { background-image: url("../../../../images/the-witcher-3-wild-hunt/the-witcher-3-wild-hunt-hero-v2.png"); }
+  .ctx.borderlands { background-image: url("../../../../images/borderlands-4/borderlands-4-hero-v2.png"); }
+  .ctx .glass { position: absolute; left: 10px; top: 10px; bottom: -20px; width: 84px; border-radius: 18px;
+    background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.24); backdrop-filter: blur(22px) saturate(1.4);
+    display: grid; justify-items: center; align-content: start; padding-top: 12px; }
+  .ctx svg { width: 58px; height: 58px; }
+  .small { width: 72px; display: flex; flex-direction: column; gap: 8px; align-items: center; justify-content: center; background: #202226; border-radius: 12px; font-size: 10px; color: var(--muted); }
+  .small svg { width: 32px; height: 32px; }
+  .small .s16 { width: 16px; height: 16px; }
+</style>
+</head>
+<body>
+<h1>Logo TG mang hình rồng — 4 phương án</h1>
+<p class="lead">Áp dụng nguyên tắc từ icon app nổi tiếng: một hình chủ đạo, tối đa 2–3 màu, không nét mảnh, đọc được ở 16px. Rồng được lồng vào chữ theo 3 cách phổ biến: thân/đuôi thành chữ, rồng một nét, rồng ẩn trong khoảng trống.</p>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff4d42"/><stop offset=".55" stop-color="#d9162c"/><stop offset="1" stop-color="#8f0b22"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffe7a8"/><stop offset=".5" stop-color="#f2b84b"/><stop offset="1" stop-color="#b9792a"/>
+    </linearGradient>
+    <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".32"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="scales" width="10" height="8" patternUnits="userSpaceOnUse">
+      <path d="M0 8 A5 5 0 0 1 10 8" fill="none" stroke="#fff" stroke-opacity=".16" stroke-width="1.2"/>
+      <path d="M-5 4 A5 5 0 0 1 5 4 M5 4 A5 5 0 0 1 15 4" fill="none" stroke="#fff" stroke-opacity=".16" stroke-width="1.2"/>
+    </pattern>
+
+    <!-- 1 · Sừng rồng: the T crossbar sweeps up into two dragon horns; the G carries an eye and a fang,
+         so the letters read as a dragon's face. Dragon hidden in the letterforms. -->
+    <symbol id="horns" viewBox="0 0 100 100">
+      <rect x="4" y="4" width="92" height="92" rx="26" fill="url(#red)"/>
+      <rect x="4" y="4" width="92" height="46" rx="26" fill="url(#gloss)"/>
+      <g fill="#fff">
+        <!-- T: crossbar with horn tips curling up at both ends, then the stem -->
+        <path d="M14 31 H52 V42 H43 V78 H33 V42 H14 Z"/>
+        <!-- Branching antlers (deer-like, the Asian dragon's hallmark) rising from both ends of the crossbar -->
+        <path d="M16 33 C13 24 15 16 21 10 C19 16 19 20 21 23 C23 18 27 15 31 14 C27 19 25 25 26 33 Z"/>
+        <path d="M50 33 C53 24 51 16 45 10 C47 16 47 20 45 23 C43 18 39 15 35 14 C39 19 41 25 40 33 Z"/>
+        <!-- G: thick ring open at the upper right, crossbar ending in a fang -->
+        <path d="M84 47 A21 21 0 1 0 85 64 V58 H66 V66 H76 A12.5 12.5 0 1 1 74.5 50 Z"/>
+        <path d="M66 66 L70 74 L73 66 Z"/>
+      </g>
+      <!-- Dragon eye cut into the G -->
+      <path d="M53 51 Q58 46 63 51 Q58 54 53 51 Z" fill="#b8102a"/>
+    </symbol>
+
+    <!-- 2 · Rồng cuộn: a gold dragon body circles the white TG; head at upper right, tail at lower left. -->
+    <symbol id="coil" viewBox="0 0 100 100">
+      <rect x="4" y="4" width="92" height="92" rx="26" fill="#15161a"/>
+      <rect x="4.5" y="4.5" width="91" height="91" rx="25.5" fill="none" stroke="url(#gold)" stroke-opacity=".55"/>
+      <!-- body -->
+      <path d="M24 82 C8 64 12 34 32 21 C50 10 70 14 78 26" fill="none" stroke="url(#gold)" stroke-width="10" stroke-linecap="round"/>
+      <!-- belly line gives the body volume instead of a flat band -->
+      <path d="M24 82 C8 64 12 34 32 21 C50 10 70 14 78 26" fill="none" stroke="#fff3c9" stroke-width="2" stroke-opacity=".7" transform="translate(1.6 1.6)"/>
+      <!-- dorsal spikes along the back -->
+      <path d="M14 58 L7 54 L14 50 Z M17 40 L11 34 L19 33 Z M27 25 L24 17 L31 21 Z M42 16 L42 8 L48 14 Z M58 14 L61 6 L65 14 Z" fill="url(#gold)"/>
+      <!-- tail fin -->
+      <path d="M24 82 L12 90 L22 78 L30 92 Z" fill="url(#gold)"/>
+      <!-- head: long snout, open jaw, antler and eye -->
+      <path d="M72 20 C78 17 86 19 94 25 L86 29 L93 34 C85 36 79 35 74 32 Z" fill="url(#gold)"/>
+      <path d="M76 20 C74 13 77 8 82 5 C80 10 81 13 84 15 C84 11 87 9 90 9 C87 12 86 16 82 21 Z" fill="url(#gold)"/>
+      <circle cx="82" cy="25" r="2" fill="#15161a"/>
+      <text x="52" y="69" text-anchor="middle" font-family="Segoe UI Black, Segoe UI, sans-serif" font-weight="900" font-size="34" fill="#fff" letter-spacing="-1.5">TG</text>
+      <rect x="31" y="74" width="42" height="3" rx="1.5" fill="#e3172f"/>
+    </symbol>
+
+    <!-- 3 · Huy hiệu vảy rồng: shield with dragon-scale texture and a gold dragon crest on top. -->
+    <symbol id="scale" viewBox="0 0 100 100">
+      <path d="M50 3 L90 15 V46 C90 71 73 87 50 97 C27 87 10 71 10 46 V15 Z" fill="url(#gold)"/>
+      <path d="M50 9 L84 19.5 V46 C84 67 69.5 81 50 89.5 C30.5 81 16 67 16 46 V19.5 Z" fill="url(#red)"/>
+      <path d="M50 9 L84 19.5 V46 C84 67 69.5 81 50 89.5 C30.5 81 16 67 16 46 V19.5 Z" fill="url(#scales)"/>
+      <path d="M50 9 L84 19.5 V38 H16 V19.5 Z" fill="url(#gloss)"/>
+      <!-- crest: two small horns rising from the top of the shield -->
+      <path d="M36 12 L30 1 L42 9 Z M64 12 L70 1 L58 9 Z" fill="url(#gold)"/>
+      <text x="50" y="62" text-anchor="middle" font-family="Segoe UI Black, Segoe UI, sans-serif" font-weight="900" font-size="32" fill="#fff" letter-spacing="-1">TG</text>
+      <rect x="37" y="70" width="26" height="3" rx="1.5" fill="url(#gold)"/>
+    </symbol>
+
+    <!-- 4 · Rồng một nét: one continuous red stroke writes T then G, ending in a small dragon head. -->
+    <symbol id="oneline" viewBox="0 0 100 100">
+      <rect x="4" y="4" width="92" height="92" rx="26" fill="#f4f1ea"/>
+      <!-- The T stem sweeps into the G's lower-left; the G closes with its crossbar, so the stroke reads as one body. -->
+      <g fill="none" stroke="url(#red)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 28 H48 M31 28 V64 C31 74 42 78 54 72 A17 17 0 0 0 83 60 H70"/>
+        <path d="M54 72 A17 17 0 0 1 76.9 47"/>
+      </g>
+      <!-- head at the start of the crossbar: horn, snout and eye -->
+      <path d="M14 28 L6 22 L12 30 L5 34 L16 33 Z" fill="#d9162c"/>
+      <path d="M18 24 L16 13 L23 23 Z" fill="#d9162c"/>
+      <circle cx="17" cy="28" r="1.5" fill="#f4f1ea"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="grid" id="grid"></div>
+
+<script>
+  const concepts = [
+    ["horns", "1 · Sừng rồng ẩn trong chữ", "Hai đầu thanh ngang chữ T mọc đôi sừng rồng phân nhánh (gạc kiểu rồng Á Đông); chữ G có mắt và răng nanh — nhìn tổng thể như mặt rồng. Ô đỏ bóng kính kiểu icon app hiện đại. Rồng ẩn tinh tế, chữ TG vẫn rõ."],
+    ["coil", "2 · Rồng vàng cuộn quanh TG", "Thân rồng vàng có vảy cuộn quanh chữ TG trắng, đầu rồng ở góc trên phải, đuôi ở dưới trái. Nền tối sang trọng, kiểu emblem game Á Đông."],
+    ["scale", "3 · Huy hiệu vảy rồng", "Khiên đỏ phủ vân vảy rồng, viền vàng, đỉnh khiên có đôi sừng nhỏ. Chững chạc như biểu tượng hội nhóm; hợp màn hình mở app."],
+    ["oneline", "4 · Rồng một nét", "Một nét đỏ liền viết chữ T rồi uốn thành G như thân rồng, đầu rồng ở đầu nét. Tối giản, nền sáng — nổi bật khi đặt cạnh các icon tối khác."]
+  ];
+  const use = (id, cls = "") => `<svg class="${cls}"><use href="#${id}"/></svg>`;
+  document.getElementById("grid").innerHTML = concepts.map(([id, title, text]) => `
+    <div class="concept">
+      <h2>${title}</h2><p>${text}</p>
+      <div class="hero">${use(id)}</div>
+      <div class="row">
+        <div class="ctx witcher"><div class="glass">${use(id)}</div></div>
+        <div class="ctx borderlands"><div class="glass">${use(id)}</div></div>
+        <div class="small">${use(id)}${use(id, "s16")}<span>32 · 16px</span></div>
+      </div>
+    </div>`).join("");
+</script>
+</body>
+</html>

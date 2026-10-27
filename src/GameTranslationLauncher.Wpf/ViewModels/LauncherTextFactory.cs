@@ -5,6 +5,10 @@ namespace GameTranslationLauncher.Wpf.ViewModels;
 /// </summary>
 public static class LauncherTextFactory
 {
+    /// <summary>"TG Launcher V1.2.3", taken from the WPF project's &lt;Version&gt; so it never drifts from the build.</summary>
+    public static readonly string VersionLabel =
+        $"TG Launcher V{typeof(LauncherTextFactory).Assembly.GetName().Version?.ToString(3)}";
+
     public static LauncherSettingsText Create(string language) =>
         string.Equals(language, "en", StringComparison.OrdinalIgnoreCase)
             ? CreateEnglish()
@@ -47,7 +51,7 @@ public static class LauncherTextFactory
         "Đã mở email nháp. Hãy kiểm tra rồi bấm gửi.",
         "Không thể lưu lựa chọn giao diện.",
         "KẾT NỐI DỰ ÁN",
-        "TG Launcher V1.0.0",
+        VersionLabel,
         "Đóng",
         CreateVietnameseApplicationText(),
         CreateVietnameseOperationText(),
@@ -90,7 +94,7 @@ public static class LauncherTextFactory
         "A draft email is open. Review it, then send it.",
         "Unable to save the interface preference.",
         "PROJECT LINKS",
-        "TG Launcher V1.0.0",
+        VersionLabel,
         "Close",
         CreateEnglishApplicationText(),
         CreateEnglishOperationText(),
@@ -104,7 +108,7 @@ public static class LauncherTextFactory
         "KIỂM TRA CẬP NHẬT", "MỞ THƯ MỤC GAME", "GỠ BẢN DỊCH", "MỞ THƯ MỤC", "ĐỔI THƯ MỤC GAME", "Hỗ trợ: ", "Ngôn ngữ: ", "Xác minh: ",
         "TRẠNG THÁI", "DUNG LƯỢNG", "PACKAGE", "GỠ BẢN VIỆT HÓA", "Đang tải catalog local…", "Chưa có package hợp lệ trong catalog local.", "Không thể tải catalog local. Hãy kiểm tra lại package và thử tải lại.",
         "Đã tải {0} game từ catalog local.", "Đã tải {0} game; bỏ qua {1} package lỗi.", "Đang xử lý bản Việt hóa", "HỦY SAU ĐIỂM AN TOÀN", "QUAY LẠI",
-        "Thu nhỏ", "Phóng to / khôi phục", "Đóng", "TG Launcher V1.0.0", "Tìm game…", "Đang chuẩn bị");
+        "Thu nhỏ", "Phóng to / khôi phục", "Đóng", VersionLabel, "Tìm game…", "Đang chuẩn bị");
 
     private static LauncherApplicationText CreateEnglishApplicationText() => new(
         "en", "GAME LIBRARY", "No translation package was found in the local catalog.",
@@ -114,7 +118,7 @@ public static class LauncherTextFactory
         "CHECK FOR UPDATES", "OPEN GAME FOLDER", "UNINSTALL TRANSLATION", "OPEN FOLDER", "CHANGE GAME FOLDER", "Support: ", "Language: ", "Verified: ",
         "STATUS", "SIZE", "PACKAGE", "UNINSTALL TRANSLATION", "Loading local catalog…", "No valid package was found in the local catalog.", "Unable to load the local catalog. Check the packages and try again.",
         "Loaded {0} games from the local catalog.", "Loaded {0} games; skipped {1} invalid packages.", "Processing translation", "CANCEL AFTER SAFE POINT", "GO BACK",
-        "Minimize", "Maximize / restore", "Close", "TG Launcher V1.0.0", "Search games…", "In preparation");
+        "Minimize", "Maximize / restore", "Close", VersionLabel, "Search games…", "In preparation");
 
     private static LauncherOperationText CreateVietnameseOperationText() => new(
         "Đã kiểm tra trạng thái game.", "Đã kiểm tra bản dịch và trạng thái file.", "Không thể kiểm tra trạng thái game.", "Chưa thay đổi thư mục game.", "Đã xác nhận và lưu thư mục game.",
