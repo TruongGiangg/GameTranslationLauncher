@@ -14,14 +14,16 @@ public sealed class SaveLauncherPreferencesUseCaseTests
             Guid.NewGuid(),
             "D:\\Games\\Tiny Eden",
             DateTimeOffset.Parse("2026-09-12T00:00:00Z"));
-        var repository = new SettingsRepository(new LauncherSettings(1, [installation]));
+        var repository = new SettingsRepository(new LauncherSettings(1, [installation], LastSelectedGameId: "tiny-eden"));
         var useCase = new SaveLauncherPreferencesUseCase(repository);
 
-        var saved = await useCase.ExecuteAsync("en", "white");
+        var saved = await useCase.ExecuteAsync("en", "white", "dark");
 
         Assert.AreEqual("en", saved.DisplayLanguage);
         Assert.AreEqual("white", saved.AccentTheme);
+        Assert.AreEqual("dark", saved.SurfaceTheme);
         Assert.AreEqual(installation, saved.Installations.Single());
+        Assert.AreEqual("tiny-eden", saved.LastSelectedGameId);
     }
 
     [TestMethod]
@@ -31,7 +33,19 @@ public sealed class SaveLauncherPreferencesUseCaseTests
         var useCase = new SaveLauncherPreferencesUseCase(repository);
 
         await Assert.ThrowsAsync<ArgumentOutOfRangeException>(
-            () => useCase.ExecuteAsync("vi", "pink"));
+            () => useCase.ExecuteAsync("vi", "pink", "glass"));
+    }
+
+    [TestMethod]
+    public async Task ExecuteAsync_UnsupportedSurface_ThrowsWithoutSaving()
+    {
+        var repository = new SettingsRepository(LauncherSettings.Empty);
+        var useCase = new SaveLauncherPreferencesUseCase(repository);
+
+        await Assert.ThrowsAsync<ArgumentOutOfRangeException>(
+            () => useCase.ExecuteAsync("vi", "crimson", "light"));
+
+        Assert.AreEqual("glass", (await repository.LoadAsync()).SurfaceTheme);
     }
 
     private sealed class SettingsRepository(LauncherSettings settings) : ILauncherSettingsRepository

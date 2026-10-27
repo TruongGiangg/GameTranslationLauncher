@@ -52,4 +52,5 @@ public sealed record LauncherApplicationText(
     string MaximizeTooltip,
     string CloseTooltip,
     string VersionTooltip,
-    string SearchGamesPlaceholder);
+    string SearchGamesPlaceholder,
+    string SupportInPreparation);

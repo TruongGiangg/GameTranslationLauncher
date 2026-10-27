@@ -56,6 +56,7 @@ public sealed class GameLibraryItemViewModel : ObservableObject
         HeroBrush = CreateBrush(palette.Start, palette.End, new Point(0.15, 0), new Point(0.9, 1));
         CoverImage = artwork.CoverImage;
         HeroImage = artwork.HeroImage;
+        LogoImage = artwork.LogoImage;
         Presentation = presentation;
     }
 
@@ -80,6 +81,8 @@ public sealed class GameLibraryItemViewModel : ObservableObject
     public ImageSource? CoverImage { get; private set; }
 
     public ImageSource? HeroImage { get; private set; }
+
+    public ImageSource? LogoImage { get; private set; }
 
     public GamePresentation Presentation { get; private set; } = null!;
 

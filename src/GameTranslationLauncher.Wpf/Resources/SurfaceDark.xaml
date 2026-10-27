@@ -1,0 +1,62 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+    <!-- Surface "dark": the original Launcher look. Every key here must also exist in SurfaceGlass.xaml. -->
+    <SolidColorBrush x:Key="BrushBackground" Color="#08090A" />
+    <SolidColorBrush x:Key="BrushTitleBar" Color="#08090A" />
+    <SolidColorBrush x:Key="BrushTitleText" Color="#929398" />
+    <SolidColorBrush x:Key="BrushSidebar" Color="#0B0C0E" />
+    <SolidColorBrush x:Key="BrushSidebarBorder" Color="#80313237" />
+    <SolidColorBrush x:Key="BrushPanel" Color="#151619" />
+    <SolidColorBrush x:Key="BrushBorder" Color="#313237" />
+    <SolidColorBrush x:Key="BrushStatBorder" Color="#B3313237" />
+    <SolidColorBrush x:Key="BrushTextPrimary" Color="#F5F5F5" />
+    <SolidColorBrush x:Key="BrushTextMuted" Color="#929398" />
+    <SolidColorBrush x:Key="BrushHeroBody" Color="#BDF5F5F5" />
+    <SolidColorBrush x:Key="BrushField" Color="#0E0F11" />
+    <SolidColorBrush x:Key="BrushPopup" Color="#F2151619" />
+    <SolidColorBrush x:Key="BrushCard" Color="#99101113" />
+    <SolidColorBrush x:Key="BrushCardStrong" Color="#B7101113" />
+    <SolidColorBrush x:Key="BrushModal" Color="#F2151619" />
+    <SolidColorBrush x:Key="BrushModalBorder" Color="#7A45474C" />
+    <SolidColorBrush x:Key="BrushModalOverlay" Color="#9508090A" />
+    <SolidColorBrush x:Key="BrushLoadingOverlay" Color="#8F08090A" />
+    <SolidColorBrush x:Key="BrushDialog" Color="#151619" />
+    <SolidColorBrush x:Key="BrushChip" Color="#9C151619" />
+    <SolidColorBrush x:Key="BrushChipBorder" Color="#66F5F5F5" />
+    <SolidColorBrush x:Key="BrushNotice" Color="#B8151619" />
+    <SolidColorBrush x:Key="BrushNoticeBorder" Color="#75D6A351" />
+    <SolidColorBrush x:Key="BrushDivider" Color="#22FFFFFF" />
+    <SolidColorBrush x:Key="BrushDock" Color="Transparent" />
+    <SolidColorBrush x:Key="BrushDockBorder" Color="Transparent" />
+    <SolidColorBrush x:Key="BrushGameItemBorder" Color="#14F5F5F5" />
+    <SolidColorBrush x:Key="BrushGameItemSelected" Color="Transparent" />
+    <LinearGradientBrush x:Key="BrushHeroFade" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Offset="0" Color="#0808090A" />
+        <GradientStop Offset="0.48" Color="#1A08090A" />
+        <GradientStop Offset="0.70" Color="#A808090A" />
+        <GradientStop Offset="1" Color="#F508090A" />
+    </LinearGradientBrush>
+
+    <Thickness x:Key="LibraryMargin">0,44,0,0</Thickness>
+    <Thickness x:Key="SidebarMargin">0</Thickness>
+    <Thickness x:Key="SidebarBorderThickness">0,0,1,0</Thickness>
+    <Thickness x:Key="DetailsContentMargin">56,42,56,40</Thickness>
+    <Thickness x:Key="DividerMargin">0,20,0,20</Thickness>
+    <Thickness x:Key="DockBorderThickness">0</Thickness>
+    <Thickness x:Key="DockPadding">0</Thickness>
+
+    <CornerRadius x:Key="RadiusSidebar">0</CornerRadius>
+    <CornerRadius x:Key="RadiusCard">10</CornerRadius>
+    <CornerRadius x:Key="RadiusButton">8</CornerRadius>
+    <CornerRadius x:Key="RadiusDock">0</CornerRadius>
+    <CornerRadius x:Key="RadiusModal">14</CornerRadius>
+    <CornerRadius x:Key="RadiusDialog">14</CornerRadius>
+    <CornerRadius x:Key="RadiusNotice">7</CornerRadius>
+    <CornerRadius x:Key="RadiusGameItem">10</CornerRadius>
+
+    <sys:Int32 x:Key="DetailsColumn">1</sys:Int32>
+    <sys:Int32 x:Key="DetailsColumnSpan">1</sys:Int32>
+    <sys:Double x:Key="GameItemOpacity">0.7</sys:Double>
+    <sys:Double x:Key="GameItemHoverOpacity">0.8</sys:Double>
+</ResourceDictionary>

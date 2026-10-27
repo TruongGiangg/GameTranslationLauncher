@@ -22,7 +22,7 @@ public static class LauncherCompositionRoot
     private const string UpdateFeedOwner = "TruongGiangg";
     private const string UpdateFeedRepository = "GameTranslationLauncher";
 
-    public static GameLibraryViewModel CreateGameLibraryViewModel()
+    public static GameLibraryViewModel CreateGameLibraryViewModel(GameArtworkResolver? artworkResolver = null)
     {
         var storagePaths = LauncherStoragePaths.CreateDefault();
         var settingsRepository = new JsonLauncherSettingsRepository(storagePaths);
@@ -65,6 +65,7 @@ public static class LauncherCompositionRoot
         var settings = new LauncherSettingsViewModel(
             new LoadLauncherPreferencesUseCase(settingsRepository),
             new SaveLauncherPreferencesUseCase(settingsRepository),
+            new SaveLastSelectedGameUseCase(settingsRepository),
             new LauncherThemeManager(),
             new WindowsExternalUriLauncher());
         var updateViewModel = new UpdateViewModel(
@@ -89,7 +90,7 @@ public static class LauncherCompositionRoot
         return new GameLibraryViewModel(
             loadCatalogUseCase,
             checkGameStatusUseCase,
-            new GameArtworkResolver(),
+            artworkResolver ?? new GameArtworkResolver(),
             new GamePresentationResolver(),
             operations,
             settings,

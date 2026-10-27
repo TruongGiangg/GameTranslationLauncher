@@ -72,6 +72,17 @@ public sealed class GameArtworkResolver
     private readonly Dictionary<string, GameArtwork> artworkCache =
         new(StringComparer.OrdinalIgnoreCase);
 
+    /// <summary>
+    /// Chuẩn bị ảnh đã Freeze ngoài UI thread; phải await xong trước khi gọi Resolve trên UI.
+    /// </summary>
+    public Task PreloadAsync() => Task.Run(() =>
+    {
+        foreach (var gameId in AssetPathsByGameId.Keys)
+        {
+            Resolve(gameId);
+        }
+    });
+
     public GameArtwork Resolve(string gameId)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(gameId);
@@ -91,7 +102,10 @@ public sealed class GameArtworkResolver
             var coverImage = string.Equals(paths.Hero, paths.Cover, StringComparison.Ordinal)
                 ? heroImage
                 : CreateImage(paths.Cover);
-            var artwork = new GameArtwork(heroImage, coverImage);
+            var artworkFolder = paths.Hero[..paths.Hero.LastIndexOf('/')];
+            var canonicalGameId = artworkFolder[(artworkFolder.LastIndexOf('/') + 1)..];
+            var logoImage = TryCreateLogoImage($"{artworkFolder}/{canonicalGameId}-logo.png");
+            var artwork = new GameArtwork(heroImage, coverImage, logoImage);
             artworkCache[gameId] = artwork;
             return artwork;
         }
@@ -100,6 +114,20 @@ public sealed class GameArtworkResolver
             // NOTE(artwork-fallback): artwork chỉ là presentation; catalog và thao tác file
             // phải tiếp tục dùng được nếu một resource đóng gói bị thiếu hoặc lỗi đọc.
             return new GameArtwork(null, null);
+        }
+    }
+
+    private static ImageSource? TryCreateLogoImage(string resourcePath)
+    {
+        try
+        {
+            return CreateImage(resourcePath);
+        }
+        catch (Exception exception) when (exception is System.IO.IOException
+                                         or NotSupportedException or System.IO.FileFormatException)
+        {
+            // NOTE(logo-fallback): Logo tùy chọn không được làm mất hero/cover khi thiếu hoặc lỗi ảnh.
+            return null;
         }
     }
 

@@ -35,6 +35,18 @@ internal static class LauncherSettingsDocumentValidator
             errors.Add($"accentTheme không hợp lệ: '{document.AccentTheme}'");
         }
 
+        if (document.SurfaceTheme is not null
+            && document.SurfaceTheme is not ("glass" or "dark"))
+        {
+            errors.Add($"surfaceTheme không hợp lệ: '{document.SurfaceTheme}'");
+        }
+
+        if (document.LastSelectedGameId is not null
+            && !ContractValueValidator.IsGameId(document.LastSelectedGameId))
+        {
+            errors.Add($"lastSelectedGameId không hợp lệ: '{document.LastSelectedGameId}'");
+        }
+
         if (errors.Count > 0)
         {
             throw new LauncherStateContractException(statePath, errors);

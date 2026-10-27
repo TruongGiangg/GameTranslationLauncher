@@ -47,7 +47,7 @@ public sealed class GamePresentationResolver
             "phantom-blade-zero",
             "Phantom Blade Zero",
             new GamePresentation(
-                "Đang chuẩn bị",
+                string.Empty,
                 "Phantom Blade Zero là action RPG võ hiệp của S-GAME, kết hợp phong cách Wuxia, fantasy u tối và những trận chiến tốc độ cao. Bản Việt hóa chưa được phát hành.",
                 "Phantom Blade Zero is S-GAME's Wuxia action RPG, combining dark fantasy with fast-paced martial-arts combat. A Vietnamese translation has not been released yet.",
                 string.Empty,
@@ -56,7 +56,7 @@ public sealed class GamePresentationResolver
             "grand-theft-auto-vi",
             "Grand Theft Auto VI",
             new GamePresentation(
-                "Đang chuẩn bị",
+                string.Empty,
                 "Grand Theft Auto VI đưa người chơi đến Leonida và Vice City, theo chân Jason và Lucia trong một câu chuyện tội phạm quy mô lớn. Bản Việt hóa chưa được phát hành.",
                 "Grand Theft Auto VI takes players to Leonida and Vice City, following Jason and Lucia in a large-scale crime story. A Vietnamese translation has not been released yet.",
                 string.Empty,
@@ -65,7 +65,7 @@ public sealed class GamePresentationResolver
             "dragon-ball-sparking-zero",
             "DRAGON BALL: Sparking! ZERO",
             new GamePresentation(
-                "Đang chuẩn bị",
+                string.Empty,
                 "DRAGON BALL: Sparking! ZERO đưa lối chơi Budokai Tenkaichi trở lại với các trận chiến 3D tốc độ cao và dàn chiến binh phong phú. Bản Việt hóa chưa được phát hành.",
                 "DRAGON BALL: Sparking! ZERO revives Budokai Tenkaichi gameplay with fast 3D battles and a broad roster of fighters. A Vietnamese translation has not been released yet.",
                 string.Empty,
@@ -74,7 +74,7 @@ public sealed class GamePresentationResolver
             "borderlands-4",
             "Borderlands 4",
             new GamePresentation(
-                "Đang chuẩn bị",
+                string.Empty,
                 "Borderlands 4 đưa người chơi đến Kairos trong vai Vault Hunter, chiến đấu với hàng tỷ vũ khí, kỹ năng đặc biệt và khả năng di chuyển linh hoạt để chống lại Timekeeper. Bản Việt hóa chưa được phát hành.",
                 "Borderlands 4 sends players to Kairos as a Vault Hunter, fighting with billions of weapons, Action Skills, and dynamic movement against the Timekeeper. A Vietnamese translation has not been released yet.",
                 string.Empty,
@@ -83,7 +83,7 @@ public sealed class GamePresentationResolver
             "ark-survival-evolved",
             "ARK: Survival Evolved",
             new GamePresentation(
-                "Đang chuẩn bị",
+                string.Empty,
                 "ARK: Survival Evolved là game sinh tồn thế giới mở, nơi người chơi chế tạo, xây dựng căn cứ và thuần hóa sinh vật tiền sử để tồn tại trên hòn đảo bí ẩn. Bản Việt hóa chưa được phát hành.",
                 "ARK: Survival Evolved is an open-world survival game where players craft, build bases, and tame prehistoric creatures to survive on a mysterious island. A Vietnamese translation has not been released yet.",
                 string.Empty,
@@ -92,7 +92,7 @@ public sealed class GamePresentationResolver
             "red-dead-redemption-2",
             "Red Dead Redemption 2",
             new GamePresentation(
-                "Đang chuẩn bị",
+                string.Empty,
                 "Red Dead Redemption 2 là chuyến phiêu lưu miền viễn Tây của Rockstar Games, theo chân Arthur Morgan và băng Van der Linde trong những năm cuối của thời đại cao bồi. Bản Việt hóa chưa được phát hành.",
                 "Red Dead Redemption 2 is Rockstar Games' western epic following Arthur Morgan and the Van der Linde gang during the final years of the outlaw era. A Vietnamese translation has not been released yet.",
                 string.Empty,
@@ -101,7 +101,7 @@ public sealed class GamePresentationResolver
             "elden-ring",
             "ELDEN RING",
             new GamePresentation(
-                "Đang chuẩn bị",
+                string.Empty,
                 "ELDEN RING là action RPG fantasy của FromSoftware, đưa Tarnished bước vào Lands Between để khám phá thế giới rộng lớn, chiến đấu và trở thành Elden Lord. Bản Việt hóa chưa được phát hành.",
                 "ELDEN RING is FromSoftware's fantasy action RPG, sending the Tarnished across the Lands Between to explore, fight, and become Elden Lord. A Vietnamese translation has not been released yet.",
                 string.Empty,
@@ -110,7 +110,7 @@ public sealed class GamePresentationResolver
             "the-witcher-3-wild-hunt",
             "The Witcher 3: Wild Hunt",
             new GamePresentation(
-                "Đang chuẩn bị",
+                string.Empty,
                 "The Witcher 3: Wild Hunt là action RPG thế giới mở của CD PROJEKT RED, theo chân thợ săn quái vật Geralt of Rivia trong hành trình tìm Ciri. Bản Việt hóa chưa được phát hành.",
                 "The Witcher 3: Wild Hunt is CD PROJEKT RED's open-world action RPG following monster slayer Geralt of Rivia on his search for Ciri. A Vietnamese translation has not been released yet.",
                 string.Empty,
@@ -119,7 +119,7 @@ public sealed class GamePresentationResolver
             "split-fiction",
             "Split Fiction",
             new GamePresentation(
-                "Đang chuẩn bị",
+                string.Empty,
                 "Split Fiction là phiêu lưu co-op của Hazelight, nơi Mio và Zoe phải hợp tác để thoát khỏi những thế giới khoa học viễn tưởng và fantasy do chính họ tạo ra. Bản Việt hóa chưa được phát hành.",
                 "Split Fiction is Hazelight's co-op adventure where Mio and Zoe must work together to escape sci-fi and fantasy worlds born from their own stories. A Vietnamese translation has not been released yet.",
                 string.Empty,
@@ -128,7 +128,7 @@ public sealed class GamePresentationResolver
             "tiebreak-grand-slam-edition",
             "TIEBREAK: Grand Slam Edition",
             new GamePresentation(
-                "Đang chuẩn bị",
+                string.Empty,
                 "TIEBREAK: Grand Slam Edition là game tennis chính thức của ATP và WTA, cho phép người chơi thi đấu qua mùa giải cùng những tay vợt chuyên nghiệp nổi tiếng. Bản Việt hóa chưa được phát hành.",
                 "TIEBREAK: Grand Slam Edition is the official ATP and WTA tennis game, letting players compete through a season with well-known professional athletes. A Vietnamese translation has not been released yet.",
                 string.Empty,
@@ -137,7 +137,7 @@ public sealed class GamePresentationResolver
             "cyberpunk-2077",
             "Cyberpunk 2077",
             new GamePresentation(
-                "Đang chuẩn bị",
+                string.Empty,
                 "Cyberpunk 2077 là action RPG thế giới mở của CD PROJEKT RED, đưa người chơi đến Night City trong vai V, một lính đánh thuê theo đuổi bí mật của sự bất tử. Bản Việt hóa chưa được phát hành.",
                 "Cyberpunk 2077 is CD PROJEKT RED's open-world action RPG set in Night City, where players take the role of V, a mercenary pursuing the secret to immortality. A Vietnamese translation has not been released yet.",
                 string.Empty,
@@ -146,7 +146,7 @@ public sealed class GamePresentationResolver
             "dragon-ball-xenoverse-2",
             "DRAGON BALL XENOVERSE 2",
             new GamePresentation(
-                "Đang chuẩn bị",
+                string.Empty,
                 "DRAGON BALL XENOVERSE 2 là game hành động nhập vai, đưa người chơi du hành qua các thời điểm then chốt để bảo vệ dòng thời gian của thế giới Dragon Ball. Bản Việt hóa chưa được phát hành.",
                 "DRAGON BALL XENOVERSE 2 is an action RPG that sends players across pivotal moments to protect the Dragon Ball timeline. A Vietnamese translation has not been released yet.",
                 string.Empty,
@@ -155,7 +155,7 @@ public sealed class GamePresentationResolver
             "god-of-war",
             "God of War",
             new GamePresentation(
-                "Đang chuẩn bị",
+                string.Empty,
                 "God of War là game hành động phiêu lưu của Santa Monica Studio, theo chân Kratos và Atreus trong hành trình qua thế giới thần thoại Bắc Âu. Bản Việt hóa chưa được phát hành.",
                 "God of War is Santa Monica Studio's action-adventure following Kratos and Atreus on their journey through the world of Norse mythology. A Vietnamese translation has not been released yet.",
                 string.Empty,
@@ -164,7 +164,7 @@ public sealed class GamePresentationResolver
             "forza-horizon-6",
             "Forza Horizon 6",
             new GamePresentation(
-                "Đang chuẩn bị",
+                string.Empty,
                 "Forza Horizon 6 là game đua xe thế giới mở của Playground Games, cho phép người chơi tự do khám phá bản đồ, sưu tầm hàng trăm mẫu xe và tham gia các sự kiện đua đa dạng. Bản Việt hóa chưa được phát hành.",
                 "Forza Horizon 6 is Playground Games' open-world racing game, letting players freely explore the map, collect hundreds of cars, and take part in a wide variety of racing events. A Vietnamese translation has not been released yet.",
                 string.Empty,
@@ -173,7 +173,7 @@ public sealed class GamePresentationResolver
             "black-myth-wukong",
             "Black Myth: Wukong",
             new GamePresentation(
-                "Đang chuẩn bị",
+                string.Empty,
                 "Black Myth: Wukong là action RPG của Game Science lấy cảm hứng từ Tây Du Ký, đưa người chơi vào vai Thiên Mệnh Nhân trên hành trình chiến đấu đầy huyền thoại và ma quái. Bản Việt hóa chưa được phát hành.",
                 "Black Myth: Wukong is Game Science's action RPG inspired by Journey to the West, casting players as the Destined One on a legendary, monster-filled journey. A Vietnamese translation has not been released yet.",
                 string.Empty,
@@ -182,7 +182,7 @@ public sealed class GamePresentationResolver
             "resonance-a-plague-tale-legacy",
             "Resonance: A Plague Tale Legacy",
             new GamePresentation(
-                "Đang chuẩn bị",
+                string.Empty,
                 "Resonance: A Plague Tale Legacy là game phiêu lưu hành động của Asobo Studio, kể về hành trình của Sophia trong vũ trụ A Plague Tale với chiến đấu, khám phá và giải đố. Bản Việt hóa chưa được phát hành.",
                 "Resonance: A Plague Tale Legacy is Asobo Studio's action-adventure following Sophia in the A Plague Tale universe, with combat, exploration, and puzzles. A Vietnamese translation has not been released yet.",
                 string.Empty,

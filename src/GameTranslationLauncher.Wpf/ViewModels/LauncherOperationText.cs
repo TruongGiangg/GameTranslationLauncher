@@ -41,4 +41,6 @@ public sealed record LauncherOperationText(
     string ConflictDetailsTitle,
     string ConflictDetailsMessageFormat,
     string ConflictDetailsRecommendation,
-    string ConflictDetailsAcknowledgeAction);
+    string ConflictDetailsAcknowledgeAction,
+    IReadOnlyList<string> StageLabels,
+    string OperationCompleted);

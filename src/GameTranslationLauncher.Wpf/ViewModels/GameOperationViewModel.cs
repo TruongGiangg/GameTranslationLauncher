@@ -34,6 +34,9 @@ public sealed class GameOperationViewModel : ObservableObject
     private string operationMessage = string.Empty;
     private bool isOperationError;
     private int operationProgress;
+    private string operationStageLabel = string.Empty;
+    private string operationGameName = string.Empty;
+    private bool isOperationCompleted;
 
     public GameOperationViewModel(
         SelectGameInstallationUseCase selectInstallationUseCase,
@@ -152,6 +155,25 @@ public sealed class GameOperationViewModel : ObservableObject
         private set => SetProperty(ref operationProgress, value);
     }
 
+    public string OperationStageLabel
+    {
+        get => operationStageLabel;
+        private set => SetProperty(ref operationStageLabel, value);
+    }
+
+    public string OperationGameName
+    {
+        get => operationGameName;
+        private set => SetProperty(ref operationGameName, value);
+    }
+
+    /// <summary>True for a short moment after a file operation succeeds, so the dialog can show its ✓ state.</summary>
+    public bool IsOperationCompleted
+    {
+        get => isOperationCompleted;
+        private set => SetProperty(ref isOperationCompleted, value);
+    }
+
     public bool HasOperationMessage => !string.IsNullOrWhiteSpace(OperationMessage);
 
     public bool CanOpenFolder => selectedGame?.CatalogItem?.GameRoot is not null && !IsOperationInProgress;
@@ -179,7 +201,12 @@ public sealed class GameOperationViewModel : ObservableObject
         IsConfirmationVisible = false;
         OperationMessage = string.Empty;
         IsOperationError = false;
-        OperationProgress = 0;
+        // The post-install catalog refresh re-selects the game while the ✓ is still showing a full ring.
+        if (!IsOperationCompleted)
+        {
+            OperationProgress = 0;
+        }
+
         OnPropertyChanged(nameof(HasOperationMessage));
         OnPropertyChanged(nameof(CanOpenFolder));
         OnPropertyChanged(nameof(CanUninstall));
@@ -311,6 +338,8 @@ public sealed class GameOperationViewModel : ObservableObject
 
         IsOperationInProgress = true;
         OperationProgress = 5;
+        OperationGameName = game.DisplayName;
+        OperationStageLabel = text.StageLabels[0];
         ShowResult(false, text.PreparingPlan);
         operationCancellation = new CancellationTokenSource();
         try
@@ -392,6 +421,8 @@ public sealed class GameOperationViewModel : ObservableObject
         operationCancellation = new CancellationTokenSource();
         IsOperationInProgress = true;
         OperationProgress = 0;
+        OperationGameName = operation.Game.DisplayName;
+        OperationStageLabel = text.StageLabels[0];
         ShowResult(false, text.PreparingFileOperation);
         var progress = new Progress<InstallationProgress>(UpdateProgress);
         try
@@ -412,7 +443,12 @@ public sealed class GameOperationViewModel : ObservableObject
             ShowResult(!result.Succeeded, result.Message);
             if (result.Succeeded)
             {
+                OperationProgress = 100;
+                OperationStageLabel = text.OperationCompleted;
+                IsOperationCompleted = true;
                 await RefreshCatalogAsync(result.Message);
+                // Keep the ✓ on screen long enough to read; files are already committed at this point.
+                await Task.Delay(TimeSpan.FromMilliseconds(1300));
             }
         }
         catch (Exception)
@@ -423,6 +459,7 @@ public sealed class GameOperationViewModel : ObservableObject
         {
             operationCancellation.Dispose();
             operationCancellation = null;
+            IsOperationCompleted = false;
             IsOperationInProgress = false;
         }
     }
@@ -552,8 +589,20 @@ public sealed class GameOperationViewModel : ObservableObject
 
     private void UpdateProgress(InstallationProgress progress)
     {
+        // Progress<T> posts reports asynchronously; a late one must not pull the finished ring back down.
+        if (IsOperationCompleted)
+        {
+            return;
+        }
+
         var total = Math.Max(progress.TotalItems, 1);
         OperationProgress = Math.Clamp((int)Math.Round(progress.CompletedItems * 100d / total), 0, 100);
+        var stage = (int)progress.Stage;
+        if (stage >= 0 && stage < text.StageLabels.Count)
+        {
+            OperationStageLabel = text.StageLabels[stage];
+        }
+
         OperationMessage = progress.Message;
         IsOperationError = false;
     }

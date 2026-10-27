@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>TG Logo Redesign</title>
+<style>
+  :root { --bg: #101114; --card: #17181c; --line: #26282e; --text: #f2f2f2; --muted: #a2a7ae; }
+  body { margin: 0; padding: 26px 28px; background: var(--bg); color: var(--text); font-family: "Segoe UI", system-ui, sans-serif; }
+  h1 { font-size: 18px; margin: 0 0 4px; }
+  p.lead { margin: 0 0 20px; color: var(--muted); font-size: 13px; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .concept { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px; }
+  .concept h2 { font-size: 14px; margin: 0; }
+  .concept p { font-size: 11.5px; color: var(--muted); margin: 4px 0 12px; line-height: 1.45; min-height: 50px; }
+  .hero { height: 170px; border-radius: 12px; display: grid; place-items: center;
+    background: radial-gradient(circle at 50% 40%, #24262c, #121316 70%); }
+  .hero svg { width: 132px; height: 132px; }
+  .row { display: flex; gap: 10px; margin-top: 10px; align-items: stretch; }
+  /* Glass sidebar crop over game art, where the mark actually lives in the app. */
+  .ctx { flex: 1; height: 112px; border-radius: 12px; position: relative; overflow: hidden; background-size: cover; background-position: 15% 30%; }
+  .ctx.witcher { background-image: url("../../../../images/the-witcher-3-wild-hunt/the-witcher-3-wild-hunt-hero-v2.png"); }
+  .ctx.borderlands { background-image: url("../../../../images/borderlands-4/borderlands-4-hero-v2.png"); }
+  .ctx .glass { position: absolute; left: 10px; top: 10px; bottom: -20px; width: 86px; border-radius: 18px;
+    background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.24); backdrop-filter: blur(22px) saturate(1.4);
+    display: grid; justify-items: center; align-content: start; padding-top: 14px; }
+  .ctx svg { width: 58px; height: 58px; }
+  .small { width: 74px; display: flex; flex-direction: column; gap: 8px; align-items: center; justify-content: center;
+    background: #202226; border-radius: 12px; font-size: 10px; color: var(--muted); }
+  .small svg { width: 32px; height: 32px; }
+  .small .s16 { width: 16px; height: 16px; }
+</style>
+</head>
+<body>
+<h1>Logo TG — 4 hướng thiết kế mới</h1>
+<p class="lead">Mỗi thẻ: logo lớn, logo trên sidebar kính (Witcher, Borderlands), và cỡ nhỏ 32/16px như icon taskbar. Tất cả là vector SVG, đưa vào WPF được dưới dạng Path/DrawingImage, không mờ ở mọi DPI.</p>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff5148"/><stop offset=".55" stop-color="#e3172f"/><stop offset="1" stop-color="#9e0d26"/>
+    </linearGradient>
+    <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".38"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffe3a3"/><stop offset="1" stop-color="#c8913a"/>
+    </linearGradient>
+    <linearGradient id="neon" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff7a45"/><stop offset="1" stop-color="#ff1f4b"/>
+    </linearGradient>
+
+    <!-- 1 · Ligature: one white stroke draws the G; its crossbar runs up into the T stem. -->
+    <symbol id="lig" viewBox="0 0 100 100">
+      <rect x="4" y="4" width="92" height="92" rx="26" fill="url(#red)"/>
+      <rect x="4" y="4" width="92" height="46" rx="26" fill="url(#gloss)"/>
+      <rect x="4.5" y="4.5" width="91" height="91" rx="25.5" fill="none" stroke="#fff" stroke-opacity=".35"/>
+      <g fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M27 27 H73"/>
+        <path d="M50 27 V52 H72 A23 23 0 1 1 64 34"/>
+      </g>
+    </symbol>
+
+    <!-- 2 · Speech bubbles: two overlapping bubbles = two languages; TG sits in the front one. -->
+    <symbol id="bubble" viewBox="0 0 100 100">
+      <path d="M40 10 H82 A12 12 0 0 1 94 22 V50 A12 12 0 0 1 82 62 H78 V72 L68 62 H40 A12 12 0 0 1 28 50 V22 A12 12 0 0 1 40 10 Z"
+            fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="4"/>
+      <path d="M18 30 H64 A12 12 0 0 1 76 42 V74 A12 12 0 0 1 64 86 H34 L20 97 V86 H18 A12 12 0 0 1 6 74 V42 A12 12 0 0 1 18 30 Z" fill="url(#red)"/>
+      <path d="M18 30 H64 A12 12 0 0 1 76 42 V56 H6 V42 A12 12 0 0 1 18 30 Z" fill="url(#gloss)"/>
+      <text x="41" y="69.5" text-anchor="middle" font-family="Segoe UI Black, Segoe UI, sans-serif" font-weight="900" font-size="30" fill="#fff" letter-spacing="-1">TG</text>
+    </symbol>
+
+    <!-- 3 · Crest: shield with gold rim, like a guild emblem for a translation group. -->
+    <symbol id="crest" viewBox="0 0 100 100">
+      <path d="M50 4 L88 16 V46 C88 70 72 86 50 96 C28 86 12 70 12 46 V16 Z" fill="url(#gold)"/>
+      <path d="M50 10 L82 20.5 V46 C82 66 68.5 80 50 89 C31.5 80 18 66 18 46 V20.5 Z" fill="url(#red)"/>
+      <path d="M50 10 L82 20.5 V40 H18 V20.5 Z" fill="url(#gloss)"/>
+      <text x="50" y="62" text-anchor="middle" font-family="Segoe UI Black, Segoe UI, sans-serif" font-weight="900" font-size="32" fill="#fff" letter-spacing="-1">TG</text>
+      <path d="M34 72 H66" stroke="url(#gold)" stroke-width="3" stroke-linecap="round"/>
+    </symbol>
+
+    <!-- 4 · Neon slash: the current bold italic TG, cut by a diagonal slash, in an orange→red neon gradient. -->
+    <symbol id="neonmark" viewBox="0 0 100 100">
+      <rect x="4" y="4" width="92" height="92" rx="24" fill="#16171b"/>
+      <rect x="4.5" y="4.5" width="91" height="91" rx="23.5" fill="none" stroke="url(#neon)" stroke-width="2.5"/>
+      <g transform="skewX(-10) translate(9 0)">
+        <path d="M18 30 H52 V42 H41 V74 H29 V42 H18 Z" fill="url(#neon)"/>
+        <path d="M83 36 A22 22 0 1 0 85 58 V52 H66 V62 H72 A11 11 0 1 1 72 42 Z" fill="url(#neon)"/>
+      </g>
+      <path d="M22 84 L80 18" stroke="#16171b" stroke-width="5" stroke-linecap="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="grid" id="grid"></div>
+
+<script>
+  const concepts = [
+    ["lig", "1 · Nét liền T–G", "Một nét trắng vẽ chữ G; thanh ngang của G chạy lên thành thân chữ T. Ô vuông bo góc đỏ có bóng kính, giống icon app hiện đại."],
+    ["bubble", "2 · Bong bóng hội thoại", "Hai bong bóng chồng nhau tượng trưng hai ngôn ngữ — đúng tinh thần Việt hóa. TG nằm trong bong bóng đỏ phía trước."],
+    ["crest", "3 · Huy hiệu khiên", "Khiên đỏ viền vàng như biểu tượng một hội nhóm game. Chững chạc, hợp màn hình mở app; hơi chi tiết ở cỡ rất nhỏ."],
+    ["neonmark", "4 · Neon gạch chéo", "Giữ chữ TG đậm nghiêng như logo cũ, đổi sang neon cam→đỏ trên nền tối, có nét chém chéo. Gần nhận diện cũ nhất."]
+  ];
+  const use = (id, cls = "") => `<svg class="${cls}"><use href="#${id}"/></svg>`;
+  document.getElementById("grid").innerHTML = concepts.map(([id, title, text]) => `
+    <div class="concept">
+      <h2>${title}</h2><p>${text}</p>
+      <div class="hero">${use(id)}</div>
+      <div class="row">
+        <div class="ctx witcher"><div class="glass">${use(id)}</div></div>
+        <div class="ctx borderlands"><div class="glass">${use(id)}</div></div>
+        <div class="small">${use(id)}${use(id, "s16")}<span>32 · 16px</span></div>
+      </div>
+    </div>`).join("");
+</script>
+</body>
+</html>

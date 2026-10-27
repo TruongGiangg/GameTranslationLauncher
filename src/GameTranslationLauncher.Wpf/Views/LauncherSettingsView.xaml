@@ -5,12 +5,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:automation="clr-namespace:System.Windows.Automation;assembly=PresentationCore"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:controls="clr-namespace:GameTranslationLauncher.Wpf.Controls"
              d:DesignHeight="620"
              d:DesignWidth="800"
              mc:Ignorable="d">
     <UserControl.Resources>
         <DataTemplate x:Key="DisplayNameComboBoxItemTemplate">
-            <TextBlock Text="{Binding DisplayName}" Foreground="{StaticResource BrushTextPrimary}" />
+            <TextBlock Text="{Binding DisplayName}" Foreground="{DynamicResource BrushTextPrimary}" />
         </DataTemplate>
 
         <Style x:Key="ChoiceButton" TargetType="Button" BasedOn="{StaticResource SecondaryActionButton}">
@@ -19,14 +20,20 @@
             <Setter Property="FontSize" Value="11" />
         </Style>
 
+        <Style x:Key="SurfaceChoiceButton" TargetType="Button" BasedOn="{StaticResource SecondaryActionButton}">
+            <Setter Property="Height" Value="56" />
+            <Setter Property="Padding" Value="14,0" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+        </Style>
+
         <Style x:Key="FieldTextBox" TargetType="TextBox">
-            <Setter Property="Background" Value="#0E0F11" />
-            <Setter Property="BorderBrush" Value="{StaticResource BrushBorder}" />
+            <Setter Property="Background" Value="{DynamicResource BrushField}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource BrushBorder}" />
             <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="Foreground" Value="{StaticResource BrushTextPrimary}" />
+            <Setter Property="Foreground" Value="{DynamicResource BrushTextPrimary}" />
             <Setter Property="Padding" Value="11,8" />
             <Setter Property="FontSize" Value="12" />
-            <Setter Property="CaretBrush" Value="{StaticResource BrushTextPrimary}" />
+            <Setter Property="CaretBrush" Value="{DynamicResource BrushTextPrimary}" />
         </Style>
 
         <Style x:Key="ReportTypeButton" TargetType="Button" BasedOn="{StaticResource ChoiceButton}">
@@ -37,15 +44,15 @@
 
         <Style x:Key="FieldComboBox" TargetType="ComboBox">
             <Setter Property="Height" Value="36" />
-            <Setter Property="Background" Value="#0E0F11" />
-            <Setter Property="BorderBrush" Value="{StaticResource BrushBorder}" />
+            <Setter Property="Background" Value="{DynamicResource BrushField}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource BrushBorder}" />
             <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="Foreground" Value="{StaticResource BrushTextPrimary}" />
+            <Setter Property="Foreground" Value="{DynamicResource BrushTextPrimary}" />
             <Setter Property="Padding" Value="11,0" />
             <Setter Property="ItemContainerStyle">
                 <Setter.Value>
                     <Style TargetType="ComboBoxItem">
-                        <Setter Property="Foreground" Value="{StaticResource BrushTextPrimary}" />
+                        <Setter Property="Foreground" Value="{DynamicResource BrushTextPrimary}" />
                         <Setter Property="Background" Value="Transparent" />
                         <Setter Property="Padding" Value="11,8" />
                         <Setter Property="Template">
@@ -96,7 +103,7 @@
                                                 <Path HorizontalAlignment="Right"
                                                       Margin="0,0,12,0"
                                                       VerticalAlignment="Center"
-                                                      Fill="{StaticResource BrushTextMuted}"
+                                                      Fill="{DynamicResource BrushTextMuted}"
                                                       Data="M 0 0 L 9 0 L 4.5 5.5 Z" />
                                             </Grid>
                                         </Border>
@@ -110,8 +117,8 @@
                                    PopupAnimation="Fade">
                                 <Border MinWidth="{Binding ActualWidth, ElementName=ToggleButton}"
                                         Margin="0,4,0,0"
-                                        Background="#F2151619"
-                                        BorderBrush="{StaticResource BrushBorder}"
+                                        Background="{DynamicResource BrushPopup}"
+                                        BorderBrush="{DynamicResource BrushBorder}"
                                         BorderThickness="1"
                                         CornerRadius="6">
                                     <ScrollViewer MaxHeight="170" VerticalScrollBarVisibility="Auto">
@@ -131,7 +138,7 @@
             <Setter Property="Padding" Value="0" />
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="BorderBrush" Value="Transparent" />
-            <Setter Property="Foreground" Value="{StaticResource BrushTextMuted}" />
+            <Setter Property="Foreground" Value="{DynamicResource BrushTextMuted}" />
             <Setter Property="Cursor" Value="Hand" />
             <Setter Property="Template">
                 <Setter.Value>
@@ -146,8 +153,8 @@
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter TargetName="Root" Property="Background" Value="#24F5F5F5" />
-                                <Setter TargetName="Root" Property="BorderBrush" Value="{StaticResource BrushBorder}" />
-                                <Setter Property="Foreground" Value="{StaticResource BrushTextPrimary}" />
+                                <Setter TargetName="Root" Property="BorderBrush" Value="{DynamicResource BrushBorder}" />
+                                <Setter Property="Foreground" Value="{DynamicResource BrushTextPrimary}" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -156,17 +163,17 @@
         </Style>
     </UserControl.Resources>
 
-    <Border Width="800"
-            MaxWidth="800"
-            MaxHeight="620"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Padding="22"
-            Background="#F2151619"
-            BorderBrush="#7A45474C"
-            BorderThickness="1" 
-            CornerRadius="14"
-            SnapsToDevicePixels="True">
+    <controls:GlassBorder Width="800"
+                          MaxWidth="800"
+                          MaxHeight="620"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                          Padding="22"
+                          Background="{DynamicResource BrushModal}"
+                          BorderBrush="{DynamicResource BrushModalBorder}"
+                          BorderThickness="1"
+                          CornerRadius="{DynamicResource RadiusModal}"
+                          SnapsToDevicePixels="True">
         <Border.RenderTransform>
             <ScaleTransform ScaleX="0.97" ScaleY="0.97" />
         </Border.RenderTransform>
@@ -200,12 +207,12 @@
                 </Grid.ColumnDefinitions>
                 <StackPanel>
                     <TextBlock Text="{Binding Settings.Text.Title}"
-                               Foreground="{StaticResource BrushTextPrimary}"
+                               Foreground="{DynamicResource BrushTextPrimary}"
                                FontSize="20"
                                FontWeight="SemiBold" />
                     <TextBlock Margin="0,4,0,0"
                                Text="{Binding Settings.Text.Subtitle}"
-                               Foreground="{StaticResource BrushTextMuted}"
+                               Foreground="{DynamicResource BrushTextMuted}"
                                FontSize="11" />
                 </StackPanel>
                 <Button Grid.Column="1"
@@ -232,13 +239,13 @@
                         </Grid.ColumnDefinitions>
 
                         <Border Padding="16"
-                                Background="#99101113"
-                                BorderBrush="{StaticResource BrushBorder}"
+                                Background="{DynamicResource BrushCard}"
+                                BorderBrush="{DynamicResource BrushBorder}"
                                 BorderThickness="1"
-                                CornerRadius="10">
+                                CornerRadius="{DynamicResource RadiusCard}">
                             <StackPanel>
                                 <TextBlock Text="{Binding Settings.Text.InterfaceTitle}"
-                                           Foreground="{StaticResource BrushTextPrimary}"
+                                           Foreground="{DynamicResource BrushTextPrimary}"
                                            FontSize="12"
                                            FontWeight="SemiBold" />
                                 <Grid Margin="0,14,0,0">
@@ -248,7 +255,7 @@
                                     </Grid.ColumnDefinitions>
                                     <StackPanel>
                                         <TextBlock Text="{Binding Settings.Text.LanguageLabel}"
-                                                   Foreground="{StaticResource BrushTextMuted}"
+                                                   Foreground="{DynamicResource BrushTextMuted}"
                                                    FontSize="10.5" />
                                         <StackPanel Margin="0,7,0,0" Orientation="Horizontal">
                                             <Button Command="{Binding Settings.SelectVietnameseCommand}"
@@ -286,7 +293,7 @@
                                     </StackPanel>
                                     <StackPanel Grid.Column="1">
                                         <TextBlock Text="{Binding Settings.Text.AccentLabel}"
-                                                   Foreground="{StaticResource BrushTextMuted}"
+                                                   Foreground="{DynamicResource BrushTextMuted}"
                                                    FontSize="10.5" />
                                         <ComboBox Margin="0,7,0,0"
                                                   MinWidth="150"
@@ -299,23 +306,101 @@
                                                   automation:AutomationProperties.Name="Chọn màu nhấn" />
                                     </StackPanel>
                                 </Grid>
+                                <TextBlock Margin="0,14,0,0"
+                                           Text="{Binding Settings.Text.SurfaceLabel}"
+                                           Foreground="{DynamicResource BrushTextMuted}"
+                                           FontSize="10.5" />
+                                <UniformGrid Margin="0,7,0,0" Columns="2">
+                                    <Button Margin="0,0,4,0"
+                                            Command="{Binding Settings.SelectGlassSurfaceCommand}"
+                                            automation:AutomationProperties.Name="Chọn giao diện Glassy">
+                                        <Button.Style>
+                                            <Style TargetType="Button" BasedOn="{StaticResource SurfaceChoiceButton}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Settings.IsGlassSurfaceSelected}" Value="True">
+                                                        <Setter Property="Background" Value="{DynamicResource BrushAccent}" />
+                                                        <Setter Property="BorderBrush" Value="{DynamicResource BrushAccent}" />
+                                                        <Setter Property="Foreground" Value="{DynamicResource BrushButtonPrimaryForeground}" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Button.Style>
+                                        <StackPanel Orientation="Horizontal">
+                                        <Grid Width="32" Height="32" Margin="0,0,10,0" VerticalAlignment="Center">
+                                            <Ellipse Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}" Opacity="0.14" />
+                                            <materialDesign:PackIcon Kind="Blur"
+                                                                     Width="18"
+                                                                     Height="18"
+                                                                     HorizontalAlignment="Center"
+                                                                     VerticalAlignment="Center"
+                                                                     Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}" />
+                                        </Grid>
+                                        <StackPanel VerticalAlignment="Center">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding Settings.Text.GlassLabel}" FontSize="12" />
+                                                <TextBlock Margin="8,1,0,0"
+                                                           VerticalAlignment="Center"
+                                                           FontSize="9"
+                                                           Opacity="0.75"
+                                                           Text="{Binding Settings.Text.DefaultBadge}" />
+                                            </StackPanel>
+                                            <TextBlock Margin="0,3,0,0" FontSize="10.5" FontWeight="Normal" Opacity="0.8" Text="{Binding Settings.Text.GlassDescription}" />
+                                        </StackPanel>
+                                        </StackPanel>
+                                    </Button>
+                                    <Button Margin="4,0,0,0"
+                                            Command="{Binding Settings.SelectDarkSurfaceCommand}"
+                                            automation:AutomationProperties.Name="Chọn giao diện tối">
+                                        <Button.Style>
+                                            <Style TargetType="Button" BasedOn="{StaticResource SurfaceChoiceButton}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Settings.IsDarkSurfaceSelected}" Value="True">
+                                                        <Setter Property="Background" Value="{DynamicResource BrushAccent}" />
+                                                        <Setter Property="BorderBrush" Value="{DynamicResource BrushAccent}" />
+                                                        <Setter Property="Foreground" Value="{DynamicResource BrushButtonPrimaryForeground}" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Button.Style>
+                                        <StackPanel Orientation="Horizontal">
+                                        <Grid Width="32" Height="32" Margin="0,0,10,0" VerticalAlignment="Center">
+                                            <Ellipse Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}" Opacity="0.14" />
+                                            <!-- The crescent glyph spans x 2..15 of its 24-unit box; shift it so its mass is centred. -->
+                                            <materialDesign:PackIcon Kind="MoonWaningCrescent"
+                                                                     Width="18"
+                                                                     Height="18"
+                                                                     HorizontalAlignment="Center"
+                                                                     VerticalAlignment="Center"
+                                                                     Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}">
+                                                <materialDesign:PackIcon.RenderTransform>
+                                                    <TranslateTransform X="2.6" />
+                                                </materialDesign:PackIcon.RenderTransform>
+                                            </materialDesign:PackIcon>
+                                        </Grid>
+                                        <StackPanel VerticalAlignment="Center">
+                                            <TextBlock Text="{Binding Settings.Text.DarkLabel}" FontSize="12" />
+                                            <TextBlock Margin="0,3,0,0" FontSize="10.5" FontWeight="Normal" Opacity="0.8" Text="{Binding Settings.Text.DarkDescription}" />
+                                        </StackPanel>
+                                        </StackPanel>
+                                    </Button>
+                                </UniformGrid>
                             </StackPanel>
                         </Border>
 
                         <Border Grid.Column="2"
                                 Padding="16"
-                                Background="#99101113"
-                                BorderBrush="{StaticResource BrushBorder}"
+                                Background="{DynamicResource BrushCard}"
+                                BorderBrush="{DynamicResource BrushBorder}"
                                 BorderThickness="1"
-                                CornerRadius="10">
+                                CornerRadius="{DynamicResource RadiusCard}">
                             <StackPanel>
                                 <TextBlock Text="{Binding Settings.Text.LinksTitle}"
-                                           Foreground="{StaticResource BrushTextPrimary}"
+                                           Foreground="{DynamicResource BrushTextPrimary}"
                                            FontSize="12"
                                            FontWeight="SemiBold" />
                                 <TextBlock Margin="0,4,0,13"
                                            Text="{Binding Settings.Text.VersionLabel}"
-                                           Foreground="{StaticResource BrushTextMuted}"
+                                           Foreground="{DynamicResource BrushTextMuted}"
                                            FontSize="10.5" />
                                 <StackPanel Orientation="Horizontal">
                                     <Button Width="48" Height="36" Padding="0" Margin="0,0,7,0" Command="{Binding Settings.OpenFacebookCommand}" Style="{StaticResource SecondaryActionButton}" ToolTip="Facebook" automation:AutomationProperties.Name="Mở Facebook">
@@ -324,7 +409,7 @@
                                                                 Height="20"
                                                                 HorizontalAlignment="Center"
                                                                 VerticalAlignment="Center"
-                                                                Foreground="{StaticResource BrushTextPrimary}" />
+                                                                Foreground="{DynamicResource BrushTextPrimary}" />
                                     </Button>
                                     <Button Width="48" Height="36" Padding="0" Margin="0,0,7,0" Command="{Binding Settings.OpenInstagramCommand}" Style="{StaticResource SecondaryActionButton}" ToolTip="Instagram" automation:AutomationProperties.Name="Mở Instagram">
                                         <materialDesign:PackIcon Kind="Instagram"
@@ -332,7 +417,7 @@
                                                                 Height="20"
                                                                 HorizontalAlignment="Center"
                                                                 VerticalAlignment="Center"
-                                                                Foreground="{StaticResource BrushTextPrimary}" />
+                                                                Foreground="{DynamicResource BrushTextPrimary}" />
                                     </Button>
                                     <Button Width="48" Height="36" Padding="0" Command="{Binding Settings.OpenGitHubCommand}" Style="{StaticResource SecondaryActionButton}" ToolTip="GitHub" automation:AutomationProperties.Name="Mở GitHub">
                                         <materialDesign:PackIcon Kind="Github"
@@ -340,7 +425,7 @@
                                                                 Height="20"
                                                                 HorizontalAlignment="Center"
                                                                 VerticalAlignment="Center"
-                                                                Foreground="{StaticResource BrushTextPrimary}" />
+                                                                Foreground="{DynamicResource BrushTextPrimary}" />
                                     </Button>
                                 </StackPanel>
                             </StackPanel>
@@ -349,10 +434,10 @@
 
                     <Border Margin="0,14,0,0"
                             Padding="17"
-                            Background="#B7101113"
-                            BorderBrush="{StaticResource BrushBorder}"
+                            Background="{DynamicResource BrushCardStrong}"
+                            BorderBrush="{DynamicResource BrushBorder}"
                             BorderThickness="1"
-                            CornerRadius="10">
+                            CornerRadius="{DynamicResource RadiusCard}">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
@@ -361,12 +446,12 @@
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
                             <TextBlock Text="{Binding Settings.Text.ReportTitle}"
-                                       Foreground="{StaticResource BrushTextPrimary}"
+                                       Foreground="{DynamicResource BrushTextPrimary}"
                                        FontSize="13"
                                        FontWeight="SemiBold" />
                             <TextBlock Grid.Row="1" Margin="0,4,0,13"
                                        Text="{Binding Settings.Text.ReportSubtitle}"
-                                       Foreground="{StaticResource BrushTextMuted}"
+                                       Foreground="{DynamicResource BrushTextMuted}"
                                        FontSize="10.5" />
                             <Grid Grid.Row="2">
                                 <Grid.ColumnDefinitions>
@@ -375,7 +460,7 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
                                 <StackPanel>
-                                    <TextBlock Text="{Binding Settings.Text.ReportTypeLabel}" Foreground="{StaticResource BrushTextMuted}" FontSize="10.5" />
+                                    <TextBlock Text="{Binding Settings.Text.ReportTypeLabel}" Foreground="{DynamicResource BrushTextMuted}" FontSize="10.5" />
                                     <StackPanel Margin="0,7,0,0" Orientation="Horizontal">
                                         <Button Command="{Binding Settings.Report.SelectBugReportCommand}" ToolTip="{Binding Settings.Text.ReportBugLabel}" automation:AutomationProperties.Name="Loại báo lỗi">
                                             <TextBlock Text="!" FontWeight="Bold" />
@@ -390,10 +475,10 @@
                                             <Button.Style><Style TargetType="Button" BasedOn="{StaticResource ReportTypeButton}"><Style.Triggers><DataTrigger Binding="{Binding Settings.Report.IsRequestReportSelected}" Value="True"><Setter Property="Background" Value="{DynamicResource BrushAccent}" /><Setter Property="BorderBrush" Value="{DynamicResource BrushAccent}" /><Setter Property="Foreground" Value="{DynamicResource BrushButtonPrimaryForeground}" /></DataTrigger></Style.Triggers></Style></Button.Style>
                                         </Button>
                                     </StackPanel>
-                                    <TextBlock Margin="0,7,0,0" Text="{Binding Settings.Report.SelectedReportTypeLabel}" Foreground="{StaticResource BrushTextPrimary}" FontSize="10.5" />
+                                    <TextBlock Margin="0,7,0,0" Text="{Binding Settings.Report.SelectedReportTypeLabel}" Foreground="{DynamicResource BrushTextPrimary}" FontSize="10.5" />
                                 </StackPanel>
                                 <StackPanel Grid.Column="2">
-                                    <TextBlock Text="{Binding Settings.Text.ReportGameLabel}" Foreground="{StaticResource BrushTextMuted}" FontSize="10.5" />
+                                    <TextBlock Text="{Binding Settings.Text.ReportGameLabel}" Foreground="{DynamicResource BrushTextMuted}" FontSize="10.5" />
                                     <Grid Margin="0,7,0,0">
                                         <ComboBox ItemsSource="{Binding Settings.Report.AvailableGames}"
                                                   SelectedItem="{Binding Settings.Report.SelectedReportGame, Mode=TwoWay}"
@@ -425,7 +510,7 @@
                                     <RowDefinition Height="Auto" />
                                     <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
-                                <TextBlock Text="{Binding Settings.Text.ReportMessageLabel}" Foreground="{StaticResource BrushTextMuted}" FontSize="10.5" />
+                                <TextBlock Text="{Binding Settings.Text.ReportMessageLabel}" Foreground="{DynamicResource BrushTextMuted}" FontSize="10.5" />
                                 <TextBox Grid.Row="1"
                                          Margin="0,7,0,0"
                                          Height="66"
@@ -439,12 +524,12 @@
                                     <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
                                     <TextBlock VerticalAlignment="Center"
                                                Text="{Binding Settings.Report.ActionStatusText}"
-                                               Foreground="{StaticResource BrushTextMuted}"
+                                               Foreground="{DynamicResource BrushTextMuted}"
                                                FontSize="10.5"
                                                TextWrapping="Wrap">
                                         <TextBlock.Style>
                                             <Style TargetType="TextBlock">
-                                                <Setter Property="Foreground" Value="{StaticResource BrushTextMuted}" />
+                                                <Setter Property="Foreground" Value="{DynamicResource BrushTextMuted}" />
                                                 <Style.Triggers><DataTrigger Binding="{Binding Settings.Report.IsActionError}" Value="True"><Setter Property="Foreground" Value="#EF7777" /></DataTrigger></Style.Triggers>
                                             </Style>
                                         </TextBlock.Style>
@@ -465,5 +550,5 @@
                 </StackPanel>
             </ScrollViewer>
         </Grid>
-    </Border>
+    </controls:GlassBorder>
 </UserControl>

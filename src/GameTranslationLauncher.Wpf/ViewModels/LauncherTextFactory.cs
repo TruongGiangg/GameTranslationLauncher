@@ -25,6 +25,12 @@ public static class LauncherTextFactory
         "Trắng",
         "Cam",
         "Cyan",
+        "Kiểu giao diện",
+        "Glassy",
+        "Kính trong suốt trên ảnh game",
+        "Tối",
+        "Giao diện tối cổ điển",
+        "MẶC ĐỊNH",
         "GỬI BÁO CÁO",
         "Báo lỗi, yêu cầu cập nhật bản dịch hoặc đề xuất game mới.",
         "Loại báo cáo",
@@ -62,6 +68,12 @@ public static class LauncherTextFactory
         "White",
         "Orange",
         "Cyan",
+        "Surface style",
+        "Glassy",
+        "Frosted glass over the game art",
+        "Dark",
+        "Classic dark interface",
+        "DEFAULT",
         "SEND A REPORT",
         "Report an issue, request a translation update, or suggest a new game.",
         "Report type",
@@ -92,7 +104,7 @@ public static class LauncherTextFactory
         "KIỂM TRA CẬP NHẬT", "MỞ THƯ MỤC GAME", "GỠ BẢN DỊCH", "MỞ THƯ MỤC", "ĐỔI THƯ MỤC GAME", "Hỗ trợ: ", "Ngôn ngữ: ", "Xác minh: ",
         "TRẠNG THÁI", "DUNG LƯỢNG", "PACKAGE", "GỠ BẢN VIỆT HÓA", "Đang tải catalog local…", "Chưa có package hợp lệ trong catalog local.", "Không thể tải catalog local. Hãy kiểm tra lại package và thử tải lại.",
         "Đã tải {0} game từ catalog local.", "Đã tải {0} game; bỏ qua {1} package lỗi.", "Đang xử lý bản Việt hóa", "HỦY SAU ĐIỂM AN TOÀN", "QUAY LẠI",
-        "Thu nhỏ", "Phóng to / khôi phục", "Đóng", "TG Launcher V1.0.0", "Tìm game…");
+        "Thu nhỏ", "Phóng to / khôi phục", "Đóng", "TG Launcher V1.0.0", "Tìm game…", "Đang chuẩn bị");
 
     private static LauncherApplicationText CreateEnglishApplicationText() => new(
         "en", "GAME LIBRARY", "No translation package was found in the local catalog.",
@@ -102,7 +114,7 @@ public static class LauncherTextFactory
         "CHECK FOR UPDATES", "OPEN GAME FOLDER", "UNINSTALL TRANSLATION", "OPEN FOLDER", "CHANGE GAME FOLDER", "Support: ", "Language: ", "Verified: ",
         "STATUS", "SIZE", "PACKAGE", "UNINSTALL TRANSLATION", "Loading local catalog…", "No valid package was found in the local catalog.", "Unable to load the local catalog. Check the packages and try again.",
         "Loaded {0} games from the local catalog.", "Loaded {0} games; skipped {1} invalid packages.", "Processing translation", "CANCEL AFTER SAFE POINT", "GO BACK",
-        "Minimize", "Maximize / restore", "Close", "TG Launcher V1.0.0", "Search games…");
+        "Minimize", "Maximize / restore", "Close", "TG Launcher V1.0.0", "Search games…", "In preparation");
 
     private static LauncherOperationText CreateVietnameseOperationText() => new(
         "Đã kiểm tra trạng thái game.", "Đã kiểm tra bản dịch và trạng thái file.", "Không thể kiểm tra trạng thái game.", "Chưa thay đổi thư mục game.", "Đã xác nhận và lưu thư mục game.",
@@ -118,7 +130,10 @@ public static class LauncherTextFactory
         "CHI TIẾT XUNG ĐỘT FILE",
         "Launcher phát hiện file trùng với package Việt hóa của {0}, nhưng không có biên nhận cài đặt hợp lệ hoặc package đã thay đổi kể từ lần cài. Để bảo vệ dữ liệu game, Launcher sẽ không tự ghi đè hoặc xóa file này.",
         "Mở thư mục game để kiểm tra bản dịch hoặc mod đã chép thủ công. Nếu muốn cài bằng Launcher, hãy sao lưu và dọn file xung đột, sau đó bấm Đổi thư mục game để kiểm tra lại.",
-        "ĐÃ HIỂU");
+        "ĐÃ HIỂU",
+        // Indexed by InstallationProgressStage.
+        ["Đang kiểm tra package", "Đang sao lưu file gốc", "Đang chuẩn bị file", "Đang cài file", "Đang xác minh", "Đang hoàn tác an toàn", "Đang gỡ file", "Hoàn tất"],
+        "Hoàn tất!");
 
     private static LauncherOperationText CreateEnglishOperationText() => new(
         "Game status was checked.", "Translation and file status were checked.", "Unable to check the game status.", "The game folder was not changed.", "The game folder was verified and saved.",
@@ -134,7 +149,9 @@ public static class LauncherTextFactory
         "FILE CONFLICT DETAILS",
         "Launcher found files that overlap the {0} translation package, but there is no valid installation receipt or the package changed after installation. To protect your game files, Launcher will not overwrite or remove these files automatically.",
         "Open the game folder to inspect translations or mods copied manually. To install with Launcher, back up and remove the conflicting files, then choose the game folder again to recheck it.",
-        "GOT IT");
+        "GOT IT",
+        ["Checking the package", "Backing up original files", "Preparing files", "Installing files", "Verifying", "Rolling back safely", "Removing files", "Done"],
+        "All done!");
 
     private static LauncherUpdateText CreateVietnameseUpdateText() => new(
         "Đã có bản cập nhật Launcher {0}",

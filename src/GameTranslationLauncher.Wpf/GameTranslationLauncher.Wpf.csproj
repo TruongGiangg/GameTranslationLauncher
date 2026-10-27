@@ -10,8 +10,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\Artwork\*\*-logo.png" />
     <Resource Remove="Resources\tg-minimal-logo-red.png" />
-    <Resource Include="..\..\..\images\logo\tg-minimal-logo-red.png" Link="Resources\tg-minimal-logo-red.png" />
+    <Resource Include="..\..\..\images\logo\tg-dragon-satin-sidebar.png" Link="Resources\tg-minimal-logo-red.png" />
+    <Resource Include="..\..\..\images\logo\tg-dragon-satin-icon.png" Link="Resources\tg-dragon-satin-icon.png" />
+    <Resource Include="..\..\..\images\logo\tg-dragon-satin.ico" Link="Resources\tg-dragon-satin.ico" />
+    <Content Include="..\..\..\images\logo\tg-dragon-intro.mp4" Link="Resources\Media\tg-dragon-intro.mp4" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
     <Resource Include="..\..\..\images\tiny-eden\tiny-eden-hero-logo.jpg" Link="Resources\Artwork\tiny-eden\tiny-eden-hero-logo.jpg" />
     <Resource Include="..\..\..\images\tiny-eden\tiny-eden-hero-v2.png" Link="Resources\Artwork\tiny-eden\tiny-eden-hero-v2.png" />
     <Resource Include="..\..\..\images\no-rest-for-the-wicked\no-rest-for-the-wicked-hero.jpg" Link="Resources\Artwork\no-rest-for-the-wicked\no-rest-for-the-wicked-hero.jpg" />
@@ -60,7 +64,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <AssemblyName>TGLauncher</AssemblyName>
-    <ApplicationIcon>Resources\tg-launcher.ico</ApplicationIcon>
+    <ApplicationIcon>..\..\..\images\logo\tg-dragon-satin.ico</ApplicationIcon>
     <Product>Game Translation Launcher</Product>
     <OutputPath>$(MSBuildThisFileDirectory)..\..\App\</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
@@ -71,7 +75,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
-    <Version>1.0.5</Version>
+    <Version>1.0.6</Version>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <FileVersion>$(Version)</FileVersion>
   </PropertyGroup>

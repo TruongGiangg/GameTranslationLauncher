@@ -7,7 +7,9 @@ public sealed record LauncherSettings(
     int SchemaVersion,
     IReadOnlyList<GameInstallationSetting> Installations,
     string DisplayLanguage = "vi",
-    string AccentTheme = "crimson")
+    string AccentTheme = "crimson",
+    string SurfaceTheme = "glass",
+    string? LastSelectedGameId = null)
 {
     public static LauncherSettings Empty { get; } = new(1, []);
 }

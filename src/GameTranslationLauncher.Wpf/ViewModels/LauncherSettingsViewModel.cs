@@ -17,11 +17,14 @@ public sealed class LauncherSettingsViewModel : ObservableObject
 
     private readonly LoadLauncherPreferencesUseCase loadPreferencesUseCase;
     private readonly SaveLauncherPreferencesUseCase savePreferencesUseCase;
+    private readonly SaveLastSelectedGameUseCase saveLastSelectedGameUseCase;
+    private readonly SemaphoreSlim saveGate = new(1, 1);
     private readonly LauncherThemeManager themeManager;
     private readonly WindowsExternalUriLauncher externalUriLauncher;
     private LauncherSettingsText text = LauncherTextFactory.Create("vi");
     private string displayLanguage = "vi";
     private string accentTheme = "crimson";
+    private string surfaceTheme = "glass";
     private string actionStatusText = string.Empty;
     private bool isActionError;
     private AccentThemeOption? selectedAccentOption;
@@ -29,18 +32,22 @@ public sealed class LauncherSettingsViewModel : ObservableObject
     public LauncherSettingsViewModel(
         LoadLauncherPreferencesUseCase loadPreferencesUseCase,
         SaveLauncherPreferencesUseCase savePreferencesUseCase,
+        SaveLastSelectedGameUseCase saveLastSelectedGameUseCase,
         LauncherThemeManager themeManager,
         WindowsExternalUriLauncher externalUriLauncher)
     {
         this.loadPreferencesUseCase = loadPreferencesUseCase ?? throw new ArgumentNullException(nameof(loadPreferencesUseCase));
         this.savePreferencesUseCase = savePreferencesUseCase ?? throw new ArgumentNullException(nameof(savePreferencesUseCase));
+        this.saveLastSelectedGameUseCase = saveLastSelectedGameUseCase ?? throw new ArgumentNullException(nameof(saveLastSelectedGameUseCase));
         this.themeManager = themeManager ?? throw new ArgumentNullException(nameof(themeManager));
         this.externalUriLauncher = externalUriLauncher ?? throw new ArgumentNullException(nameof(externalUriLauncher));
         ReplaceAccentOptions(Text);
         Report = new LauncherReportViewModel(externalUriLauncher, Text);
 
-        SelectVietnameseCommand = new AsyncRelayCommand(() => SavePreferencesAsync("vi", AccentTheme));
-        SelectEnglishCommand = new AsyncRelayCommand(() => SavePreferencesAsync("en", AccentTheme));
+        SelectVietnameseCommand = new AsyncRelayCommand(() => SavePreferencesAsync("vi", AccentTheme, SurfaceTheme));
+        SelectEnglishCommand = new AsyncRelayCommand(() => SavePreferencesAsync("en", AccentTheme, SurfaceTheme));
+        SelectGlassSurfaceCommand = new AsyncRelayCommand(() => SavePreferencesAsync(DisplayLanguage, AccentTheme, "glass"));
+        SelectDarkSurfaceCommand = new AsyncRelayCommand(() => SavePreferencesAsync(DisplayLanguage, AccentTheme, "dark"));
         OpenFacebookCommand = new RelayCommand(() => OpenLink(FacebookUrl));
         OpenGitHubCommand = new RelayCommand(() => OpenLink(GitHubUrl));
         OpenInstagramCommand = new RelayCommand(() => OpenLink(InstagramUrl));
@@ -49,6 +56,8 @@ public sealed class LauncherSettingsViewModel : ObservableObject
     public event Action<LauncherSettingsText>? PresentationChanged;
 
     public LauncherReportViewModel Report { get; }
+
+    public string? LastSelectedGameId { get; private set; }
 
     public ObservableCollection<AccentThemeOption> AccentOptions { get; } = [];
 
@@ -68,6 +77,12 @@ public sealed class LauncherSettingsViewModel : ObservableObject
     {
         get => accentTheme;
         private set => SetProperty(ref accentTheme, value);
+    }
+
+    public string SurfaceTheme
+    {
+        get => surfaceTheme;
+        private set => SetProperty(ref surfaceTheme, value);
     }
 
     public AccentThemeOption? SelectedAccentOption
@@ -90,9 +105,13 @@ public sealed class LauncherSettingsViewModel : ObservableObject
 
     public bool IsVietnameseSelected => DisplayLanguage == "vi";
     public bool IsEnglishSelected => DisplayLanguage == "en";
+    public bool IsGlassSurfaceSelected => SurfaceTheme == "glass";
+    public bool IsDarkSurfaceSelected => SurfaceTheme == "dark";
 
     public ICommand SelectVietnameseCommand { get; }
     public ICommand SelectEnglishCommand { get; }
+    public ICommand SelectGlassSurfaceCommand { get; }
+    public ICommand SelectDarkSurfaceCommand { get; }
     public ICommand OpenFacebookCommand { get; }
     public ICommand OpenGitHubCommand { get; }
     public ICommand OpenInstagramCommand { get; }
@@ -102,45 +121,72 @@ public sealed class LauncherSettingsViewModel : ObservableObject
         try
         {
             var preferences = await loadPreferencesUseCase.ExecuteAsync();
-            ApplyPresentation(preferences.DisplayLanguage, preferences.AccentTheme);
+            LastSelectedGameId = preferences.LastSelectedGameId;
+            ApplyPresentation(preferences.DisplayLanguage, preferences.AccentTheme, preferences.SurfaceTheme);
         }
         catch (Exception)
         {
-            ApplyPresentation("vi", "crimson");
+            ApplyPresentation("vi", "crimson", "glass");
             SetActionStatus(Text.PreferenceSaveFailed, isError: true);
         }
     }
 
     public void SetAvailableGames(IEnumerable<ReportGameOption> games) => Report.SetAvailableGames(games);
 
+    public async Task<bool> SaveLastSelectedGameAsync(string gameId)
+    {
+        await saveGate.WaitAsync();
+        try
+        {
+            await saveLastSelectedGameUseCase.ExecuteAsync(gameId);
+            LastSelectedGameId = gameId;
+            return true;
+        }
+        catch (Exception)
+        {
+            SetActionStatus(Text.PreferenceSaveFailed, isError: true);
+            return false;
+        }
+        finally
+        {
+            saveGate.Release();
+        }
+    }
+
     public Task SelectAccentThemeAsync(AccentThemeOption? option) =>
         option is null || string.Equals(option.ThemeId, AccentTheme, StringComparison.OrdinalIgnoreCase)
             ? Task.CompletedTask
-            : SavePreferencesAsync(DisplayLanguage, option.ThemeId);
+            : SavePreferencesAsync(DisplayLanguage, option.ThemeId, SurfaceTheme);
 
-    private async Task SavePreferencesAsync(string language, string theme)
+    private async Task SavePreferencesAsync(string language, string theme, string surface)
     {
-        ApplyPresentation(language, theme);
+        ApplyPresentation(language, theme, surface);
+        await saveGate.WaitAsync();
         try
         {
-            var preferences = await savePreferencesUseCase.ExecuteAsync(language, theme);
-            ApplyPresentation(preferences.DisplayLanguage, preferences.AccentTheme);
+            var preferences = await savePreferencesUseCase.ExecuteAsync(language, theme, surface);
+            ApplyPresentation(preferences.DisplayLanguage, preferences.AccentTheme, preferences.SurfaceTheme);
             SetActionStatus(string.Empty, isError: false);
         }
         catch (Exception)
         {
             SetActionStatus(Text.PreferenceSaveFailed, isError: true);
         }
+        finally
+        {
+            saveGate.Release();
+        }
     }
 
-    private void ApplyPresentation(string language, string theme)
+    private void ApplyPresentation(string language, string theme, string surface)
     {
         DisplayLanguage = language;
         AccentTheme = theme;
+        SurfaceTheme = surface;
         Text = LauncherTextFactory.Create(language);
         Report.ApplyText(Text);
         ReplaceAccentOptions(Text);
-        themeManager.Apply(theme);
+        themeManager.Apply(theme, surface);
         RaisePresentationProperties();
         PresentationChanged?.Invoke(Text);
     }
@@ -157,7 +203,8 @@ public sealed class LauncherSettingsViewModel : ObservableObject
     {
         foreach (var propertyName in new[]
                  {
-                     nameof(IsVietnameseSelected), nameof(IsEnglishSelected)
+                     nameof(IsVietnameseSelected), nameof(IsEnglishSelected),
+                     nameof(IsGlassSurfaceSelected), nameof(IsDarkSurfaceSelected)
                  })
         {
             OnPropertyChanged(propertyName);

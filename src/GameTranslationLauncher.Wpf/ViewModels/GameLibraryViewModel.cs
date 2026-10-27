@@ -137,12 +137,14 @@ public sealed class GameLibraryViewModel : ObservableObject
         private set => SetProperty(ref catalogMessage, value);
     }
 
+    public bool HasCatalogWarning => catalogLoadFailed || catalogErrorCount > 0;
+
     public async Task LoadAsync()
     {
         IsLoading = true;
         try
         {
-            var previousGameId = SelectedGame?.Id;
+            var previousGameId = SelectedGame?.Id ?? settings.LastSelectedGameId;
             var result = await loadCatalogUseCase.ExecuteAsync();
             ReplaceGames(result.Items);
             SelectedGame = Games.FirstOrDefault(game => string.Equals(
@@ -254,18 +256,20 @@ public sealed class GameLibraryViewModel : ObservableObject
 
     private void UpdateCatalogMessage()
     {
+        OnPropertyChanged(nameof(HasCatalogWarning));
         if (catalogLoadFailed)
         {
             CatalogMessage = settings.Text.Application.CatalogLoadFailed;
             return;
         }
 
+        // Skipped packages are reported even when no valid package remains.
         CatalogMessage = !hasLoadedCatalog
             ? settings.Text.Application.CatalogLoading
+            : catalogErrorCount > 0
+                ? string.Format(settings.Text.Application.CatalogLoadedWithErrorsFormat, catalogGameCount, catalogErrorCount)
             : catalogGameCount == 0
                 ? settings.Text.Application.CatalogEmpty
-            : catalogErrorCount == 0
-                ? string.Format(settings.Text.Application.CatalogLoadedFormat, catalogGameCount)
-                : string.Format(settings.Text.Application.CatalogLoadedWithErrorsFormat, catalogGameCount, catalogErrorCount);
+                : string.Format(settings.Text.Application.CatalogLoadedFormat, catalogGameCount);
     }
 }

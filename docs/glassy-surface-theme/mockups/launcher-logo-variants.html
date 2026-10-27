@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>TG Logo Variants</title>
+<style>
+  :root { --bg: #101114; --text: #f2f2f2; --muted: #a9adb3; }
+  body { margin: 0; padding: 28px; background: var(--bg); color: var(--text); font-family: "Segoe UI", system-ui, sans-serif; }
+  h1 { font-size: 18px; margin: 0 0 4px; }
+  p.lead { margin: 0 0 22px; color: var(--muted); font-size: 13px; }
+  .grid { display: grid; grid-template-columns: 120px repeat(5, 220px); gap: 16px 14px; align-items: center; }
+  .head { font-size: 12px; font-weight: 600; text-align: center; }
+  .head small { display: block; font-weight: 400; color: var(--muted); margin-top: 2px; }
+  .rowlabel { font-size: 12px; color: var(--muted); }
+
+  /* One tile = top of the Glassy sidebar over the game's hero art. */
+  .tile { position: relative; width: 220px; height: 250px; border-radius: 14px; overflow: hidden; background-size: cover; background-position: 18% 30%; }
+  .witcher { --amb: #3fa7a3; background-image: url("../../../../images/the-witcher-3-wild-hunt/the-witcher-3-wild-hunt-hero-v2.png"); }
+  .borderlands { --amb: #e0353d; background-image: url("../../../../images/borderlands-4/borderlands-4-hero-v2.png"); }
+  .sidebar { position: absolute; left: 14px; top: 14px; bottom: -30px; width: 154px; border-radius: 26px;
+    background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.24);
+    backdrop-filter: blur(26px) saturate(1.4); -webkit-backdrop-filter: blur(26px) saturate(1.4);
+    display: flex; flex-direction: column; align-items: center; }
+  .search { margin-top: 18px; width: 120px; height: 30px; border-radius: 10px; background: rgba(255,255,255,.16);
+    font-size: 11px; color: rgba(255,255,255,.75); display: flex; align-items: center; padding-left: 10px; box-sizing: border-box; }
+
+  /* The PNG has padding around the mark; the app crops it the same way (68px box, 100px image, -16/-18 offset). */
+  .mark { width: 68px; height: 68px; overflow: hidden; flex: none; }
+  .mark img { width: 100px; height: 100px; margin: -18px 0 0 -16px; display: block; }
+  .plain { margin-top: 22px; }
+
+  /* Glass badge: dark glass so the red mark stays legible, tinted by the game's ambient colour, glossy top edge. */
+  .badge { position: relative; margin-top: 16px; width: 84px; height: 84px; border-radius: 24px; display: grid; place-items: center;
+    background:
+      linear-gradient(150deg, rgba(255,255,255,.30) 0%, rgba(255,255,255,.06) 42%, rgba(255,255,255,0) 60%),
+      color-mix(in srgb, var(--amb) 22%, rgba(12,13,16,.78));
+    border: 1px solid rgba(255,255,255,.38);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.55), 0 10px 26px rgba(0,0,0,.28); }
+  .badge .mark { width: 60px; height: 60px; }
+  .badge .mark img { width: 88px; height: 88px; margin: -16px 0 0 -14px; }
+
+  /* Glow: soft halo behind the mark that breathes slowly (4s). */
+  .glow { position: relative; }
+  .glow::before { content: ""; position: absolute; inset: -30px; border-radius: 50%; z-index: -1;
+    background: radial-gradient(circle, var(--amb) 0%, color-mix(in srgb, var(--amb) 45%, transparent) 38%, transparent 70%);
+    filter: blur(8px); animation: breathe 4s ease-in-out infinite; }
+  .glow.red::before { inset: -22px; background: radial-gradient(circle, rgba(255,255,255,.55) 0%, rgba(255,90,90,.35) 40%, transparent 70%); }
+  .glowwrap { position: relative; z-index: 0; display: flex; flex-direction: column; align-items: center; }
+  @keyframes breathe { 0%,100% { opacity: .55; transform: scale(.92); } 50% { opacity: 1; transform: scale(1.06); } }
+
+  .caption { margin-top: 8px; font-size: 9px; font-weight: 700; letter-spacing: .42em; padding-left: .42em; color: rgba(255,255,255,.85); }
+  .note { grid-column: 2 / -1; font-size: 12px; color: var(--muted); line-height: 1.5; }
+</style>
+</head>
+<body>
+<h1>Logo TG — các biến thể trên sidebar Glassy</h1>
+<p class="lead">Mỗi cột là một phương án, hai hàng là hai game có màu chủ đạo khác nhau để thấy logo đổi theo game. Quầng sáng ở cột C, D, E có chuyển động "thở" chậm khi xem trong trình duyệt.</p>
+
+<div class="grid" id="grid">
+  <div></div>
+  <div class="head">A · Hiện tại<small>chữ TG phẳng</small></div>
+  <div class="head">B · Huy hiệu kính<small>đổi màu theo game</small></div>
+  <div class="head">C · Kính + quầng sáng<small>đề xuất</small></div>
+  <div class="head">D · C + chữ LAUNCHER<small>nhận diện rõ hơn</small></div>
+  <div class="head">E · Chỉ quầng sáng<small>không huy hiệu</small></div>
+</div>
+
+<template id="row">
+  <div class="rowlabel"></div>
+  <div class="tile"><div class="sidebar">
+    <div class="mark plain"><img src="../../../src/GameTranslationLauncher.Wpf/Resources/tg-minimal-logo-red.png" alt="TG"></div>
+    <div class="search">⌕&nbsp; Tìm game…</div></div></div>
+  <div class="tile"><div class="sidebar">
+    <div class="badge"><div class="mark"><img src="../../../src/GameTranslationLauncher.Wpf/Resources/tg-minimal-logo-red.png" alt="TG"></div></div>
+    <div class="search">⌕&nbsp; Tìm game…</div></div></div>
+  <div class="tile"><div class="sidebar">
+    <div class="glowwrap"><div class="badge glow"><div class="mark"><img src="../../../src/GameTranslationLauncher.Wpf/Resources/tg-minimal-logo-red.png" alt="TG"></div></div></div>
+    <div class="search">⌕&nbsp; Tìm game…</div></div></div>
+  <div class="tile"><div class="sidebar">
+    <div class="glowwrap"><div class="badge glow"><div class="mark"><img src="../../../src/GameTranslationLauncher.Wpf/Resources/tg-minimal-logo-red.png" alt="TG"></div></div>
+    <div class="caption">LAUNCHER</div></div>
+    <div class="search" style="margin-top:12px">⌕&nbsp; Tìm game…</div></div></div>
+  <div class="tile"><div class="sidebar">
+    <div class="glowwrap" style="margin-top:22px"><div class="mark glow red"><img src="../../../src/GameTranslationLauncher.Wpf/Resources/tg-minimal-logo-red.png" alt="TG"></div></div>
+    <div class="search">⌕&nbsp; Tìm game…</div></div></div>
+</template>
+
+<script>
+  // Stamp the same five variants for each game, swapping the art/ambient class on every tile.
+  const grid = document.getElementById("grid");
+  const row = document.getElementById("row");
+  [["witcher", "The Witcher 3<br>màu kính xanh ngọc"], ["borderlands", "Borderlands 4<br>màu kính đỏ"]].forEach(([game, label]) => {
+    const copy = row.content.cloneNode(true);
+    copy.querySelector(".rowlabel").innerHTML = label;
+    copy.querySelectorAll(".tile").forEach(tile => tile.classList.add(game));
+    grid.appendChild(copy);
+  });
+  const note = document.createElement("div");
+  note.className = "note";
+  note.textContent = "B–D dùng nền kính tối pha màu chủ đạo của game để chữ TG đỏ vẫn nổi trên game màu đỏ. Trong WPF: huy hiệu là Border bo góc 24 với GlowBrush; quầng sáng là Ellipse có RadialGradientBrush và Opacity/Scale animation, tắt khi Windows tắt animation.";
+  grid.appendChild(note);
+</script>
+</body>
+</html>

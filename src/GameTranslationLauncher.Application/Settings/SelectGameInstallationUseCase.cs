@@ -61,11 +61,7 @@ public sealed class SelectGameInstallationUseCase
             .ToArray();
 
         await settingsRepository.SaveAsync(
-            new LauncherSettings(
-                settings.SchemaVersion,
-                updatedInstallations,
-                settings.DisplayLanguage,
-                settings.AccentTheme),
+            settings with { Installations = updatedInstallations },
             cancellationToken);
         return installation;
     }

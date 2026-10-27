@@ -2,6 +2,7 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:GameTranslationLauncher.Wpf.Views"
+             xmlns:controls="clr-namespace:GameTranslationLauncher.Wpf.Controls"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
     <Grid>
         <Grid x:Name="LibraryContent">
@@ -42,10 +43,13 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-        <Border Grid.Column="0"
-                Background="{StaticResource BrushSidebar}"
-                BorderBrush="#80313237"
-                BorderThickness="0,0,1,0">
+        <controls:GlassBorder Grid.Column="0"
+                              Panel.ZIndex="1"
+                              Margin="{DynamicResource SidebarMargin}"
+                              Background="{DynamicResource BrushSidebar}"
+                              BorderBrush="{DynamicResource BrushSidebarBorder}"
+                              BorderThickness="{DynamicResource SidebarBorderThickness}"
+                              CornerRadius="{DynamicResource RadiusSidebar}">
             <Grid Margin="0,22,0,18">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -58,7 +62,7 @@
                     <Border Width="68"
                             Height="68"
                             ClipToBounds="True"
-                            Background="{StaticResource BrushSidebar}">
+                            Background="Transparent">
                         <Image Width="100"
                                Height="100"
                                Margin="-16,-18,0,0"
@@ -70,8 +74,8 @@
                 <Border Grid.Row="1"
                         Height="32"
                         Margin="16,0,16,14"
-                        Background="#151619"
-                        BorderBrush="{StaticResource BrushBorder}"
+                        Background="{DynamicResource BrushPanel}"
+                        BorderBrush="{DynamicResource BrushBorder}"
                         BorderThickness="1"
                         CornerRadius="8">
                     <Grid>
@@ -81,7 +85,7 @@
                                                  Margin="8,0,0,0"
                                                  HorizontalAlignment="Left"
                                                  VerticalAlignment="Center"
-                                                 Foreground="{StaticResource BrushTextMuted}"
+                                                 Foreground="{DynamicResource BrushTextMuted}"
                                                  IsHitTestVisible="False" />
                         <TextBox x:Name="GameSearchBox"
                                  Margin="31,0,8,0"
@@ -89,14 +93,14 @@
                                  VerticalContentAlignment="Center"
                                  Background="Transparent"
                                  BorderThickness="0"
-                                 Foreground="{StaticResource BrushTextPrimary}"
-                                 CaretBrush="{StaticResource BrushTextPrimary}"
+                                 Foreground="{DynamicResource BrushTextPrimary}"
+                                 CaretBrush="{DynamicResource BrushTextPrimary}"
                                  FontSize="11"
                                  Text="{Binding GameSearchQuery, UpdateSourceTrigger=PropertyChanged}"
                                  ToolTip="{Binding SearchGamesPlaceholder}" />
                         <TextBlock Margin="31,0,8,0"
                                    VerticalAlignment="Center"
-                                   Foreground="{StaticResource BrushTextMuted}"
+                                   Foreground="{DynamicResource BrushTextMuted}"
                                    FontSize="11"
                                    IsHitTestVisible="False"
                                    Text="{Binding SearchGamesPlaceholder}">
@@ -126,12 +130,13 @@
                              ScrollViewer.PanningMode="VerticalOnly"
                              ScrollViewer.PanningDeceleration="0.0015"
                              ScrollViewer.PanningRatio="1"
-                             IsManipulationEnabled="True">
+                             IsManipulationEnabled="True"
+                             VirtualizingPanel.ScrollUnit="Pixel"
+                             VirtualizingPanel.VirtualizationMode="Recycling"
+                             controls:SmoothWheelScroll.IsEnabled="True">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
-                                <VirtualizingStackPanel HorizontalAlignment="Center"
-                                                        ScrollUnit="Pixel"
-                                                        VirtualizationMode="Recycling" />
+                                <VirtualizingStackPanel HorizontalAlignment="Center" />
                             </ItemsPanelTemplate>
                         </ListBox.ItemsPanel>
                         <ListBox.ItemTemplate>
@@ -209,7 +214,7 @@
                                         </Border.Triggers>
                                     </Border>
                                     <TextBlock Margin="2,7,2,0"
-                                               Foreground="{StaticResource BrushTextPrimary}"
+                                               Foreground="{DynamicResource BrushTextPrimary}"
                                                FontSize="10.5"
                                                FontWeight="SemiBold"
                                                Text="{Binding DisplayName}"
@@ -223,6 +228,15 @@
                 </Grid>
 
                 <StackPanel Grid.Row="3" HorizontalAlignment="Center">
+                    <TextBlock MaxWidth="136"
+                               Margin="0,0,0,12"
+                               HorizontalAlignment="Center"
+                               TextAlignment="Center"
+                               TextWrapping="Wrap"
+                               FontSize="11"
+                               Foreground="{DynamicResource BrushTextMuted}"
+                               Text="{Binding CatalogMessage}"
+                               Visibility="{Binding HasCatalogWarning, Converter={StaticResource BooleanToVisibilityConverter}}" />
                     <Button Command="{Binding ShowSettingsCommand}"
                             Style="{StaticResource SidebarIconButton}"
                             AutomationProperties.Name="Cài đặt Launcher"
@@ -256,15 +270,15 @@
                     </Button>
                 </StackPanel>
             </Grid>
-        </Border>
+        </controls:GlassBorder>
 
-            <Grid Grid.Column="1">
+            <Grid Grid.Column="{DynamicResource DetailsColumn}" Grid.ColumnSpan="{DynamicResource DetailsColumnSpan}">
             <local:GameDetailsView />
-            <Border Background="#8F08090A"
+            <Border Background="{DynamicResource BrushLoadingOverlay}"
                     Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}">
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBlock HorizontalAlignment="Center"
-                               Foreground="{StaticResource BrushTextPrimary}"
+                               Foreground="{DynamicResource BrushTextPrimary}"
                                FontSize="30"
                                Text="↻">
                         <TextBlock.RenderTransform>
@@ -284,7 +298,7 @@
                         </TextBlock.Triggers>
                     </TextBlock>
                     <TextBlock Margin="0,12,0,0"
-                               Foreground="{StaticResource BrushTextPrimary}"
+                               Foreground="{DynamicResource BrushTextPrimary}"
                                Text="{Binding Settings.Text.Application.CatalogLoading}" />
                 </StackPanel>
             </Border>
@@ -292,7 +306,7 @@
         </Grid>
 
         <Border Panel.ZIndex="10"
-                Background="#9508090A"
+                Background="{DynamicResource BrushModalOverlay}"
                 Visibility="{Binding IsSettingsVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
             <local:LauncherSettingsView />
         </Border>
@@ -300,47 +314,135 @@
         <Border Panel.ZIndex="20"
                 Background="#B808090A"
                 Visibility="{Binding Operations.IsOperationInProgress, Converter={StaticResource BooleanToVisibilityConverter}}">
-            <Border Width="420"
+            <controls:GlassBorder Width="420"
                     Padding="28"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Background="{StaticResource BrushPanel}"
-                    BorderBrush="{StaticResource BrushBorder}"
+                    Background="{DynamicResource BrushDialog}"
+                    BorderBrush="{DynamicResource BrushBorder}"
                     BorderThickness="1"
-                    CornerRadius="14">
+                    CornerRadius="{DynamicResource RadiusDialog}">
                 <StackPanel>
-                    <TextBlock Foreground="{StaticResource BrushTextPrimary}" FontSize="18" FontWeight="Bold" Text="{Binding Settings.Text.Application.ProcessingTranslation}" />
-                    <TextBlock Margin="0,10,0,0"
-                               Foreground="{StaticResource BrushTextMuted}"
+                    <!-- Ring with the percentage inside; on success the number gives way to a ✓ that scales in. -->
+                    <Grid Width="148" Height="148" HorizontalAlignment="Center">
+                        <controls:ProgressRing StrokeThickness="9"
+                                               Value="{Binding Operations.OperationProgress, Mode=OneWay}"
+                                               TrackBrush="{DynamicResource BrushBorder}"
+                                               ArcBrush="{DynamicResource BrushAccent}" />
+                        <TextBlock HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Foreground="{DynamicResource BrushTextPrimary}"
+                                   FontSize="34"
+                                   FontWeight="Bold"
+                                   Text="{Binding Operations.OperationProgress, StringFormat={}{0}%}">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Operations.IsOperationCompleted}" Value="True">
+                                            <Setter Property="Visibility" Value="Collapsed" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                        <Grid Width="76"
+                              Height="76"
+                              RenderTransformOrigin="0.5,0.5"
+                              Visibility="{Binding Operations.IsOperationCompleted, Converter={StaticResource BooleanToVisibilityConverter}}">
+                            <Grid.RenderTransform>
+                                <ScaleTransform />
+                            </Grid.RenderTransform>
+                            <Grid.Style>
+                                <Style TargetType="Grid">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Operations.IsOperationCompleted}" Value="True">
+                                            <DataTrigger.EnterActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.22" />
+                                                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" From="0.6" To="1" Duration="0:0:0.32">
+                                                            <DoubleAnimation.EasingFunction>
+                                                                <QuadraticEase EasingMode="EaseOut" />
+                                                            </DoubleAnimation.EasingFunction>
+                                                        </DoubleAnimation>
+                                                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" From="0.6" To="1" Duration="0:0:0.32">
+                                                            <DoubleAnimation.EasingFunction>
+                                                                <QuadraticEase EasingMode="EaseOut" />
+                                                            </DoubleAnimation.EasingFunction>
+                                                        </DoubleAnimation>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </DataTrigger.EnterActions>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Grid.Style>
+                            <Ellipse Fill="{DynamicResource BrushAccent}" />
+                            <materialDesign:PackIcon Kind="Check"
+                                                     Width="44"
+                                                     Height="44"
+                                                     HorizontalAlignment="Center"
+                                                     VerticalAlignment="Center"
+                                                     Foreground="{DynamicResource BrushButtonPrimaryForeground}" />
+                        </Grid>
+                    </Grid>
+
+                    <TextBlock Margin="0,22,0,0"
+                               HorizontalAlignment="Center"
+                               Foreground="{DynamicResource BrushTextPrimary}"
+                               FontSize="18"
+                               FontWeight="Bold"
+                               Text="{Binding Settings.Text.Application.ProcessingTranslation}" />
+                    <TextBlock Margin="0,4,0,0"
+                               HorizontalAlignment="Center"
+                               Foreground="{DynamicResource BrushTextMuted}"
                                FontSize="12"
+                               Text="{Binding Operations.OperationGameName}"
+                               TextTrimming="CharacterEllipsis" />
+                    <TextBlock Margin="0,16,0,0"
+                               HorizontalAlignment="Center"
+                               Foreground="{DynamicResource BrushAccent}"
+                               FontSize="11"
+                               FontWeight="SemiBold"
+                               Text="{Binding Operations.OperationStageLabel}" />
+                    <!-- The file currently being processed; one trimmed line so fast updates do not reflow the dialog. -->
+                    <TextBlock Margin="0,4,0,0"
+                               HorizontalAlignment="Center"
+                               Foreground="{DynamicResource BrushTextMuted}"
+                               FontSize="11"
+                               Opacity="0.85"
                                Text="{Binding Operations.OperationMessage}"
-                               TextWrapping="Wrap" />
-                    <ProgressBar Margin="0,18,0,0"
-                                 Height="7"
-                                 Maximum="100"
-                                 Value="{Binding Operations.OperationProgress, Mode=OneWay}"
-                                 Style="{StaticResource OperationProgressBar}" />
+                               TextTrimming="CharacterEllipsis"
+                               ToolTip="{Binding Operations.OperationMessage}" />
                     <Button Margin="0,22,0,0"
-                            HorizontalAlignment="Right"
-                            Command="{Binding Operations.CancelOperationCommand}"
-                            Style="{StaticResource SecondaryActionButton}">
+                            HorizontalAlignment="Center"
+                            Command="{Binding Operations.CancelOperationCommand}">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource SecondaryActionButton}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Operations.IsOperationCompleted}" Value="True">
+                                        <Setter Property="Visibility" Value="Hidden" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
                         <TextBlock Text="{Binding Settings.Text.Application.CancelAfterSafePoint}" />
                     </Button>
                 </StackPanel>
-            </Border>
+            </controls:GlassBorder>
         </Border>
 
         <Border Panel.ZIndex="25"
                 Background="#B808090A"
                 Visibility="{Binding Operations.ConflictDetails.IsVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
-            <Border Width="560"
+            <controls:GlassBorder Width="560"
                     Padding="30"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Background="{StaticResource BrushPanel}"
+                    Background="{DynamicResource BrushDialog}"
                     BorderBrush="#8CE2A364"
                     BorderThickness="1"
-                    CornerRadius="14"
+                    CornerRadius="{DynamicResource RadiusDialog}"
                     Opacity="0">
                 <Border.Triggers>
                     <EventTrigger RoutedEvent="FrameworkElement.Loaded">
@@ -363,7 +465,7 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock Foreground="{StaticResource BrushTextPrimary}"
+                    <TextBlock Foreground="{DynamicResource BrushTextPrimary}"
                                FontSize="21"
                                FontWeight="Bold"
                                Text="{Binding Operations.ConflictDetails.Title}" />
@@ -380,7 +482,7 @@
                     <TextBlock Grid.Row="1"
                                Grid.ColumnSpan="2"
                                Margin="0,14,0,0"
-                               Foreground="{StaticResource BrushTextMuted}"
+                               Foreground="{DynamicResource BrushTextMuted}"
                                FontSize="13"
                                LineHeight="20"
                                Text="{Binding Operations.ConflictDetails.Message}"
@@ -394,7 +496,7 @@
                             BorderBrush="#553E4047"
                             BorderThickness="1"
                             CornerRadius="8">
-                        <TextBlock Foreground="{StaticResource BrushTextPrimary}"
+                        <TextBlock Foreground="{DynamicResource BrushTextPrimary}"
                                    FontSize="12"
                                    LineHeight="18"
                                    Text="{Binding Operations.ConflictDetails.Recommendation}"
@@ -417,20 +519,20 @@
                         </Button>
                     </StackPanel>
                 </Grid>
-            </Border>
+            </controls:GlassBorder>
         </Border>
 
         <Border Panel.ZIndex="30"
                 Background="#C908090A"
                 Visibility="{Binding Operations.IsConfirmationVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
-            <Border Width="500"
+            <controls:GlassBorder Width="500"
                     Padding="30"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Background="{StaticResource BrushPanel}"
+                    Background="{DynamicResource BrushDialog}"
                     BorderBrush="#8CF5F5F5"
                     BorderThickness="1"
-                    CornerRadius="14"
+                    CornerRadius="{DynamicResource RadiusDialog}"
                     Opacity="0">
                 <Border.Triggers>
                     <EventTrigger RoutedEvent="FrameworkElement.Loaded">
@@ -442,12 +544,12 @@
                     </EventTrigger>
                 </Border.Triggers>
                 <StackPanel>
-                    <TextBlock Foreground="{StaticResource BrushTextPrimary}"
+                    <TextBlock Foreground="{DynamicResource BrushTextPrimary}"
                                FontSize="21"
                                FontWeight="Bold"
                                Text="{Binding Operations.ConfirmationTitle}" />
                     <TextBlock Margin="0,14,0,0"
-                               Foreground="{StaticResource BrushTextMuted}"
+                               Foreground="{DynamicResource BrushTextMuted}"
                                FontSize="13"
                                LineHeight="20"
                                Text="{Binding Operations.ConfirmationMessage}"
@@ -464,20 +566,20 @@
                         </Button>
                     </StackPanel>
                 </StackPanel>
-            </Border>
+            </controls:GlassBorder>
         </Border>
 
         <Border Panel.ZIndex="40"
                 Background="#D808090A"
                 Visibility="{Binding Update.IsUpdateAvailable, Converter={StaticResource BooleanToVisibilityConverter}}">
-            <Border Width="520"
+            <controls:GlassBorder Width="520"
                     Padding="30"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Background="{StaticResource BrushPanel}"
+                    Background="{DynamicResource BrushDialog}"
                     BorderBrush="#8CF5F5F5"
                     BorderThickness="1"
-                    CornerRadius="14"
+                    CornerRadius="{DynamicResource RadiusDialog}"
                     Opacity="0">
                 <Border.Triggers>
                     <EventTrigger RoutedEvent="FrameworkElement.Loaded">
@@ -489,25 +591,25 @@
                     </EventTrigger>
                 </Border.Triggers>
                 <StackPanel>
-                    <TextBlock Foreground="{StaticResource BrushTextPrimary}"
+                    <TextBlock Foreground="{DynamicResource BrushTextPrimary}"
                                FontSize="21"
                                FontWeight="Bold"
                                Text="{Binding Update.LatestVersionLabel}" />
                     <TextBlock Margin="0,10,0,0"
-                               Foreground="{StaticResource BrushTextMuted}"
+                               Foreground="{DynamicResource BrushTextMuted}"
                                FontSize="13"
                                Text="{Binding Update.MandatoryNoticeLabel}"
                                TextWrapping="Wrap" />
                     <Border Margin="0,18,0,0"
                             Padding="14"
                             MaxHeight="220"
-                            Background="{StaticResource BrushSidebar}"
+                            Background="{DynamicResource BrushSidebar}"
                             BorderBrush="#40F5F5F5"
                             BorderThickness="1"
                             CornerRadius="8"
                             Visibility="{Binding Update.ReleaseNotes, Converter={StaticResource StringToVisibilityConverter}}">
                         <ScrollViewer VerticalScrollBarVisibility="Auto">
-                            <TextBlock Foreground="{StaticResource BrushTextPrimary}"
+                            <TextBlock Foreground="{DynamicResource BrushTextPrimary}"
                                        FontSize="13"
                                        LineHeight="20"
                                        Text="{Binding Update.ReleaseNotes}"
@@ -521,7 +623,7 @@
                                  Value="{Binding Update.DownloadProgress, Mode=OneWay}"
                                  Visibility="{Binding Update.IsDownloading, Converter={StaticResource BooleanToVisibilityConverter}}" />
                     <TextBlock Margin="0,10,0,0"
-                               Foreground="{StaticResource BrushTextMuted}"
+                               Foreground="{DynamicResource BrushTextMuted}"
                                FontSize="12"
                                Text="{Binding Update.StatusMessage}" />
                     <Button Margin="0,20,0,0"
@@ -532,7 +634,7 @@
                         <TextBlock Text="{Binding Update.DownloadAndInstallLabel}" />
                     </Button>
                 </StackPanel>
-            </Border>
+            </controls:GlassBorder>
         </Border>
     </Grid>
 </UserControl>

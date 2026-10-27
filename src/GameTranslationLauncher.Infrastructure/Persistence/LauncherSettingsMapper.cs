@@ -17,7 +17,9 @@ internal static class LauncherSettingsMapper
                     item.LastUsedAtUtc))
                 .ToArray(),
             document.DisplayLanguage ?? "vi",
-            document.AccentTheme ?? "crimson");
+            document.AccentTheme ?? "crimson",
+            document.SurfaceTheme ?? "glass",
+            document.LastSelectedGameId);
     }
 
     public static LauncherSettingsDocument Map(LauncherSettings settings)
@@ -35,7 +37,9 @@ internal static class LauncherSettingsMapper
                 })
                 .ToList(),
             DisplayLanguage = settings.DisplayLanguage,
-            AccentTheme = settings.AccentTheme
+            AccentTheme = settings.AccentTheme,
+            SurfaceTheme = settings.SurfaceTheme,
+            LastSelectedGameId = settings.LastSelectedGameId
         };
     }
 

@@ -40,6 +40,20 @@ public sealed class SelectGameInstallationUseCaseTests
     }
 
     [TestMethod]
+    public async Task ExecuteAsync_MatchingFolder_PreservesPresentationPreferences()
+    {
+        var repository = new InMemorySettingsRepository(new LauncherSettings(1, [], "en", "cyan", "dark", "tiny-eden"));
+        var useCase = new SelectGameInstallationUseCase(new MatchingDetector(true), repository);
+
+        await useCase.ExecuteAsync(CreatePackage(), "C:\\Games\\Sample");
+
+        Assert.AreEqual("en", repository.LastSaved?.DisplayLanguage);
+        Assert.AreEqual("cyan", repository.LastSaved?.AccentTheme);
+        Assert.AreEqual("dark", repository.LastSaved?.SurfaceTheme);
+        Assert.AreEqual("tiny-eden", repository.LastSaved?.LastSelectedGameId);
+    }
+
+    [TestMethod]
     public async Task ExecuteAsync_NonMatchingFolder_DoesNotSaveSettings()
     {
         var repository = new InMemorySettingsRepository(LauncherSettings.Empty);

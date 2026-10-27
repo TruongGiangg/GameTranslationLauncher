@@ -6,6 +6,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <!-- Index 0 is the surface (glass/dark) and is replaced at runtime by LauncherThemeManager. -->
+                <ResourceDictionary Source="Resources/SurfaceGlass.xaml" />
                 <ResourceDictionary Source="Resources/LauncherTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

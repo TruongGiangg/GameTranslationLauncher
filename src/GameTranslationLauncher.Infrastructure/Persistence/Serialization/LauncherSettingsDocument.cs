@@ -9,6 +9,10 @@ internal sealed class LauncherSettingsDocument
     public string? DisplayLanguage { get; init; }
 
     public string? AccentTheme { get; init; }
+
+    public string? SurfaceTheme { get; init; }
+
+    public string? LastSelectedGameId { get; init; }
 }
 
 internal sealed class GameInstallationSettingDocument

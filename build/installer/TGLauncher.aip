@@ -22,10 +22,10 @@
     <ROW Property="ARPPRODUCTICON" Value="tgminimallogored.exe" Type="8"/>
     <ROW Property="ARPSYSTEMCOMPONENT" Value="1"/>
     <ROW Property="Manufacturer" Value="TGLauncher"/>
-    <ROW Property="ProductCode" Value="1033:{440A11B2-07B9-4D41-8B5F-8C0C74A2146E} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{38429592-807F-4E09-B50E-C8E6AED5D17B} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="TGLauncher"/>
-    <ROW Property="ProductVersion" Value="1.0.5" Options="32"/>
+    <ROW Property="ProductVersion" Value="1.0.6" Options="32"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
     <ROW Property="UpgradeCode" Value="{36AC48D4-E47D-4F21-BDCF-0B7FD70B75CB}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -44,9 +44,11 @@
     <ROW Directory="DesktopFolder" Directory_Parent="TARGETDIR" DefaultDir="DESKTO~1|DesktopFolder" IsPseudoRoot="1"/>
     <ROW Directory="Documentation_Dir" Directory_Parent="MelonLoader_Dir" DefaultDir="DOCUME~1|Documentation"/>
     <ROW Directory="Il2CppAssemblyGenerator_Dir" Directory_Parent="Dependencies_Dir" DefaultDir="IL2CPP~1|Il2CppAssemblyGenerator"/>
+    <ROW Directory="Media_Dir" Directory_Parent="Resources_Dir" DefaultDir="Media"/>
     <ROW Directory="MelonLoader_Dir" Directory_Parent="melonloader_Dir" DefaultDir="MELONL~1|MelonLoader"/>
     <ROW Directory="MonoBleedingEdgePatches_Dir" Directory_Parent="Dependencies_Dir" DefaultDir="MONOBL~1|MonoBleedingEdgePatches"/>
     <ROW Directory="NetStandardPatches_Dir" Directory_Parent="Dependencies_Dir" DefaultDir="NETSTA~1|NetStandardPatches"/>
+    <ROW Directory="Resources_Dir" Directory_Parent="APPDIR" DefaultDir="RESOUR~1|Resources"/>
     <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
     <ROW Directory="SupportModules_Dir" Directory_Parent="Dependencies_Dir" DefaultDir="SUPPOR~1|SupportModules"/>
     <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
@@ -85,139 +87,140 @@
     <ROW Directory="tinyeden_Dir" Directory_Parent="games_Dir" DefaultDir="TINY-E~1|tiny-eden"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
-    <ROW Component="AI_CustomARPName" ComponentId="{F6CA3E40-8C13-426C-AD29-55FDAA0B9D50}" Directory_="APPDIR" Attributes="260" KeyPath="DisplayName" Options="1"/>
+    <ROW Component="AI_CustomARPName" ComponentId="{529D0D96-D0BC-43D6-9D56-00BC55FCCB71}" Directory_="APPDIR" Attributes="260" KeyPath="DisplayName" Options="1"/>
     <ROW Component="AI_ExePath" ComponentId="{6F370AE1-57BD-4146-9B95-3C2CDCD86899}" Directory_="APPDIR" Attributes="260" KeyPath="AI_ExePath"/>
-    <ROW Component="AsmResolver.DotNet.dll" ComponentId="{D0E16132-DC9B-4311-B856-9DB41B94AF13}" Directory_="net35_Dir" Attributes="0" KeyPath="AsmResolver.DotNet.dll"/>
-    <ROW Component="AsmResolver.DotNet.dll_1" ComponentId="{6BD2F8C4-40D2-4A61-98C2-D57C53A390D5}" Directory_="net6_Dir" Attributes="0" KeyPath="AsmResolver.DotNet.dll_1"/>
-    <ROW Component="AsmResolver.PE.File.dll" ComponentId="{ECD81505-3B7A-487F-86E1-8105D077FDE7}" Directory_="net35_Dir" Attributes="0" KeyPath="AsmResolver.PE.File.dll"/>
-    <ROW Component="AsmResolver.PE.File.dll_1" ComponentId="{95AC2B51-BB18-4DBF-930C-EC0C1557745F}" Directory_="net6_Dir" Attributes="0" KeyPath="AsmResolver.PE.File.dll_1"/>
-    <ROW Component="AsmResolver.PE.dll" ComponentId="{DC97DF02-EE78-43A8-B003-44ABDBC1D9D8}" Directory_="net35_Dir" Attributes="0" KeyPath="AsmResolver.PE.dll"/>
-    <ROW Component="AsmResolver.PE.dll_1" ComponentId="{7356E29A-1854-4A19-A38D-BEABA92DB936}" Directory_="net6_Dir" Attributes="0" KeyPath="AsmResolver.PE.dll_1"/>
-    <ROW Component="AsmResolver.dll" ComponentId="{36BA4653-5655-4486-B8B0-6645AC01EF16}" Directory_="net35_Dir" Attributes="0" KeyPath="AsmResolver.dll"/>
-    <ROW Component="AsmResolver.dll_1" ComponentId="{D8949CA1-0BDF-4E03-9A72-C24920AE2E59}" Directory_="net6_Dir" Attributes="0" KeyPath="AsmResolver.dll_1"/>
-    <ROW Component="AssetRipper.Primitives.dll" ComponentId="{C137A54E-56D7-4067-90E7-B4F17FC4FF31}" Directory_="net35_Dir" Attributes="0" KeyPath="AssetRipper.Primitives.dll"/>
-    <ROW Component="AssetRipper.Primitives.dll_1" ComponentId="{5A1406C0-2EA2-40F7-BE77-6F006B255FBE}" Directory_="net6_Dir" Attributes="0" KeyPath="AssetRipper.Primitives.dll_1"/>
-    <ROW Component="AssetsTools.NET.dll" ComponentId="{64F992E4-F0B8-48E0-8B8A-26A0F0D4CC7D}" Directory_="net35_Dir" Attributes="0" KeyPath="AssetsTools.NET.dll"/>
-    <ROW Component="AssetsTools.NET.dll_1" ComponentId="{6C3B375B-1188-4057-B204-AAD4CC9F078D}" Directory_="net6_Dir" Attributes="0" KeyPath="AssetsTools.NET.dll_1"/>
-    <ROW Component="CHANGELOG.md" ComponentId="{745F8726-AC6F-4C48-957E-697A98CC2E33}" Directory_="Documentation_Dir" Attributes="0" KeyPath="CHANGELOG.md" Type="0"/>
-    <ROW Component="Demeo.dll" ComponentId="{87830B11-538E-46D0-A365-48E07D6E5A7F}" Directory_="CompatibilityLayers_Dir" Attributes="256" KeyPath="Demeo.dll"/>
-    <ROW Component="Harmony.dll" ComponentId="{D2EB4113-42B8-4C23-8EF4-4605C1A4751A}" Directory_="net35_Dir" Attributes="0" KeyPath="Harmony.dll"/>
-    <ROW Component="Harmony.dll_1" ComponentId="{92A2EA5B-28C5-4B21-A705-E0332A615E4B}" Directory_="net6_Dir" Attributes="0" KeyPath="Harmony.dll_1"/>
-    <ROW Component="IPA.dll" ComponentId="{5AC696D0-D887-43B2-B11F-20F349847335}" Directory_="CompatibilityLayers_Dir" Attributes="256" KeyPath="IPA.dll"/>
-    <ROW Component="IPA.dll.mdb" ComponentId="{335AE86F-4B4E-46C0-8C7F-684D432F8885}" Directory_="CompatibilityLayers_Dir" Attributes="0" KeyPath="IPA.dll.mdb" Type="0"/>
-    <ROW Component="Iced.dll" ComponentId="{94F45DCD-ABF6-4E75-A65F-B3E95397EFDF}" Directory_="net6_Dir" Attributes="0" KeyPath="Iced.dll"/>
-    <ROW Component="Il2Cpp.deps.json" ComponentId="{FF911E47-A61C-4D5D-B361-F0247C8F9BAE}" Directory_="SupportModules_Dir" Attributes="0" KeyPath="Il2Cpp.deps.json" Type="0"/>
-    <ROW Component="Il2Cpp.dll" ComponentId="{50EC4438-795D-4028-942C-8E84CAE17F48}" Directory_="SupportModules_Dir" Attributes="256" KeyPath="Il2Cpp.dll"/>
-    <ROW Component="Il2CppAssemblyGenerator.deps.json" ComponentId="{80AB34BE-DCCC-49CE-A95F-2E1F1BE42DA0}" Directory_="Il2CppAssemblyGenerator_Dir" Attributes="0" KeyPath="Il2CppAssemblyGenerator.deps.json" Type="0"/>
-    <ROW Component="Il2CppAssemblyGenerator.dll" ComponentId="{FDE9FE7C-B804-44C4-B922-4D873FD4E0B4}" Directory_="Il2CppAssemblyGenerator_Dir" Attributes="256" KeyPath="Il2CppAssemblyGenerator.dll"/>
-    <ROW Component="Il2CppInterop.Common.dll" ComponentId="{E6B5E1C2-EF73-4E27-9366-6150399E6C91}" Directory_="net6_Dir" Attributes="0" KeyPath="Il2CppInterop.Common.dll"/>
-    <ROW Component="Il2CppInterop.Generator.dll" ComponentId="{E2C98F84-4C31-4969-A70B-6BB772B3C3F5}" Directory_="net6_Dir" Attributes="0" KeyPath="Il2CppInterop.Generator.dll"/>
-    <ROW Component="Il2CppInterop.HarmonySupport.dll" ComponentId="{8758A71F-FAEE-44E3-9640-6F58CDDEE3FF}" Directory_="net6_Dir" Attributes="0" KeyPath="Il2CppInterop.HarmonySupport.dll"/>
-    <ROW Component="Il2CppInterop.Runtime.dll" ComponentId="{07ED3462-82ED-4ED1-9414-670A9898D14D}" Directory_="net6_Dir" Attributes="0" KeyPath="Il2CppInterop.Runtime.dll"/>
-    <ROW Component="IndexRange.dll" ComponentId="{DCD15AA4-CA26-4F5B-8A0D-D06529F0FB1C}" Directory_="net35_Dir" Attributes="0" KeyPath="IndexRange.dll"/>
-    <ROW Component="IndexRange.dll_1" ComponentId="{6BA245CB-50C3-4C7E-A915-1D5514FFF54F}" Directory_="net6_Dir" Attributes="0" KeyPath="IndexRange.dll_1"/>
-    <ROW Component="MelonLoader.NativeHost.dll" ComponentId="{00C5DD81-20ED-4A5A-BD99-4C99C19090CC}" Directory_="net6_Dir" Attributes="256" KeyPath="MelonLoader.NativeHost.dll"/>
-    <ROW Component="MelonLoader.deps.json" ComponentId="{916920D5-CF46-4C24-A502-EA1D3AEA6014}" Directory_="net6_Dir" Attributes="0" KeyPath="MelonLoader.deps.json" Type="0"/>
-    <ROW Component="MelonLoader.dll" ComponentId="{84ACD0C2-2ED3-4545-BB6E-D97ED27C5E87}" Directory_="net35_Dir" Attributes="256" KeyPath="MelonLoader.dll"/>
-    <ROW Component="MelonLoader.dll.mdb" ComponentId="{A160A724-4802-48AB-ACD5-F4263474AA4A}" Directory_="net35_Dir" Attributes="0" KeyPath="MelonLoader.dll.mdb" Type="0"/>
-    <ROW Component="MelonLoader.dll_1" ComponentId="{3239BF2F-69B1-43ED-BB77-0C0FDB261FBF}" Directory_="net6_Dir" Attributes="256" KeyPath="MelonLoader.dll_1"/>
-    <ROW Component="Microsoft.Bcl.AsyncInterfaces.dll" ComponentId="{62C87096-98E7-4C9D-9DBA-743C22EF1513}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Bcl.AsyncInterfaces.dll"/>
-    <ROW Component="Microsoft.Bcl.Memory.dll" ComponentId="{88FBC731-A050-4AB7-9BA6-A3A4F72C27E2}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Bcl.Memory.dll"/>
-    <ROW Component="Microsoft.Diagnostics.NETCore.Client.dll" ComponentId="{14EF0F96-D9CC-41D5-B5B3-E99743AB6868}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Diagnostics.NETCore.Client.dll"/>
-    <ROW Component="Microsoft.Diagnostics.Runtime.dll" ComponentId="{E4B076EF-7CFC-4300-B602-C7A307B62DFB}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Diagnostics.Runtime.dll"/>
-    <ROW Component="Microsoft.Extensions.Configuration.Abstractions.dll" ComponentId="{FDBF1362-2151-4C17-8906-A599DEBA675D}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Extensions.Configuration.Abstractions.dll"/>
-    <ROW Component="Microsoft.Extensions.Configuration.dll" ComponentId="{BAEEFC12-C051-4805-AC64-8347BF6336B9}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Extensions.Configuration.dll"/>
-    <ROW Component="Microsoft.Extensions.DependencyInjection.Abstractions.dll" ComponentId="{D963033B-0CF4-4AC7-89A5-7072A9F49051}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Extensions.DependencyInjection.Abstractions.dll"/>
-    <ROW Component="Microsoft.Extensions.DependencyInjection.dll" ComponentId="{5788B68D-20CD-4388-94FC-5AE5E566539C}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Extensions.DependencyInjection.dll"/>
-    <ROW Component="Microsoft.Extensions.Logging.Abstractions.dll" ComponentId="{5DC2A064-FF7B-4086-9B31-285E0679EC1B}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Extensions.Logging.Abstractions.dll"/>
-    <ROW Component="Microsoft.Extensions.Logging.dll" ComponentId="{5BF39558-9F1C-4A91-945A-8E88072E4A93}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Extensions.Logging.dll"/>
-    <ROW Component="Microsoft.Extensions.Options.dll" ComponentId="{C2252CB3-6CDC-466E-925C-AA79293561C2}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Extensions.Options.dll"/>
-    <ROW Component="Microsoft.Extensions.Primitives.dll" ComponentId="{B1228E6B-D708-436B-AE29-593B21107A15}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Extensions.Primitives.dll"/>
-    <ROW Component="Mono.Cecil.Mdb.dll" ComponentId="{9387E051-78CC-4B2E-AA25-30BC65284F33}" Directory_="net35_Dir" Attributes="0" KeyPath="Mono.Cecil.Mdb.dll"/>
-    <ROW Component="Mono.Cecil.Mdb.dll_1" ComponentId="{09961AF0-500C-43DF-8E66-A09B2D42947A}" Directory_="net6_Dir" Attributes="0" KeyPath="Mono.Cecil.Mdb.dll_1"/>
-    <ROW Component="Mono.Cecil.Pdb.dll" ComponentId="{B241C308-94D0-47F3-9D86-4C335AE1F57C}" Directory_="net35_Dir" Attributes="0" KeyPath="Mono.Cecil.Pdb.dll"/>
-    <ROW Component="Mono.Cecil.Pdb.dll_1" ComponentId="{6EC1CB73-70F4-483F-BF7F-240CA0B1F1A3}" Directory_="net6_Dir" Attributes="0" KeyPath="Mono.Cecil.Pdb.dll_1"/>
-    <ROW Component="Mono.Cecil.Rocks.dll" ComponentId="{65840331-B7C4-4DA6-8A0C-C3F87F35B60F}" Directory_="net35_Dir" Attributes="0" KeyPath="Mono.Cecil.Rocks.dll"/>
-    <ROW Component="Mono.Cecil.Rocks.dll_1" ComponentId="{D80C8D38-4450-4144-86DB-AA49FBB65793}" Directory_="net6_Dir" Attributes="0" KeyPath="Mono.Cecil.Rocks.dll_1"/>
-    <ROW Component="Mono.Cecil.dll" ComponentId="{A9540BD4-30DB-47CE-8527-DADAB5944EE1}" Directory_="net35_Dir" Attributes="0" KeyPath="Mono.Cecil.dll"/>
-    <ROW Component="Mono.Cecil.dll_1" ComponentId="{9AE2091C-5305-4706-8A08-A8B2D0AA0C51}" Directory_="net6_Dir" Attributes="0" KeyPath="Mono.Cecil.dll_1"/>
-    <ROW Component="Mono.dll" ComponentId="{84513B84-F73F-4F4E-9975-36245C17FDD1}" Directory_="SupportModules_Dir" Attributes="256" KeyPath="Mono.dll"/>
-    <ROW Component="MonoMod.Backports.dll" ComponentId="{5AE237C4-26BA-445F-A345-9C747F30F8C2}" Directory_="net35_Dir" Attributes="0" KeyPath="MonoMod.Backports.dll"/>
-    <ROW Component="MonoMod.Backports.dll_1" ComponentId="{59A26E4E-9936-4CA6-BD32-E4F648D5EE34}" Directory_="net6_Dir" Attributes="0" KeyPath="MonoMod.Backports.dll_1"/>
-    <ROW Component="MonoMod.ILHelpers.dll" ComponentId="{27F9278D-9D6C-459A-A995-835F18798D25}" Directory_="net35_Dir" Attributes="0" KeyPath="MonoMod.ILHelpers.dll"/>
-    <ROW Component="MonoMod.ILHelpers.dll_1" ComponentId="{A5213897-BAB8-4C57-BFD4-E68FA5AB79C9}" Directory_="net6_Dir" Attributes="0" KeyPath="MonoMod.ILHelpers.dll_1"/>
-    <ROW Component="MonoMod.RuntimeDetour.dll" ComponentId="{595BA682-8A57-4473-B82E-091312D3BE79}" Directory_="net35_Dir" Attributes="0" KeyPath="MonoMod.RuntimeDetour.dll"/>
-    <ROW Component="MonoMod.RuntimeDetour.dll_1" ComponentId="{3F2BC406-CC41-46FD-9CC0-7B5228CEC64C}" Directory_="net6_Dir" Attributes="0" KeyPath="MonoMod.RuntimeDetour.dll_1"/>
-    <ROW Component="MonoMod.Utils.dll" ComponentId="{7643C946-F006-4DE2-B16E-497A2739DC3C}" Directory_="net35_Dir" Attributes="0" KeyPath="MonoMod.Utils.dll"/>
-    <ROW Component="MonoMod.Utils.dll_1" ComponentId="{61A0C41B-893E-4FCA-89F7-F647B4A78C90}" Directory_="net6_Dir" Attributes="0" KeyPath="MonoMod.Utils.dll_1"/>
-    <ROW Component="MonoMod.dll" ComponentId="{5A17D4FF-0AE6-4FCD-9933-6BFDE1CA479C}" Directory_="net6_Dir" Attributes="0" KeyPath="MonoMod.dll"/>
-    <ROW Component="MonoMod.exe" ComponentId="{59D84920-44C9-4D7A-9AF9-F878FA71B543}" Directory_="net35_Dir" Attributes="0" KeyPath="MonoMod.exe"/>
-    <ROW Component="Muse_Dash_Mono.dll" ComponentId="{C4C3184A-CD73-4D10-B7D6-D0D3E1640085}" Directory_="CompatibilityLayers_Dir" Attributes="256" KeyPath="Muse_Dash_Mono.dll"/>
-    <ROW Component="Newtonsoft.Json.dll" ComponentId="{B0918D9C-F03E-45E7-8018-78434C70F3F2}" Directory_="net35_Dir" Attributes="0" KeyPath="Newtonsoft.Json.dll"/>
-    <ROW Component="Newtonsoft.Json.dll_1" ComponentId="{CC5951C5-D409-4995-9FE1-1BF5246BC942}" Directory_="net6_Dir" Attributes="0" KeyPath="Newtonsoft.Json.dll_1"/>
+    <ROW Component="AsmResolver.DotNet.dll" ComponentId="{F2FC6927-3361-4CC2-A90A-4A0E15DF4E9A}" Directory_="net35_Dir" Attributes="0" KeyPath="AsmResolver.DotNet.dll"/>
+    <ROW Component="AsmResolver.DotNet.dll_1" ComponentId="{C734FF19-0680-424C-86D6-4A6A512B3E39}" Directory_="net6_Dir" Attributes="0" KeyPath="AsmResolver.DotNet.dll_1"/>
+    <ROW Component="AsmResolver.PE.File.dll" ComponentId="{D9EF312A-2101-4FD3-A94A-1D29BCBAA7CF}" Directory_="net35_Dir" Attributes="0" KeyPath="AsmResolver.PE.File.dll"/>
+    <ROW Component="AsmResolver.PE.File.dll_1" ComponentId="{B5B31D21-4814-4797-95A7-1A9489F7E1C4}" Directory_="net6_Dir" Attributes="0" KeyPath="AsmResolver.PE.File.dll_1"/>
+    <ROW Component="AsmResolver.PE.dll" ComponentId="{42BD8707-3E0A-40B3-830E-B5EE524D9511}" Directory_="net35_Dir" Attributes="0" KeyPath="AsmResolver.PE.dll"/>
+    <ROW Component="AsmResolver.PE.dll_1" ComponentId="{16E252C5-EFA4-4E52-A553-B37351F7C0CC}" Directory_="net6_Dir" Attributes="0" KeyPath="AsmResolver.PE.dll_1"/>
+    <ROW Component="AsmResolver.dll" ComponentId="{F34FAA67-34C8-448C-83CF-1A1AFCE67BCC}" Directory_="net35_Dir" Attributes="0" KeyPath="AsmResolver.dll"/>
+    <ROW Component="AsmResolver.dll_1" ComponentId="{76CDEB69-BF7A-4E82-BB49-55A068589192}" Directory_="net6_Dir" Attributes="0" KeyPath="AsmResolver.dll_1"/>
+    <ROW Component="AssetRipper.Primitives.dll" ComponentId="{7F40B4F4-20F6-42F4-8286-81F17F09B5D9}" Directory_="net35_Dir" Attributes="0" KeyPath="AssetRipper.Primitives.dll"/>
+    <ROW Component="AssetRipper.Primitives.dll_1" ComponentId="{601C65F9-3BC0-4763-9B45-EC6F1193266F}" Directory_="net6_Dir" Attributes="0" KeyPath="AssetRipper.Primitives.dll_1"/>
+    <ROW Component="AssetsTools.NET.dll" ComponentId="{0FC72203-51C0-4855-9601-D55E752E3549}" Directory_="net35_Dir" Attributes="0" KeyPath="AssetsTools.NET.dll"/>
+    <ROW Component="AssetsTools.NET.dll_1" ComponentId="{7FBD71B6-D78F-49ED-8B2C-97B5CD9F43B3}" Directory_="net6_Dir" Attributes="0" KeyPath="AssetsTools.NET.dll_1"/>
+    <ROW Component="CHANGELOG.md" ComponentId="{AB23908F-7968-4D4D-8064-84B12321E12A}" Directory_="Documentation_Dir" Attributes="0" KeyPath="CHANGELOG.md" Type="0"/>
+    <ROW Component="Demeo.dll" ComponentId="{9DECA17E-3B72-4952-8A5B-735352E684D9}" Directory_="CompatibilityLayers_Dir" Attributes="256" KeyPath="Demeo.dll"/>
+    <ROW Component="Harmony.dll" ComponentId="{51FF243D-0071-4269-8151-19A96285BC4D}" Directory_="net35_Dir" Attributes="0" KeyPath="Harmony.dll"/>
+    <ROW Component="Harmony.dll_1" ComponentId="{23039E97-7F4F-4292-A786-50B3A9C2C98D}" Directory_="net6_Dir" Attributes="0" KeyPath="Harmony.dll_1"/>
+    <ROW Component="IPA.dll" ComponentId="{88AB36C3-5D87-4C04-866B-EE000A37FB65}" Directory_="CompatibilityLayers_Dir" Attributes="256" KeyPath="IPA.dll"/>
+    <ROW Component="IPA.dll.mdb" ComponentId="{EF719E99-3DF4-4D54-AFED-4C8C27A18157}" Directory_="CompatibilityLayers_Dir" Attributes="0" KeyPath="IPA.dll.mdb" Type="0"/>
+    <ROW Component="Iced.dll" ComponentId="{056B0782-7BB3-4A15-9EF8-842BCF8358C8}" Directory_="net6_Dir" Attributes="0" KeyPath="Iced.dll"/>
+    <ROW Component="Il2Cpp.deps.json" ComponentId="{C72DA239-BC78-4A81-AEEB-60CBAC99D4EC}" Directory_="SupportModules_Dir" Attributes="0" KeyPath="Il2Cpp.deps.json" Type="0"/>
+    <ROW Component="Il2Cpp.dll" ComponentId="{AC2B029C-4A62-4B1A-A279-A6D83C395323}" Directory_="SupportModules_Dir" Attributes="256" KeyPath="Il2Cpp.dll"/>
+    <ROW Component="Il2CppAssemblyGenerator.deps.json" ComponentId="{A4CEDE51-A7CA-41F4-873F-ACCAA503DBC6}" Directory_="Il2CppAssemblyGenerator_Dir" Attributes="0" KeyPath="Il2CppAssemblyGenerator.deps.json" Type="0"/>
+    <ROW Component="Il2CppAssemblyGenerator.dll" ComponentId="{EAD52F26-1B51-4975-8AC1-FD3263A989DE}" Directory_="Il2CppAssemblyGenerator_Dir" Attributes="256" KeyPath="Il2CppAssemblyGenerator.dll"/>
+    <ROW Component="Il2CppInterop.Common.dll" ComponentId="{A1CFFF65-AA07-4C62-9681-61B53562DC48}" Directory_="net6_Dir" Attributes="0" KeyPath="Il2CppInterop.Common.dll"/>
+    <ROW Component="Il2CppInterop.Generator.dll" ComponentId="{1223E0F2-7D47-4DB6-8001-B70BF07957E8}" Directory_="net6_Dir" Attributes="0" KeyPath="Il2CppInterop.Generator.dll"/>
+    <ROW Component="Il2CppInterop.HarmonySupport.dll" ComponentId="{0D767E8C-CAE0-4666-82A3-82E376114EDA}" Directory_="net6_Dir" Attributes="0" KeyPath="Il2CppInterop.HarmonySupport.dll"/>
+    <ROW Component="Il2CppInterop.Runtime.dll" ComponentId="{6B36B714-427E-4EF0-B8A8-A889B53FAFAE}" Directory_="net6_Dir" Attributes="0" KeyPath="Il2CppInterop.Runtime.dll"/>
+    <ROW Component="IndexRange.dll" ComponentId="{FB7D008E-E8CF-4C93-BA55-7E913AB043DA}" Directory_="net35_Dir" Attributes="0" KeyPath="IndexRange.dll"/>
+    <ROW Component="IndexRange.dll_1" ComponentId="{90D65B65-4041-4F5D-B154-F481297C2C23}" Directory_="net6_Dir" Attributes="0" KeyPath="IndexRange.dll_1"/>
+    <ROW Component="MelonLoader.NativeHost.dll" ComponentId="{0A8E4A05-318D-416C-AB6E-7C8A3B9A59D6}" Directory_="net6_Dir" Attributes="256" KeyPath="MelonLoader.NativeHost.dll"/>
+    <ROW Component="MelonLoader.deps.json" ComponentId="{7D55C5E1-955F-4DA6-99D6-E31BB18A136A}" Directory_="net6_Dir" Attributes="0" KeyPath="MelonLoader.deps.json" Type="0"/>
+    <ROW Component="MelonLoader.dll" ComponentId="{2C6C9F90-F7E5-4424-B17C-3C1AFB2B25DD}" Directory_="net35_Dir" Attributes="256" KeyPath="MelonLoader.dll"/>
+    <ROW Component="MelonLoader.dll.mdb" ComponentId="{C7AEBBB0-3B76-4A65-B029-07371FB4780A}" Directory_="net35_Dir" Attributes="0" KeyPath="MelonLoader.dll.mdb" Type="0"/>
+    <ROW Component="MelonLoader.dll_1" ComponentId="{74204F83-9F7D-4EF0-8378-750DF71FA2BA}" Directory_="net6_Dir" Attributes="256" KeyPath="MelonLoader.dll_1"/>
+    <ROW Component="Microsoft.Bcl.AsyncInterfaces.dll" ComponentId="{7782A06E-BB41-4C42-8865-AF2AFAAF1C38}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Bcl.AsyncInterfaces.dll"/>
+    <ROW Component="Microsoft.Bcl.Memory.dll" ComponentId="{03DEF9FA-C763-4654-804D-E89C4DB4B353}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Bcl.Memory.dll"/>
+    <ROW Component="Microsoft.Diagnostics.NETCore.Client.dll" ComponentId="{98E0BD2D-ABF2-43F5-BB34-B1C5E6D3200D}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Diagnostics.NETCore.Client.dll"/>
+    <ROW Component="Microsoft.Diagnostics.Runtime.dll" ComponentId="{F63F2C50-0425-4EE1-A856-AFC6754CABBC}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Diagnostics.Runtime.dll"/>
+    <ROW Component="Microsoft.Extensions.Configuration.Abstractions.dll" ComponentId="{FE204D02-9536-41D1-AAA2-B3BA05D0B16F}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Extensions.Configuration.Abstractions.dll"/>
+    <ROW Component="Microsoft.Extensions.Configuration.dll" ComponentId="{9427862E-B677-46F2-A599-151178D87D75}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Extensions.Configuration.dll"/>
+    <ROW Component="Microsoft.Extensions.DependencyInjection.Abstractions.dll" ComponentId="{7A945659-F0E5-4351-AEF0-37993177640A}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Extensions.DependencyInjection.Abstractions.dll"/>
+    <ROW Component="Microsoft.Extensions.DependencyInjection.dll" ComponentId="{E92749BB-0E57-4330-B220-14704D921084}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Extensions.DependencyInjection.dll"/>
+    <ROW Component="Microsoft.Extensions.Logging.Abstractions.dll" ComponentId="{23701136-CE1D-47C9-9DAB-8A0F2D3FC955}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Extensions.Logging.Abstractions.dll"/>
+    <ROW Component="Microsoft.Extensions.Logging.dll" ComponentId="{F298A212-E932-4B4B-90F6-942E3A4957B3}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Extensions.Logging.dll"/>
+    <ROW Component="Microsoft.Extensions.Options.dll" ComponentId="{C2C7862D-4624-4EAC-B4C8-B5CA6E19C1B9}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Extensions.Options.dll"/>
+    <ROW Component="Microsoft.Extensions.Primitives.dll" ComponentId="{32A5F832-8B7A-4ACC-AFB1-7AB63F6CB535}" Directory_="net6_Dir" Attributes="0" KeyPath="Microsoft.Extensions.Primitives.dll"/>
+    <ROW Component="Mono.Cecil.Mdb.dll" ComponentId="{87478659-49B0-4382-ABAC-C3CE87F1AAD4}" Directory_="net35_Dir" Attributes="0" KeyPath="Mono.Cecil.Mdb.dll"/>
+    <ROW Component="Mono.Cecil.Mdb.dll_1" ComponentId="{797A5CA6-32D6-4590-9322-23F86E10701D}" Directory_="net6_Dir" Attributes="0" KeyPath="Mono.Cecil.Mdb.dll_1"/>
+    <ROW Component="Mono.Cecil.Pdb.dll" ComponentId="{3C2DA949-AF65-4842-8FBF-D95F8527E5EE}" Directory_="net35_Dir" Attributes="0" KeyPath="Mono.Cecil.Pdb.dll"/>
+    <ROW Component="Mono.Cecil.Pdb.dll_1" ComponentId="{9E93C2D4-25CF-481B-B20E-F7BC6B2E5B79}" Directory_="net6_Dir" Attributes="0" KeyPath="Mono.Cecil.Pdb.dll_1"/>
+    <ROW Component="Mono.Cecil.Rocks.dll" ComponentId="{6667874D-34E8-4DDA-9B39-65D96E1F6AA4}" Directory_="net35_Dir" Attributes="0" KeyPath="Mono.Cecil.Rocks.dll"/>
+    <ROW Component="Mono.Cecil.Rocks.dll_1" ComponentId="{918B4A74-BE8F-451B-A49C-D5D8C2962E6F}" Directory_="net6_Dir" Attributes="0" KeyPath="Mono.Cecil.Rocks.dll_1"/>
+    <ROW Component="Mono.Cecil.dll" ComponentId="{01124D89-96A9-4D10-8B21-21B57FE998F4}" Directory_="net35_Dir" Attributes="0" KeyPath="Mono.Cecil.dll"/>
+    <ROW Component="Mono.Cecil.dll_1" ComponentId="{36A79F77-F47A-483C-AAFD-4434C5D71A03}" Directory_="net6_Dir" Attributes="0" KeyPath="Mono.Cecil.dll_1"/>
+    <ROW Component="Mono.dll" ComponentId="{B7281D27-8935-446A-A961-036E8640010D}" Directory_="SupportModules_Dir" Attributes="256" KeyPath="Mono.dll"/>
+    <ROW Component="MonoMod.Backports.dll" ComponentId="{65B33F9A-2732-4024-8609-DE44BB649C26}" Directory_="net35_Dir" Attributes="0" KeyPath="MonoMod.Backports.dll"/>
+    <ROW Component="MonoMod.Backports.dll_1" ComponentId="{184A30D6-0FAD-43D4-B2CE-1DCAB724FDA0}" Directory_="net6_Dir" Attributes="0" KeyPath="MonoMod.Backports.dll_1"/>
+    <ROW Component="MonoMod.ILHelpers.dll" ComponentId="{AF6943F0-9946-4459-BB0C-6398CF2882E2}" Directory_="net35_Dir" Attributes="0" KeyPath="MonoMod.ILHelpers.dll"/>
+    <ROW Component="MonoMod.ILHelpers.dll_1" ComponentId="{47A46AEA-E0E2-4EDB-BCC4-A214EC4F8304}" Directory_="net6_Dir" Attributes="0" KeyPath="MonoMod.ILHelpers.dll_1"/>
+    <ROW Component="MonoMod.RuntimeDetour.dll" ComponentId="{B538EB48-C831-478E-AA71-478CAF333F5D}" Directory_="net35_Dir" Attributes="0" KeyPath="MonoMod.RuntimeDetour.dll"/>
+    <ROW Component="MonoMod.RuntimeDetour.dll_1" ComponentId="{13BBC541-8F35-4359-B7F2-3FA780F32B87}" Directory_="net6_Dir" Attributes="0" KeyPath="MonoMod.RuntimeDetour.dll_1"/>
+    <ROW Component="MonoMod.Utils.dll" ComponentId="{DCB2E183-003A-4F5D-A545-3B484AEAC257}" Directory_="net35_Dir" Attributes="0" KeyPath="MonoMod.Utils.dll"/>
+    <ROW Component="MonoMod.Utils.dll_1" ComponentId="{55C33B89-F9E3-4D31-971C-D73E145CE030}" Directory_="net6_Dir" Attributes="0" KeyPath="MonoMod.Utils.dll_1"/>
+    <ROW Component="MonoMod.dll" ComponentId="{B27A99E4-2BDE-4F70-AA32-620F9E9A9589}" Directory_="net6_Dir" Attributes="0" KeyPath="MonoMod.dll"/>
+    <ROW Component="MonoMod.exe" ComponentId="{2F8F6FDD-012B-437E-9658-303119509082}" Directory_="net35_Dir" Attributes="0" KeyPath="MonoMod.exe"/>
+    <ROW Component="Muse_Dash_Mono.dll" ComponentId="{4D9443CB-D908-4B7D-B0B0-531BCFF2A647}" Directory_="CompatibilityLayers_Dir" Attributes="256" KeyPath="Muse_Dash_Mono.dll"/>
+    <ROW Component="Newtonsoft.Json.dll" ComponentId="{78BC2111-5AAF-45D3-87CA-F5E70CBB8DE4}" Directory_="net35_Dir" Attributes="0" KeyPath="Newtonsoft.Json.dll"/>
+    <ROW Component="Newtonsoft.Json.dll_1" ComponentId="{D7183862-241A-4D4B-9295-608F0E9FE67B}" Directory_="net6_Dir" Attributes="0" KeyPath="Newtonsoft.Json.dll_1"/>
     <ROW Component="ProductInformation" ComponentId="{6B716294-DC35-463D-A6EA-C6787E390026}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
-    <ROW Component="README.md" ComponentId="{C2619A88-1C8A-4A34-9522-935AC6B7FAED}" Directory_="launcher_Dir" Attributes="0" KeyPath="README.md" Type="0"/>
-    <ROW Component="README.md_1" ComponentId="{55BFA3C2-641B-43D1-9DB5-B5443F4CF73D}" Directory_="launcher_1_Dir" Attributes="0" KeyPath="README.md_1" Type="0"/>
-    <ROW Component="README.md_2" ComponentId="{3BEF9123-2D23-4391-BE11-D215026DC8B1}" Directory_="launcher_3_Dir" Attributes="0" KeyPath="README.md_2" Type="0"/>
-    <ROW Component="README.md_3" ComponentId="{D8FB6948-4698-407A-AAD3-81FDC3D2E52A}" Directory_="launcher_4_Dir" Attributes="0" KeyPath="README.md_3" Type="0"/>
-    <ROW Component="README.md_4" ComponentId="{3FEA962C-2571-4568-A843-FA642F723E1C}" Directory_="launcher_6_Dir" Attributes="0" KeyPath="README.md_5" Type="0"/>
+    <ROW Component="README.md" ComponentId="{31EDC913-3E8A-49C4-B45D-67417640E193}" Directory_="launcher_Dir" Attributes="0" KeyPath="README.md" Type="0"/>
+    <ROW Component="README.md_1" ComponentId="{AB3FFAAB-0A47-4FB6-9C97-51AD8E1C021B}" Directory_="launcher_1_Dir" Attributes="0" KeyPath="README.md_1" Type="0"/>
+    <ROW Component="README.md_2" ComponentId="{F86833F8-3C15-4E61-8EFF-087EFC44370D}" Directory_="launcher_3_Dir" Attributes="0" KeyPath="README.md_2" Type="0"/>
+    <ROW Component="README.md_3" ComponentId="{D23EA8AC-E165-4E45-A118-1ED4C3B3077C}" Directory_="launcher_4_Dir" Attributes="0" KeyPath="README.md_3" Type="0"/>
+    <ROW Component="README.md_4" ComponentId="{8CE426E0-1EFE-4A02-B4FB-898D8F53B4F9}" Directory_="launcher_6_Dir" Attributes="0" KeyPath="README.md_5" Type="0"/>
     <ROW Component="SHORTCUTDIR" ComponentId="{1B12B9BC-35C5-477B-9940-1F8775FB44E2}" Directory_="SHORTCUTDIR" Attributes="0"/>
-    <ROW Component="Stress_Level_Zero_Il2Cpp.dll" ComponentId="{EB280EA0-07FD-4B81-AA30-4F2527337988}" Directory_="CompatibilityLayers_Dir" Attributes="256" KeyPath="Stress_Level_Zero_Il2Cpp.dll"/>
-    <ROW Component="System.Buffers.dll" ComponentId="{907E3AE3-8D99-4463-A922-2F4FE6B50E2F}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Buffers.dll"/>
-    <ROW Component="System.Collections.Immutable.dll" ComponentId="{A17A9B85-DA0F-4F39-9ACE-004D8382EFC3}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Collections.Immutable.dll"/>
-    <ROW Component="System.ComponentModel.Composition.dll" ComponentId="{F5659C31-9968-4B4F-88C1-E032813CDCED}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.ComponentModel.Composition.dll"/>
-    <ROW Component="System.Configuration.ConfigurationManager.dll" ComponentId="{1E544419-F5F4-4211-B2AA-D8CC9CB07D5B}" Directory_="net6_Dir" Attributes="0" KeyPath="System.Configuration.ConfigurationManager.dll"/>
-    <ROW Component="System.Configuration.dll" ComponentId="{4BDD631F-9575-48DA-8307-304F1C4D9CFA}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Configuration.dll"/>
-    <ROW Component="System.Configuration.dll_1" ComponentId="{0FACF0E9-5DF8-4A76-BEFC-C739AF002DB4}" Directory_="NetStandardPatches_Dir" Attributes="0" KeyPath="System.Configuration.dll_1"/>
-    <ROW Component="System.Core.dll" ComponentId="{54F47169-D5F1-449E-963D-F1FF231970BB}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Core.dll"/>
-    <ROW Component="System.Core.dll_1" ComponentId="{C9CD999B-5DCF-450E-8FCB-666A48A6BB78}" Directory_="NetStandardPatches_Dir" Attributes="0" KeyPath="System.Core.dll_1"/>
-    <ROW Component="System.Data.DataSetExtensions.dll" ComponentId="{D5A85CD1-19A5-4DB5-A470-A8728E9A7759}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Data.DataSetExtensions.dll"/>
-    <ROW Component="System.Data.dll" ComponentId="{62348793-1A4F-4789-BFC5-D47A8B4C6905}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Data.dll"/>
-    <ROW Component="System.Diagnostics.DiagnosticSource.dll" ComponentId="{86089CD5-E48C-4D2C-A0D6-C3BF44A163E7}" Directory_="net6_Dir" Attributes="0" KeyPath="System.Diagnostics.DiagnosticSource.dll"/>
-    <ROW Component="System.Drawing.dll" ComponentId="{BF993C46-37F2-492F-82A9-723855E23A3A}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Drawing.dll"/>
-    <ROW Component="System.EnterpriseServices.dll" ComponentId="{828D6666-8C3C-43CC-8D3B-F0508B2B8865}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.EnterpriseServices.dll"/>
-    <ROW Component="System.IO.Compression.FileSystem.dll" ComponentId="{A2BC1FA4-49D2-4786-BA4B-342A1FB40F99}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.IO.Compression.FileSystem.dll"/>
-    <ROW Component="System.IO.Compression.dll" ComponentId="{0297CC68-15FA-4350-8348-F166A917B89E}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.IO.Compression.dll"/>
-    <ROW Component="System.Memory.dll" ComponentId="{264E0897-34D5-4A90-B360-8C80CA8F6B5C}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Memory.dll"/>
-    <ROW Component="System.Net.Http.dll" ComponentId="{1BF8C4A6-C766-4090-8B2A-00CD7FF9337C}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Net.Http.dll"/>
-    <ROW Component="System.Numerics.dll" ComponentId="{D79FAE75-F01F-4F83-8DF8-EEB54CF23756}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Numerics.dll"/>
-    <ROW Component="System.Runtime.CompilerServices.Unsafe.6.0.dll" ComponentId="{DD594B3B-E4CB-43A0-8852-BEC292F0FCE4}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Runtime.CompilerServices.Unsafe.6.0.dll"/>
-    <ROW Component="System.Runtime.CompilerServices.Unsafe.dll" ComponentId="{0827C1F1-F882-44C3-B9BA-E0B7B2322516}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Runtime.CompilerServices.Unsafe.dll"/>
-    <ROW Component="System.Runtime.CompilerServices.Unsafe.dll_1" ComponentId="{65905EE9-E479-4E9B-921A-58FE1759EF4A}" Directory_="net6_Dir" Attributes="0" KeyPath="System.Runtime.CompilerServices.Unsafe.dll_1"/>
-    <ROW Component="System.Runtime.Serialization.dll" ComponentId="{03CBB19F-E817-4CD2-B72E-CC36C516CA4B}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Runtime.Serialization.dll"/>
-    <ROW Component="System.Runtime.dll" ComponentId="{45487DEA-5B24-4F79-8931-99C2A1D12FEF}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Runtime.dll"/>
-    <ROW Component="System.Security.Cryptography.Cng.dll" ComponentId="{61EB4AA7-B08A-4D2A-A161-FE61A70318C0}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Security.Cryptography.Cng.dll"/>
-    <ROW Component="System.Security.Cryptography.ProtectedData.dll" ComponentId="{A3CD85EF-DD6E-4061-9EC9-679BA8690022}" Directory_="net6_Dir" Attributes="0" KeyPath="System.Security.Cryptography.ProtectedData.dll"/>
-    <ROW Component="System.Security.Permissions.dll" ComponentId="{DA1042EC-406C-4369-B2F0-830F31A0FD98}" Directory_="net6_Dir" Attributes="0" KeyPath="System.Security.Permissions.dll"/>
-    <ROW Component="System.Security.dll" ComponentId="{E817E871-F92E-4799-B052-E24819104E70}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Security.dll"/>
-    <ROW Component="System.ServiceModel.Internals.dll" ComponentId="{46D7086C-A5A4-484C-AD1A-902E1D26ABBF}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.ServiceModel.Internals.dll"/>
-    <ROW Component="System.Transactions.dll" ComponentId="{C70BA616-DF25-49B5-A256-E162993D52E2}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Transactions.dll"/>
-    <ROW Component="System.Xml.Linq.dll" ComponentId="{A5DAE215-DC42-43E4-AA26-93AE35B13C6B}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Xml.Linq.dll"/>
-    <ROW Component="System.Xml.dll" ComponentId="{192ADC03-AF5D-4D79-B766-6B75CDD9B312}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Xml.dll"/>
-    <ROW Component="System.Xml.dll_1" ComponentId="{022285AA-E602-41E7-BDD1-B3B9627F36AD}" Directory_="NetStandardPatches_Dir" Attributes="0" KeyPath="System.Xml.dll_1"/>
-    <ROW Component="System.dll" ComponentId="{5149215C-B723-41AF-AEA6-1C6574B3E084}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.dll"/>
-    <ROW Component="System.dll_1" ComponentId="{56AB97F2-7DF9-4F4F-992F-8D239033B7E3}" Directory_="NetStandardPatches_Dir" Attributes="0" KeyPath="System.dll_1"/>
-    <ROW Component="TGLauncher.exe" ComponentId="{2ED30109-EB71-47D4-9DEC-9518543E8EBB}" Directory_="APPDIR" Attributes="256" KeyPath="TGLauncher.exe"/>
-    <ROW Component="Tomlet.dll" ComponentId="{60826440-EDB1-4B85-B2C2-045B29FA95CD}" Directory_="net35_Dir" Attributes="0" KeyPath="Tomlet.dll"/>
-    <ROW Component="Tomlet.dll_1" ComponentId="{63353F11-2D98-4079-9D1F-344226820FE8}" Directory_="net6_Dir" Attributes="0" KeyPath="Tomlet.dll_1"/>
-    <ROW Component="UnityEngine.Il2CppAssetBundleManager.dll" ComponentId="{6ED56427-4269-4B23-887F-76BD1DBBE575}" Directory_="net6_Dir" Attributes="256" KeyPath="UnityEngine.Il2CppAssetBundleManager.dll"/>
-    <ROW Component="UnityEngine.Il2CppImageConversionManager.dll" ComponentId="{B0F833B1-8B40-48C5-8D5A-060ABCCE1C5E}" Directory_="net6_Dir" Attributes="256" KeyPath="UnityEngine.Il2CppImageConversionManager.dll"/>
-    <ROW Component="UniversalSigBypasser.asi" ComponentId="{5163B937-FB6B-4D0C-9198-63651AEC3673}" Directory_="prerequisites_1_Dir" Attributes="256" KeyPath="UniversalSigBypasser.asi" Type="0"/>
-    <ROW Component="VI_Translation_P.pak" ComponentId="{F3D12DE9-DE30-4257-9FD9-2CB2B3386537}" Directory_="payload_Dir" Attributes="0" KeyPath="VI_Translation_P.pak" Type="0"/>
-    <ROW Component="VI_Translation_P.pak_1" ComponentId="{5CEE4B75-1B55-4CD2-9D4F-2EFC65200579}" Directory_="payload_2_Dir" Attributes="0" KeyPath="VI_Translation_P.pak_1" Type="0"/>
-    <ROW Component="ValueTupleBridge.dll" ComponentId="{AD4862F2-A3A4-4A4A-9538-54EB1C269E7C}" Directory_="net35_Dir" Attributes="0" KeyPath="ValueTupleBridge.dll"/>
-    <ROW Component="ViTranslationMod.dll" ComponentId="{5F8603E8-4C22-46AC-95D0-34C6E3160FD9}" Directory_="payload_1_Dir" Attributes="0" KeyPath="ViTranslationMod.dll"/>
-    <ROW Component="WebSocketDotNet.dll" ComponentId="{514332C0-FFF2-4C3D-A208-149DA8FA54D3}" Directory_="net35_Dir" Attributes="0" KeyPath="WebSocketDotNet.dll"/>
-    <ROW Component="WebSocketDotNet.dll_1" ComponentId="{175D55B9-1F3F-4A68-916A-C2042F3E35B5}" Directory_="net6_Dir" Attributes="0" KeyPath="WebSocketDotNet.dll_1"/>
-    <ROW Component="bHapticsLib.dll" ComponentId="{3F5C4238-B16B-4CF7-BD83-F3AE0EE1C94F}" Directory_="net35_Dir" Attributes="0" KeyPath="bHapticsLib.dll"/>
-    <ROW Component="bHapticsLib.dll_1" ComponentId="{7D312B2C-DD9D-4FF8-BE18-F86A284A3E1A}" Directory_="net6_Dir" Attributes="0" KeyPath="bHapticsLib.dll_1"/>
-    <ROW Component="dsound.dll" ComponentId="{8232F7F5-E011-4833-BCC1-385E4DE0D0BF}" Directory_="prerequisites_1_Dir" Attributes="256" KeyPath="dsound.dll"/>
-    <ROW Component="launcherpackage.json" ComponentId="{BA916545-AB6B-474D-AB49-DAA00EBCBA9D}" Directory_="launcher_2_Dir" Attributes="0" KeyPath="launcherpackage.json" Type="0"/>
-    <ROW Component="launcherpackage.json_1" ComponentId="{86F6F276-2E1A-49EA-8E41-C407AA2E607A}" Directory_="launcher_5_Dir" Attributes="0" KeyPath="launcherpackage.json_1" Type="0"/>
-    <ROW Component="launcherpackage.json_2" ComponentId="{C5AA7989-33DF-4BC4-BF6D-7B10DFE23C60}" Directory_="launcher_7_Dir" Attributes="0" KeyPath="launcherpackage.json_2" Type="0"/>
-    <ROW Component="mscorlib.dll" ComponentId="{CE06F8E9-BE2C-4A12-BCC4-39053F8828E0}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="mscorlib.dll"/>
-    <ROW Component="version.dll" ComponentId="{C0809115-2378-48E4-9D9E-DEC68ED7C04B}" Directory_="melonloader_Dir" Attributes="256" KeyPath="version.dll"/>
-    <ROW Component="vidictionarybyid.json" ComponentId="{111136AF-B9B2-4271-A827-AC7E62979DE7}" Directory_="payload_1_Dir" Attributes="0" KeyPath="vidictionarybyid.json" Type="0"/>
+    <ROW Component="Stress_Level_Zero_Il2Cpp.dll" ComponentId="{33BE755D-93DB-4F6F-ACD6-224C0D7AD312}" Directory_="CompatibilityLayers_Dir" Attributes="256" KeyPath="Stress_Level_Zero_Il2Cpp.dll"/>
+    <ROW Component="System.Buffers.dll" ComponentId="{1E90499C-3708-4A55-994B-A470664E410C}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Buffers.dll"/>
+    <ROW Component="System.Collections.Immutable.dll" ComponentId="{CD7C7242-D49B-49A6-B466-CCD8448C5D91}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Collections.Immutable.dll"/>
+    <ROW Component="System.ComponentModel.Composition.dll" ComponentId="{1FE68272-FDAF-4865-B40A-2E49FDD43F64}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.ComponentModel.Composition.dll"/>
+    <ROW Component="System.Configuration.ConfigurationManager.dll" ComponentId="{7FB2C9BA-8488-4CE5-8E55-03F01799BF04}" Directory_="net6_Dir" Attributes="0" KeyPath="System.Configuration.ConfigurationManager.dll"/>
+    <ROW Component="System.Configuration.dll" ComponentId="{01FCD180-8926-4831-A4AE-BBAD0F69FD36}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Configuration.dll"/>
+    <ROW Component="System.Configuration.dll_1" ComponentId="{D046726A-A8D4-49E9-8ED4-AC5A320D324A}" Directory_="NetStandardPatches_Dir" Attributes="0" KeyPath="System.Configuration.dll_1"/>
+    <ROW Component="System.Core.dll" ComponentId="{2B0AEEC8-8508-4B25-9317-979EE927399F}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Core.dll"/>
+    <ROW Component="System.Core.dll_1" ComponentId="{EEF779B7-834E-4EA1-916A-AE31C8C23AB1}" Directory_="NetStandardPatches_Dir" Attributes="0" KeyPath="System.Core.dll_1"/>
+    <ROW Component="System.Data.DataSetExtensions.dll" ComponentId="{E26E87BE-D979-4D0A-9946-A58139B8943F}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Data.DataSetExtensions.dll"/>
+    <ROW Component="System.Data.dll" ComponentId="{09ED20F2-011B-47F0-B1ED-D5226CE0D2CF}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Data.dll"/>
+    <ROW Component="System.Diagnostics.DiagnosticSource.dll" ComponentId="{E3781655-18D3-4AEA-94FA-A159E28DF2BB}" Directory_="net6_Dir" Attributes="0" KeyPath="System.Diagnostics.DiagnosticSource.dll"/>
+    <ROW Component="System.Drawing.dll" ComponentId="{57CDD4AC-D4D8-41E1-86C0-42993E4A486C}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Drawing.dll"/>
+    <ROW Component="System.EnterpriseServices.dll" ComponentId="{9B83E422-46FA-40F5-9EF1-79C8EB182A81}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.EnterpriseServices.dll"/>
+    <ROW Component="System.IO.Compression.FileSystem.dll" ComponentId="{FD740475-62DA-497E-82BD-1C5D36966F0F}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.IO.Compression.FileSystem.dll"/>
+    <ROW Component="System.IO.Compression.dll" ComponentId="{3010DABD-54AF-4926-9758-C7A0B18441F9}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.IO.Compression.dll"/>
+    <ROW Component="System.Memory.dll" ComponentId="{D5E67AE4-FC32-4CEE-99C1-0E112A75CD6F}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Memory.dll"/>
+    <ROW Component="System.Net.Http.dll" ComponentId="{09AD2F71-AF76-4D64-83EA-A663951F5EF6}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Net.Http.dll"/>
+    <ROW Component="System.Numerics.dll" ComponentId="{1137F43A-8CDD-4420-ADD0-4B8F7C28AEC4}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Numerics.dll"/>
+    <ROW Component="System.Runtime.CompilerServices.Unsafe.6.0.dll" ComponentId="{D4A8B7C7-5F84-4905-9477-6732D5775CD4}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Runtime.CompilerServices.Unsafe.6.0.dll"/>
+    <ROW Component="System.Runtime.CompilerServices.Unsafe.dll" ComponentId="{8B153986-9AA5-4D9F-85CC-79A08C65C936}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Runtime.CompilerServices.Unsafe.dll"/>
+    <ROW Component="System.Runtime.CompilerServices.Unsafe.dll_1" ComponentId="{F301FC78-2EFE-4321-89D6-0A9BFF3A3D60}" Directory_="net6_Dir" Attributes="0" KeyPath="System.Runtime.CompilerServices.Unsafe.dll_1"/>
+    <ROW Component="System.Runtime.Serialization.dll" ComponentId="{AF3E3395-04D9-46AA-B6B4-39A1CDEE0FCC}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Runtime.Serialization.dll"/>
+    <ROW Component="System.Runtime.dll" ComponentId="{2048EA71-309A-460A-B337-244F2822ADFA}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Runtime.dll"/>
+    <ROW Component="System.Security.Cryptography.Cng.dll" ComponentId="{732B8304-2899-40CA-AFDF-BFDF6E2C321C}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Security.Cryptography.Cng.dll"/>
+    <ROW Component="System.Security.Cryptography.ProtectedData.dll" ComponentId="{BED05B63-F9B8-4D51-9628-2E80AC27E2F9}" Directory_="net6_Dir" Attributes="0" KeyPath="System.Security.Cryptography.ProtectedData.dll"/>
+    <ROW Component="System.Security.Permissions.dll" ComponentId="{6F0B5E4E-98F1-459C-BEA8-EFF123D55EDB}" Directory_="net6_Dir" Attributes="0" KeyPath="System.Security.Permissions.dll"/>
+    <ROW Component="System.Security.dll" ComponentId="{BBCE873E-3DAF-461F-BD10-6C9B926C63CD}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Security.dll"/>
+    <ROW Component="System.ServiceModel.Internals.dll" ComponentId="{906FD8C5-7E17-4828-B795-3D4021BD834B}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.ServiceModel.Internals.dll"/>
+    <ROW Component="System.Transactions.dll" ComponentId="{63AED155-B373-4F63-A4A9-7FAB02D2B1D6}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Transactions.dll"/>
+    <ROW Component="System.Xml.Linq.dll" ComponentId="{3256CB06-F5DD-47CC-82E3-C27B39B99524}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Xml.Linq.dll"/>
+    <ROW Component="System.Xml.dll" ComponentId="{2A63CD49-DB49-44B6-A508-CDADC003FD4A}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.Xml.dll"/>
+    <ROW Component="System.Xml.dll_1" ComponentId="{FCDF9E77-17B8-4DFB-997B-C7049FED51C6}" Directory_="NetStandardPatches_Dir" Attributes="0" KeyPath="System.Xml.dll_1"/>
+    <ROW Component="System.dll" ComponentId="{ED02D736-D712-4D7F-BE36-FB5F4F68704D}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="System.dll"/>
+    <ROW Component="System.dll_1" ComponentId="{DEA89ADF-D499-4F65-BF46-A6BECD022BC4}" Directory_="NetStandardPatches_Dir" Attributes="0" KeyPath="System.dll_1"/>
+    <ROW Component="TGLauncher.exe" ComponentId="{060E6888-CFC9-4EA0-8ABB-C093BA59EC77}" Directory_="APPDIR" Attributes="256" KeyPath="TGLauncher.exe"/>
+    <ROW Component="Tomlet.dll" ComponentId="{E828B88D-843E-4D5A-A091-643AD27CEF51}" Directory_="net35_Dir" Attributes="0" KeyPath="Tomlet.dll"/>
+    <ROW Component="Tomlet.dll_1" ComponentId="{2603758C-C7AF-4840-928A-5F9F616588FF}" Directory_="net6_Dir" Attributes="0" KeyPath="Tomlet.dll_1"/>
+    <ROW Component="UnityEngine.Il2CppAssetBundleManager.dll" ComponentId="{6CB2A6D4-9000-44BE-877E-7DB22746FCF0}" Directory_="net6_Dir" Attributes="256" KeyPath="UnityEngine.Il2CppAssetBundleManager.dll"/>
+    <ROW Component="UnityEngine.Il2CppImageConversionManager.dll" ComponentId="{979A1254-A9A4-4F8B-9ECA-05E4FC19B36E}" Directory_="net6_Dir" Attributes="256" KeyPath="UnityEngine.Il2CppImageConversionManager.dll"/>
+    <ROW Component="UniversalSigBypasser.asi" ComponentId="{F7BA3586-9FBF-40B0-9512-569C91041D9A}" Directory_="prerequisites_1_Dir" Attributes="256" KeyPath="UniversalSigBypasser.asi" Type="0"/>
+    <ROW Component="VI_Translation_P.pak" ComponentId="{F66CBAC5-F8BD-4933-83AB-2E78F14E7136}" Directory_="payload_Dir" Attributes="0" KeyPath="VI_Translation_P.pak" Type="0"/>
+    <ROW Component="VI_Translation_P.pak_1" ComponentId="{34B4A2BD-DBBF-4178-8C4E-E074C350CB05}" Directory_="payload_2_Dir" Attributes="0" KeyPath="VI_Translation_P.pak_1" Type="0"/>
+    <ROW Component="ValueTupleBridge.dll" ComponentId="{C62F4BEB-FBBD-4A6B-B748-7363C9326A52}" Directory_="net35_Dir" Attributes="0" KeyPath="ValueTupleBridge.dll"/>
+    <ROW Component="ViTranslationMod.dll" ComponentId="{0B3C1F1C-965E-43FB-B108-B2757506A4E3}" Directory_="payload_1_Dir" Attributes="0" KeyPath="ViTranslationMod.dll"/>
+    <ROW Component="WebSocketDotNet.dll" ComponentId="{BD37E687-EC53-4638-B715-8D754DEC7A99}" Directory_="net35_Dir" Attributes="0" KeyPath="WebSocketDotNet.dll"/>
+    <ROW Component="WebSocketDotNet.dll_1" ComponentId="{981F7BEB-F9BF-4D65-BE9B-96B195C21F36}" Directory_="net6_Dir" Attributes="0" KeyPath="WebSocketDotNet.dll_1"/>
+    <ROW Component="bHapticsLib.dll" ComponentId="{8AAEEFDD-9F1D-4358-907C-CA5139AD92E5}" Directory_="net35_Dir" Attributes="0" KeyPath="bHapticsLib.dll"/>
+    <ROW Component="bHapticsLib.dll_1" ComponentId="{F88D5593-6D29-4F19-82D2-D321C7226B04}" Directory_="net6_Dir" Attributes="0" KeyPath="bHapticsLib.dll_1"/>
+    <ROW Component="dsound.dll" ComponentId="{213B99E3-A678-4CEC-8EF4-3D4D38BD8CE1}" Directory_="prerequisites_1_Dir" Attributes="256" KeyPath="dsound.dll"/>
+    <ROW Component="launcherpackage.json" ComponentId="{68A8A761-4BE6-4C21-87F9-EE03A53989F9}" Directory_="launcher_2_Dir" Attributes="0" KeyPath="launcherpackage.json" Type="0"/>
+    <ROW Component="launcherpackage.json_1" ComponentId="{FEE690B1-8705-4C45-979D-B89D3066BEA3}" Directory_="launcher_5_Dir" Attributes="0" KeyPath="launcherpackage.json_1" Type="0"/>
+    <ROW Component="launcherpackage.json_2" ComponentId="{54B92044-8B72-43E9-B556-4DA7E0D08D33}" Directory_="launcher_7_Dir" Attributes="0" KeyPath="launcherpackage.json_2" Type="0"/>
+    <ROW Component="mscorlib.dll" ComponentId="{5C1F6CF5-C054-4816-83B6-E9881A87F65B}" Directory_="MonoBleedingEdgePatches_Dir" Attributes="0" KeyPath="mscorlib.dll"/>
+    <ROW Component="tgdragonintro.mp4" ComponentId="{8038B0D0-4E0D-4EE6-9879-0EAF0A84257F}" Directory_="Media_Dir" Attributes="0" KeyPath="tgdragonintro.mp4" Type="0"/>
+    <ROW Component="version.dll" ComponentId="{1F0FA180-11D4-4136-97FF-47F6909ED7C3}" Directory_="melonloader_Dir" Attributes="256" KeyPath="version.dll"/>
+    <ROW Component="vidictionarybyid.json" ComponentId="{E6D2C437-0CA0-40ED-8527-F8A65C99DC9B}" Directory_="payload_1_Dir" Attributes="0" KeyPath="vidictionarybyid.json" Type="0"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
     <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0"/>
@@ -377,13 +380,14 @@
     <ROW File="VI_Translation_P.utoc_1" Component_="VI_Translation_P.pak_1" FileName="VI_TRA~1.UTO|VI_Translation_P.utoc" Attributes="0" SourcePath="..\..\publish\installer-staging\games\tiny-eden\dist\launcher\payload\VI_Translation_P.utoc" SelfReg="false"/>
     <ROW File="dsound.dll" Component_="dsound.dll" FileName="dsound.dll" Attributes="0" SourcePath="..\..\publish\installer-staging\games\tiny-eden\dist\launcher\prerequisites\dsound.dll" SelfReg="false"/>
     <ROW File="UniversalSigBypasser.asi" Component_="UniversalSigBypasser.asi" FileName="UNIVER~1.ASI|UniversalSigBypasser.asi" Attributes="0" SourcePath="..\..\publish\installer-staging\games\tiny-eden\dist\launcher\prerequisites\UniversalSigBypasser.asi" SelfReg="false"/>
+    <ROW File="tgdragonintro.mp4" Component_="tgdragonintro.mp4" FileName="TG-DRA~1.MP4|tg-dragon-intro.mp4" Attributes="0" SourcePath="..\..\publish\installer-staging\Resources\Media\tg-dragon-intro.mp4" SelfReg="false"/>
     <ROW File="TGLauncher.exe" Component_="TGLauncher.exe" FileName="TGLAUN~1.EXE|TGLauncher.exe" Attributes="0" SourcePath="..\..\publish\installer-staging\TGLauncher.exe" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
-    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFolder="..\..\Installer" Languages="en" InstallationType="4" CabsLocation="1" PackageType="1" FilesInsideExe="true" ExeIconPath="..\..\..\images\logo\tg-minimal-logo-red.ico" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" ExtUI="true" UseLargeSchema="true" ExeName="TGLauncherSetup" MsiPackageType="x64"/>
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFolder="..\..\Installer" Languages="en" InstallationType="4" CabsLocation="1" PackageType="1" FilesInsideExe="true" ExeIconPath="..\..\..\images\logo\tg-minimal-logo-red.ico" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" ExtUI="true" UseLargeSchema="true" ExeName="TGLauncherSetup-1.0.6" MsiPackageType="x64"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
     <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
@@ -661,6 +665,7 @@
     <ROW Feature_="MainFeature" Component_="VI_Translation_P.pak_1"/>
     <ROW Feature_="MainFeature" Component_="dsound.dll"/>
     <ROW Feature_="MainFeature" Component_="UniversalSigBypasser.asi"/>
+    <ROW Feature_="MainFeature" Component_="tgdragonintro.mp4"/>
     <ROW Feature_="MainFeature" Component_="TGLauncher.exe"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">

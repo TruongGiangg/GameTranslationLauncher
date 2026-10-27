@@ -52,7 +52,9 @@ public sealed class GameDetailsViewModel : ObservableObject
         _ => game?.HasTranslationPackage == false ? text.StatusTranslationUnavailable : HasGameRoot ? text.StatusNotChecked : text.StatusFolderNotSelected
     };
 
-    public string SupportText => game?.Presentation.SupportText ?? "—";
+    public string SupportText => game is null
+        ? "—"
+        : game.HasTranslationPackage ? game.Presentation.SupportText : text.SupportInPreparation;
 
     public string LanguageText => game?.CatalogItem?.AvailablePackage.Package.TargetLanguage.Equals(
         "vi", StringComparison.OrdinalIgnoreCase) == true
@@ -77,6 +79,10 @@ public sealed class GameDetailsViewModel : ObservableObject
     public Brush HeroBrush => game?.HeroBrush ?? EmptyHeroBrush;
 
     public ImageSource? HeroImage => game?.HeroImage;
+
+    public ImageSource? LogoImage => game?.LogoImage;
+
+    public bool HasLogoImage => LogoImage is not null;
 
     public string PrimaryActionLabel => Status switch
     {
@@ -144,7 +150,7 @@ public sealed class GameDetailsViewModel : ObservableObject
                      nameof(DisplayName), nameof(Subtitle), nameof(Description), nameof(StatusGlyph),
                      nameof(DisplayNameFontSize), nameof(PrerequisiteNotice), nameof(HasPrerequisiteNotice),
                      nameof(StatusLabel), nameof(SupportText), nameof(LanguageText), nameof(VerifiedDateText),
-                     nameof(PackageSizeText), nameof(FilesText), nameof(TranslationStatusText), nameof(HeroBrush), nameof(HeroImage), nameof(PrimaryActionLabel),
+                     nameof(PackageSizeText), nameof(FilesText), nameof(TranslationStatusText), nameof(HeroBrush), nameof(HeroImage), nameof(LogoImage), nameof(HasLogoImage), nameof(PrimaryActionLabel),
                      nameof(SecondaryActionLabel), nameof(TertiaryActionLabel), nameof(HasSecondaryAction),
                      nameof(HasTertiaryAction), nameof(HasTranslationActions), nameof(HasGameRoot), nameof(FolderActionLabel)
                  })

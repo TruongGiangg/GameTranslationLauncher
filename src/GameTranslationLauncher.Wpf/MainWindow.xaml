@@ -7,11 +7,12 @@
         xmlns:views="clr-namespace:GameTranslationLauncher.Wpf.Views"
         mc:Ignorable="d"
         Title="TG Launcher"
+        Icon="/Resources/tg-dragon-satin.ico"
         Width="1440"
         Height="900"
         MinWidth="1100"
         MinHeight="720"
-        Background="{StaticResource BrushBackground}"
+        Background="{DynamicResource BrushBackground}"
         WindowStyle="None"
         ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen"
@@ -23,22 +24,28 @@
                            ResizeBorderThickness="6"
                            UseAeroCaptionButtons="False" />
     </shell:WindowChrome.WindowChrome>
-    <Border Background="{StaticResource BrushBackground}"
+    <Border Background="{DynamicResource BrushBackground}"
             BorderThickness="0"
             CornerRadius="12"
             ClipToBounds="True">
         <Grid>
+          <Grid x:Name="MainContent">
             <Grid.RowDefinitions>
                 <RowDefinition Height="44" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
+            <!-- Glass: the library runs under the title bar (LibraryMargin = 0) so the hero fills the window. -->
+            <views:GameLibraryView Grid.Row="0"
+                                   Grid.RowSpan="2"
+                                   Margin="{DynamicResource LibraryMargin}" />
+
             <Grid Grid.Row="0"
-                  Background="{StaticResource BrushBackground}"
+                  Background="{DynamicResource BrushTitleBar}"
                   MouseLeftButtonDown="TitleBarMouseLeftButtonDown">
                 <TextBlock Margin="16,0,0,0"
                            VerticalAlignment="Center"
-                           Foreground="{StaticResource BrushTextMuted}"
+                           Foreground="{DynamicResource BrushTitleText}"
                            FontSize="12"
                            FontWeight="SemiBold"
                            Text="TG LAUNCHER" />
@@ -59,8 +66,39 @@
                             ToolTip="{Binding Settings.Text.Application.CloseTooltip}" />
                 </StackPanel>
             </Grid>
+          </Grid>
 
-            <views:GameLibraryView Grid.Row="1" />
+          <Grid x:Name="StartupOverlay"
+                Background="#101114"
+                IsHitTestVisible="False"
+                Visibility="Collapsed">
+              <MediaElement x:Name="StartupVideo"
+                            Stretch="Uniform"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            LoadedBehavior="Manual"
+                            UnloadedBehavior="Close"
+                            IsMuted="True"
+                            Volume="0"
+                            Visibility="Collapsed"
+                            AutomationProperties.Name="TG dragon intro" />
+              <Image x:Name="StartupLogo"
+                     Visibility="Collapsed"
+                     Width="240"
+                     Height="240"
+                     Source="/Resources/tg-dragon-satin-icon.png"
+                     Stretch="Uniform"
+                     Opacity="1"
+                     RenderTransformOrigin="0.5,0.5"
+                     AutomationProperties.Name="TG Launcher">
+                  <Image.RenderTransform>
+                      <ScaleTransform x:Name="StartupLogoScale" />
+                  </Image.RenderTransform>
+                  <Image.Effect>
+                      <DropShadowEffect Color="#F02A45" BlurRadius="36" ShadowDepth="0" Opacity="0.2" />
+                  </Image.Effect>
+              </Image>
+          </Grid>
         </Grid>
     </Border>
 </Window>

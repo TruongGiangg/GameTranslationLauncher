@@ -19,6 +19,12 @@
     "accentTheme": {
       "enum": ["crimson", "blue", "emerald", "violet", "white", "orange", "cyan"]
     },
+    "surfaceTheme": {
+      "enum": ["glass", "dark"]
+    },
+    "lastSelectedGameId": {
+      "$ref": "#/$defs/gameId"
+    },
     "installations": {
       "type": "array",
       "items": {
