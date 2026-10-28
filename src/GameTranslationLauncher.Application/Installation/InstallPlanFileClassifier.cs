@@ -96,6 +96,12 @@ internal sealed class InstallPlanFileClassifier
             return new InstallPlanFile(packageFile, InstallFileAction.Preserve, null);
         }
 
+        // NOTE: package khai báo hash file gốc của game thì việc thay thế (kèm backup) là chủ đích.
+        if (packageFile.IsOriginalFile(state.Sha256))
+        {
+            return CreateExternalReplacement(packageFile, state);
+        }
+
         if (request.ApprovedReplacementDestinations?.Contains(packageFile.Destination) == true)
         {
             return CreateExternalReplacement(packageFile, state);

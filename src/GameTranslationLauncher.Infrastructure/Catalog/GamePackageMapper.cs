@@ -14,7 +14,8 @@ internal static class GamePackageMapper
                 file.Destination,
                 file.Sha256,
                 file.SizeBytes,
-                MapRole(file.Role)))
+                MapRole(file.Role),
+                OriginalSha256: file.OriginalSha256?.ToArray()))
             .ToArray();
 
         var prerequisites = document.Prerequisites

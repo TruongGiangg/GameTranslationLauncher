@@ -9,4 +9,13 @@ public sealed record GamePackageFile(
     string Sha256,
     long SizeBytes,
     PackageFileRole Role,
-    string? PrerequisiteId = null);
+    string? PrerequisiteId = null,
+    IReadOnlyList<string>? OriginalSha256 = null)
+{
+    /// <summary>
+    /// Cho biết file hiện có ở đích là bản gốc của game mà package khai báo được phép thay thế.
+    /// </summary>
+    public bool IsOriginalFile(string? sha256) =>
+        sha256 is not null
+        && OriginalSha256?.Contains(sha256, StringComparer.OrdinalIgnoreCase) == true;
+}

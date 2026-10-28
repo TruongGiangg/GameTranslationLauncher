@@ -125,6 +125,7 @@ internal static class GamePackageDocumentValidator
             }
 
             ValidatePackageFile(file.Source, file.Destination, file.Sha256, file.SizeBytes, destinations, errors);
+            ValidateOriginalSha256(file.OriginalSha256, file.Source, errors);
             if (file.Role is not ("translation" or "companion"))
             {
                 errors.Add($"Role của payload không hợp lệ: '{file.Role}'");
@@ -176,6 +177,24 @@ internal static class GamePackageDocumentValidator
 
                 ValidatePackageFile(file.Source, file.Destination, file.Sha256, file.SizeBytes, destinations, errors);
             }
+        }
+    }
+
+    private static void ValidateOriginalSha256(List<string>? hashes, string source, List<string> errors)
+    {
+        if (hashes is null)
+        {
+            return;
+        }
+
+        if (hashes.Count == 0)
+        {
+            errors.Add($"originalSha256 của '{source}' không được rỗng khi đã khai báo");
+        }
+
+        foreach (var hash in hashes)
+        {
+            ValidatePattern(hash, "originalSha256", ContractValueValidator.IsSha256, errors);
         }
     }
 

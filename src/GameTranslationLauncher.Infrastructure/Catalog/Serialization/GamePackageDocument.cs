@@ -46,6 +46,8 @@ internal sealed class PayloadFileDocument
     public required long SizeBytes { get; init; }
 
     public required string Role { get; init; }
+
+    public List<string>? OriginalSha256 { get; init; }
 }
 
 internal sealed class PrerequisiteDocument

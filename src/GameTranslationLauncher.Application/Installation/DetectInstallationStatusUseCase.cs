@@ -104,6 +104,12 @@ public sealed class DetectInstallationStatusUseCase
                 continue;
             }
 
+            // NOTE: file gốc của game mà package được phép thay thế không phải xung đột.
+            if (file.IsOriginalFile(state.Sha256))
+            {
+                continue;
+            }
+
             return InstallationStatus.Conflict;
         }
 

@@ -55,6 +55,35 @@ public sealed class BuildInstallPlanUseCaseTests
         Assert.AreEqual("Game/Mods/vi.pak.original", file.BackupRelativePath);
     }
 
+    [TestMethod]
+    public async Task BuildInstallAsync_ExistingFileIsDeclaredOriginal_ReplacesWithBackupWithoutApproval()
+    {
+        var fileReader = new FakeFileStateReader();
+        fileReader.States["Game/Mods/vi.pak"] = new InstalledFileState(true, 10, FileHash);
+        var useCase = CreateUseCase(fileReader);
+        var request = CreateRequest(CreatePackage(originalSha256: [FileHash]));
+
+        var plan = await useCase.BuildInstallAsync(Guid.NewGuid(), request);
+
+        var file = plan.Files.Single();
+        Assert.AreEqual(InstallFileAction.ReplaceExternal, file.Action);
+        Assert.AreEqual("Game/Mods/vi.pak.original", file.BackupRelativePath);
+    }
+
+    [TestMethod]
+    public async Task BuildInstallAsync_ExistingFileDiffersFromDeclaredOriginal_ReturnsConflict()
+    {
+        var fileReader = new FakeFileStateReader();
+        fileReader.States["Game/Mods/vi.pak"] = new InstalledFileState(true, 10, new string('d', 64));
+        var useCase = CreateUseCase(fileReader);
+        var request = CreateRequest(CreatePackage(originalSha256: [FileHash]));
+
+        var exception = await Assert.ThrowsAsync<InstallationOperationException>(
+            () => useCase.BuildInstallAsync(Guid.NewGuid(), request));
+
+        Assert.AreEqual(InstallationErrorCode.Conflict, exception.ErrorCode);
+    }
+
     private static BuildInstallPlanUseCase CreateUseCase(FakeFileStateReader? fileReader = null)
     {
         return new BuildInstallPlanUseCase(
@@ -80,7 +109,9 @@ public sealed class BuildInstallPlanUseCaseTests
             new HashSet<string>(approvedReplacements ?? [], StringComparer.OrdinalIgnoreCase));
     }
 
-    private static AvailableGamePackage CreatePackage(bool withPrerequisite = false)
+    private static AvailableGamePackage CreatePackage(
+        bool withPrerequisite = false,
+        IReadOnlyList<string>? originalSha256 = null)
     {
         var prerequisites = withPrerequisite
             ? new[]
@@ -115,7 +146,8 @@ public sealed class BuildInstallPlanUseCaseTests
                     "Game/Mods/vi.pak",
                     new string('b', 64),
                     20,
-                    PackageFileRole.Translation)
+                    PackageFileRole.Translation,
+                    OriginalSha256: originalSha256)
             ],
             prerequisites);
         return new AvailableGamePackage(package, "C:\\Packages\\manifest.json", new string('c', 64));

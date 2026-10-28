@@ -56,6 +56,34 @@ public sealed class DetectInstallationStatusUseCaseTests
     }
 
     [TestMethod]
+    public async Task ExecuteAsync_NoReceiptAndDestinationIsDeclaredOriginal_ReturnsNotInstalled()
+    {
+        var fileReader = new FakeInstalledFileStateReader();
+        fileReader.States["Game/Mods/vi.pak"] = new InstalledFileState(true, 10, ManifestHash);
+        var useCase = CreateUseCase(isMatchingGame: true, fileReader: fileReader);
+
+        var status = await useCase.ExecuteAsync(
+            CreatePackage(originalSha256: [ManifestHash]),
+            CreateInstallation());
+
+        Assert.AreEqual(InstallationStatus.NotInstalled, status);
+    }
+
+    [TestMethod]
+    public async Task ExecuteAsync_NoReceiptAndDestinationDiffersFromDeclaredOriginal_ReturnsConflict()
+    {
+        var fileReader = new FakeInstalledFileStateReader();
+        fileReader.States["Game/Mods/vi.pak"] = new InstalledFileState(true, 10, InstalledHash);
+        var useCase = CreateUseCase(isMatchingGame: true, fileReader: fileReader);
+
+        var status = await useCase.ExecuteAsync(
+            CreatePackage(originalSha256: [ManifestHash]),
+            CreateInstallation());
+
+        Assert.AreEqual(InstallationStatus.Conflict, status);
+    }
+
+    [TestMethod]
     public async Task ExecuteAsync_ReceiptAndFilesMatch_ReturnsInstalled()
     {
         var fileReader = CreateMatchingFileReader();
@@ -120,14 +148,17 @@ public sealed class DetectInstallationStatusUseCaseTests
             fileReader ?? new FakeInstalledFileStateReader());
     }
 
-    private static AvailableGamePackage CreatePackage(string packageVersion = "1.0.0")
+    private static AvailableGamePackage CreatePackage(
+        string packageVersion = "1.0.0",
+        IReadOnlyList<string>? originalSha256 = null)
     {
         var packageFile = new GamePackageFile(
             "payload/vi.pak",
             "Game/Mods/vi.pak",
             InstalledHash,
             10,
-            PackageFileRole.Translation);
+            PackageFileRole.Translation,
+            OriginalSha256: originalSha256);
         var package = new GamePackage(
             1,
             "sample-game",
