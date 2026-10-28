@@ -38,7 +38,13 @@ public sealed class GamePresentationResolver
                 "Crimson Moon is a co-op dark-fantasy action RPG where you play a Nephilim returning to the demon-ridden city of Gildenarch, " +
                 "fighting through Nexus Gates and felling the Dead Gods.",
                 "Bản Việt hóa thay thế ngôn ngữ Italiano. Sau khi cài, vào Settings > Language, chọn Italiano rồi khởi động lại game hoàn toàn.",
-                "The translation replaces the Italian language slot. After installing, open Settings > Language, choose Italiano, then fully restart the game.")
+                "The translation replaces the Italian language slot. After installing, open Settings > Language, choose Italiano, then fully restart the game."),
+            ["planet-zoo-2"] = new(
+                "Cobra Engine (Frontier OVL)",
+                "Planet Zoo 2 là game mô phỏng quản lý sở thú của Frontier Developments, nơi bạn xây dựng môi trường sống cho động vật trên cạn, dưới nước và các loài chim, đồng thời phát triển những khu bảo tồn thiên nhiên.",
+                "Planet Zoo 2 is Frontier Developments' zoo management simulation, where players build habitats for land, aquatic, and flying animals and create wildlife reserves.",
+                "Bản Việt hóa thay thế ngôn ngữ English (UK). Hãy để game ở English (UK), đóng hẳn game trước khi cài. Steam cập nhật hoặc Verify integrity sẽ ghi đè bản Việt hóa, khi đó cài lại.",
+                "The translation replaces the English (UK) language slot. Keep the game on English (UK) and fully close it before installing. A Steam update or Verify integrity overwrites it; reinstall afterwards.")
         };
 
     private static readonly IReadOnlyList<UntranslatedGameDefinition> UntranslatedGames =
@@ -176,6 +182,15 @@ public sealed class GamePresentationResolver
                 string.Empty,
                 "Black Myth: Wukong là action RPG của Game Science lấy cảm hứng từ Tây Du Ký, đưa người chơi vào vai Thiên Mệnh Nhân trên hành trình chiến đấu đầy huyền thoại và ma quái. Bản Việt hóa chưa được phát hành.",
                 "Black Myth: Wukong is Game Science's action RPG inspired by Journey to the West, casting players as the Destined One on a legendary, monster-filled journey. A Vietnamese translation has not been released yet.",
+                string.Empty,
+                string.Empty)),
+        new(
+            "planet-zoo",
+            "Planet Zoo",
+            new GamePresentation(
+                string.Empty,
+                "Planet Zoo là game mô phỏng quản lý sở thú của Frontier Developments, nơi bạn xây dựng môi trường sống, chăm sóc động vật và phát triển sở thú của riêng mình. Bản Việt hóa chưa được phát hành.",
+                "Planet Zoo is Frontier Developments' zoo management simulation, where players build habitats, care for animals, and develop their own zoos. A Vietnamese translation has not been released yet.",
                 string.Empty,
                 string.Empty)),
         new(

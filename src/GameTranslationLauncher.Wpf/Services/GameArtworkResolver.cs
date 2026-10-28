@@ -65,6 +65,12 @@ public sealed class GameArtworkResolver
             ["resonance-a-plague-tale-legacy"] = (
                 "Resources/Artwork/resonance-a-plague-tale-legacy/resonance-a-plague-tale-legacy-hero-v2.png",
                 "Resources/Artwork/resonance-a-plague-tale-legacy/resonance-a-plague-tale-legacy-cover.jpg"),
+            ["planet-zoo"] = (
+                "Resources/Artwork/planet-zoo/planet-zoo-hero.jpg",
+                "Resources/Artwork/planet-zoo/planet-zoo-cover.jpg"),
+            ["planet-zoo-2"] = (
+                "Resources/Artwork/planet-zoo-2/planet-zoo-2-hero.jpg",
+                "Resources/Artwork/planet-zoo-2/planet-zoo-2-cover.jpg"),
             ["crimson-moon"] = (
                 "Resources/Artwork/crimson-moon/crimson-moon-hero-v2.png",
                 "Resources/Artwork/crimson-moon/crimson-moon-cover.jpg")
